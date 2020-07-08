@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (4.0.1)
+  - NVActivityIndicatorView (5.0.0):
+    - NVActivityIndicatorView/Base (= 5.0.0)
+  - NVActivityIndicatorView/Base (5.0.0)
+  - Toaster (2.2.0)
+  - Whisper (6.0.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0.0)
+  - NVActivityIndicatorView
+  - Toaster
+  - Whisper
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - NVActivityIndicatorView
+    - Toaster
+    - Whisper
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  NVActivityIndicatorView: f109ed069924ac1b4adbc1ae9cfaeac0be1d6c2c
+  Toaster: c1a81b376edcc2470157b4d1ee1e9341d3b96455
+  Whisper: 169760fc4bab0abf24d5529f9276f95c25cf1025
+
+PODFILE CHECKSUM: 792ea195871f0fdae085653bef67dd0f2e8f44b9
+
+COCOAPODS: 1.9.1

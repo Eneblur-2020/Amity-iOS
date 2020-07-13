@@ -21,7 +21,6 @@ class SignUpUsingEmailViewController: UIViewController {
         super.viewDidLoad()
      
         continueBtn.layer.cornerRadius = 5
-        let tt : String
         
     }
   

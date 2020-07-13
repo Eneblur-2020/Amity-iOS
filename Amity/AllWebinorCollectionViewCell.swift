@@ -30,7 +30,16 @@ class AllWebinorCollectionViewCell: UICollectionViewCell {
         allWebinorView.layer.shadowRadius = 5
         allWebinorView.layer.cornerRadius = 25
         
-        
+    }
+    func setUpCell(webinor: Webinor){
+        let dateTime = Helper.dateFormatterForDateTime(dateString: webinor.webinarDateTime ?? "")
+        self.dateLabel.text = dateTime.0
+        self.timeLabel.text = dateTime.1
+        self.webinorTitleLabel.text = webinor.webinarTitle
+        self.participantsLabel.text = "2K"
+        if let url = URL(string: webinor.webinarImage?.value(forKey: "url") as? String ?? "") {
+            self.allWebinorImage.kf.setImage(with: url, placeholder: UIImage(named: "screen4.png"))
+        }
     }
     
 }

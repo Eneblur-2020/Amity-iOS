@@ -10,6 +10,9 @@ target 'Amity' do
   pod 'Whisper'
   pod 'NVActivityIndicatorView'
   pod 'Toaster'
+  pod 'Kingfisher'
+ pod 'FSCalendar'
+
   
 end
 

@@ -225,10 +225,13 @@ class MyProfileViewController1: UIViewController {
                                         myExp.jobTitle = i.value(forKey: "jobTitle") as? String
                                         myExp.company = i.value(forKey: "company") as? String
                                         myExp.city = i.value(forKey: "city") as? String
-                                        
-                                        myExp.startDate = Helper.dateFormatterMMMyyyy(dateString:i.value(forKey: "fromDate") as? String ?? "")
-                                        
+                                        let fromDate = i.value(forKey: "fromDate") as? String ?? ""
+                                        myExp.startDate = Helper.dateFormatterMMMyyyy(dateString: fromDate)
+                                        if i.value(forKey: "toDate") as? String ?? "" == "Present" {
+                                           myExp.endDate = "Present"
+                                        } else{
                                         myExp.endDate = Helper.dateFormatterMMMyyyy(dateString:i.value(forKey: "toDate") as? String ?? "")
+                                    }
                                         myExp.id = i.value(forKey: "_id") as? String
                                         self.expCardData.append(myExp)
                                         
@@ -309,10 +312,7 @@ class MyProfileViewController1: UIViewController {
                 case .success(_):
                     if let json = response.result.value{
                         if let jsonData = json as? NSDictionary {
-                            
-                            print(jsonData)
-                            
-                            
+                                                        
                             
                             self.userData.email = jsonData.value(forKey: "email") as? String
                             
@@ -340,18 +340,19 @@ class MyProfileViewController1: UIViewController {
     }
     
     @objc func onClickExperienceAddButton(sender:UIButton){
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let experiencePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "ExperiencePageViewController") as! ExperiencePageViewController
-        let indexpath = IndexPath(row: sender.tag, section: 2)
-        experiencePageViewController.expDetail = expCardData[indexpath.row]
-        experiencePageViewController.isDeleteData = false
         
-        self.navigationController?.pushViewController(experiencePageViewController, animated: false)
-        
+        if let experiencePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "ExperiencePageViewController") as? ExperiencePageViewController{
+            let indexpath = IndexPath(row: sender.tag, section: 2)
+            experiencePageViewController.expDetail = expCardData[indexpath.row]
+            experiencePageViewController.isDeleteData = false
+            
+            self.navigationController?.pushViewController(experiencePageViewController, animated: true)
+            
+        }
     }
     @objc func onClickEducationAddButton(sender:UIButton){
         // self.performSegue(withIdentifier: "myProfileToEducation", sender: self)
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
         let educationViewController = self.storyboard?.instantiateViewController(withIdentifier: "EducationViewController") as! EducationViewController
         let indexpath = IndexPath(row: sender.tag, section: 2)
         educationViewController.educationDetail = educationCardData[indexpath.row]
@@ -366,7 +367,7 @@ class MyProfileViewController1: UIViewController {
         // cell.addButon.setTitle("View Resume", for: .normal)
     }
     @IBAction func onBackButtonPressed(_ sender: Any) {
-        dismiss(animated: true)
+        //dismiss(animated: true)
     }
     //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     //        let view = UIView()
@@ -398,9 +399,18 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
         case 1:
             return 1
         case 2:
-            return expCardData.count
+            
+            if expCardData.count == 0 {
+                return 1
+            } else {
+                return expCardData.count
+            }
         case 3:
-            return educationCardData.count
+            if educationCardData.count == 0 {
+                return 1
+            } else {
+                return educationCardData.count
+            }
         case 4:
             return myResumeArray.count
         default:
@@ -419,7 +429,7 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
         }
         if section != 0{
             headerView.headerView.layer.cornerRadius = 2
-        headerView.headerView.layer.shadowRadius = 2
+            headerView.headerView.layer.shadowRadius = 2
             headerView.headerView.layer.shadowOpacity = 1.0
             headerView.headerView.layer.shadowColor = UIColor.gray.cgColor
             headerView.headerView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
@@ -438,9 +448,15 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
         case 1:
             self.performSegue(withIdentifier: "myProfileToSummary", sender: self)
         case 2:
-            self.performSegue(withIdentifier: "myProfileToExperience", sender: self)
+            //self.performSegue(withIdentifier: "myProfileToExperience", sender: self)
+            if let experiencePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "ExperiencePageViewController") as? ExperiencePageViewController{
+                self.navigationController?.pushViewController(experiencePageViewController, animated: true)
+            }
+            
         case 3:
-            self.performSegue(withIdentifier: "myProfileToEducation", sender: self)
+            if let experiencePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "EducationViewController") as? EducationViewController{
+                self.navigationController?.pushViewController(experiencePageViewController, animated: true)
+            }
         default:
             print("")
         }
@@ -484,63 +500,58 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
             if  let myProfileDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyProfileDetailTableViewCell") as? MyProfileDetailTableViewCell {
                 
                 myProfileDetailTableViewCell.myProfileDescrption.text = self.userData.userMetaData?.value(forKey: "profileSummary") as? String
-                //                if indexPath.row < myProfileTitleArray.count {
-                //                    //myProfileDetailTableViewCell.myProfileTitle.text = myProfileTitleArray[indexPath.row]
-                //                    //myProfileDetailTableViewCell.myProfileDescrption.text = mySummaryDetails[indexPath.row]
-                myProfileDetailTableViewCell.addButon.addTarget(self, action: #selector(onClickProfileSummaryAddButton), for: .touchUpInside)
-                //
-                //                }
-                return myProfileDetailTableViewCell
                 
-            }
+                myProfileDetailTableViewCell.addButon.addTarget(self, action: #selector(onClickProfileSummaryAddButton), for: .touchUpInside)
+            
+            return myProfileDetailTableViewCell
+            
+        }
         case 2:
-            if  let myExperienceTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyExperienceTableViewCell") as? MyExperienceTableViewCell {
-                print(indexPath.row)
-                print(indexPath.section)
-                print(myExperienceArray.count)
-                // if expCardData.count == 0 {
+        if  let myExperienceTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyExperienceTableViewCell") as? MyExperienceTableViewCell {
+            if expCardData.count > 0 {
                 if indexPath.row < expCardData.count{
-                    let expData = expCardData[indexPath.row]
+                    myExperienceTableViewCell.setUpCell(expData:  expCardData[indexPath.row])
                     myExperienceTableViewCell.editButton.tag = indexPath.row
-                    myExperienceTableViewCell.jobTitleLabel.text = expData.jobTitle
-                    myExperienceTableViewCell.companyLabel.text = expData.company
-                    myExperienceTableViewCell.fromDateLabel.text = (expData.startDate ?? "") + " To " + (expData.endDate ?? "")
                     myExperienceTableViewCell.editButton.addTarget(self, action: #selector(onClickExperienceAddButton), for: .touchUpInside)
                 }
-                return myExperienceTableViewCell
-                
+            } else {
+                myExperienceTableViewCell.setUpCellForNoData()
             }
+            
+            return myExperienceTableViewCell
+            
+        }
         case 3:
-            if  let myEducationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyEducationTableViewCell") as? MyEducationTableViewCell {
+        if  let myEducationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyEducationTableViewCell") as? MyEducationTableViewCell {
+            if educationCardData.count > 0 {
                 if indexPath.row < educationCardData.count {
-                    let educationData = educationCardData[indexPath.row]
-                    myEducationTableViewCell.degreeLabel.text = educationData.Degree
-                    myEducationTableViewCell.school_CollegeLabel.text = educationData.College_School
-                    myEducationTableViewCell.fromDateLabel.text = (educationData.startDate ?? "") + " To " + (educationData.endDate ?? "")
-                  
+                    myEducationTableViewCell.setUpCell(educationData: educationCardData[indexPath.row])
+                    
                     myEducationTableViewCell.editButton.tag = indexPath.row
                     myEducationTableViewCell.editButton.addTarget(self, action: #selector(onClickEducationAddButton), for: .touchUpInside)
-                    
                 }
-                return myEducationTableViewCell
-                
+            }else {
+                myEducationTableViewCell.setUpCellForNoData()
             }
-        case 4:
-            if  let myResumeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyResumeTableViewCell") as? MyResumeTableViewCell {
-                if indexPath.row < myResumeArray.count {
-                    myResumeTableViewCell.myProfileTitle.text = myResumeArray[indexPath.row]
-                    myResumeTableViewCell.myProfileDescrption.text = myResumeDetails[indexPath.row]
-                    myResumeTableViewCell.addButon.addTarget(self, action: #selector(onClickResumeAddButton), for: .touchUpInside)
-                }
-                return myResumeTableViewCell
-                
-            }
-        default:
-            UITableViewCell()
+            return myEducationTableViewCell
+            
         }
-        return UITableViewCell()
+        case 4:
+        if  let myResumeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyResumeTableViewCell") as? MyResumeTableViewCell {
+            if indexPath.row < myResumeArray.count {
+                myResumeTableViewCell.myProfileTitle.text = myResumeArray[indexPath.row]
+                myResumeTableViewCell.myProfileDescrption.text = myResumeDetails[indexPath.row]
+                myResumeTableViewCell.addButon.addTarget(self, action: #selector(onClickResumeAddButton), for: .touchUpInside)
+            }
+            return myResumeTableViewCell
+            
+        }
+        default:
+        UITableViewCell()
     }
-    
+    return UITableViewCell()
+}
+
 }
 extension MyProfileViewController1 : DataEnteredDelegate {
     func userDidEnterInformation(info: String) {
@@ -576,7 +587,7 @@ extension MyProfileViewController1:UIDocumentPickerDelegate,UINavigationControll
         dismiss(animated: true, completion: nil)
     }
     func openDocumentPicker(){
-        let docMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF),String(kUTTypeText),String(kUTTypePNG)], in: .import)
+        let docMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF),String(kUTTypeText),String(kUTTypeData)], in: .import)
         docMenu.delegate = self  as UIDocumentPickerDelegate
         docMenu.modalPresentationStyle = .formSheet
         self.present(docMenu, animated: true, completion: nil)
@@ -591,10 +602,10 @@ extension MyProfileViewController1:UIDocumentPickerDelegate,UINavigationControll
                     // if data1 = data1{
                     
                     //  multipartFormData.append(data, withName:"uploaded_file", mimeType:"multipart/form-data")
-                    
-                    multipartFormData.append(data, withName: "pdfDocuments", fileName: "pdfDocuments.pdf", mimeType:"application/pdf")
-                    multipartFormData.append(data, withName: "file", fileName: "file", mimeType: "application/txt")
-                    multipartFormData.append(data, withName: "file", fileName: "file", mimeType: "application/Docx")
+                   multipartFormData.append(data, withName: "application/doc")
+//                    multipartFormData.append(data, withName: "pdfDocuments", fileName: "pdfDocuments.pdf", mimeType:"application/pdf")
+//                    multipartFormData.append(data, withName: "file", fileName: "file", mimeType: "application/txt")
+//                    multipartFormData.append(data, withName: "file", fileName: "file", mimeType: "application/Docx")
                     //}
                     //                    if let data = selectedImgData{
                     //

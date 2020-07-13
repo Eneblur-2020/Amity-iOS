@@ -26,6 +26,7 @@ class EducationCardViewController: UIViewController {
     }
     
     func intialSetUp(){
+        self.title = "EDUCATION"
         let addButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(onClickAddButton))
         self.navigationItem.rightBarButtonItem  = addButtonItem
     }

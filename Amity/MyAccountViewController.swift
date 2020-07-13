@@ -91,11 +91,11 @@ extension MyAccountViewController:UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         if indexPath.row == 0 {
-            self.performSegue(withIdentifier: "myAccountToProfileSegue", sender: self)
-//             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            if let myProfileViewController = storyBoard.instantiateViewController(withIdentifier: "MyProfileViewController1") as? MyProfileViewController1 {
-//                           self.navigationController?.pushViewController(myProfileViewController, animated: true)
-//                           }
+           // self.performSegue(withIdentifier: "myAccountToProfileSegue", sender: self)
+           // let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            if let myProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyProfileViewController1") as? MyProfileViewController1 {
+                          self.navigationController?.pushViewController(myProfileViewController, animated: true)
+                           }
         } else if indexPath.row == 1 {
             
         }

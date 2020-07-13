@@ -34,5 +34,20 @@ class MyEducationTableViewCell: UITableViewCell {
              educationCardView.layer.shadowColor = UIColor.gray.cgColor
              educationCardView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
          }
+    func setUpCell(educationData:MyEducation){
+           
+               self.degreeLabel.isHidden = false
+               self.fromDateLabel.isHidden = false
+               self.editButton.isHidden = false
+               self.degreeLabel.text = educationData.Degree
+               self.school_CollegeLabel.text = educationData.College_School
+               self.fromDateLabel.text = (educationData.startDate ?? "") + " To " + (educationData.endDate ?? "")
+           
+       }
+       func setUpCellForNoData(){
+           self.degreeLabel.isHidden = true
+           self.fromDateLabel.isHidden = true
+           self.editButton.isHidden = true
+       }
     
 }

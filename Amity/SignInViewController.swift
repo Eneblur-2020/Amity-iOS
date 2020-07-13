@@ -62,15 +62,11 @@ class SignInViewController: UIViewController {
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
         request.httpMethod = "POST"
         
-        //let postString = "email=\(String(describing: emailTextField))&password=\(passwordTextField!)&confirmPassword=\(confirmTextField!)"
         
         var indata: [String: Any] = ["username":"gauuuurav","password":"Pass@123"]
         indata["username"] = emailTextField.text
         indata["password"] = passwordTextField.text
-        
-        
-        // let content : String
-        //let jrequest = try? JSONSerialization.data(withJSONObject: indata,options: [])
+
         if let json = try? JSONSerialization.data(withJSONObject : indata, options: []){
             if let content = String(data: json, encoding: String.Encoding.utf8){
                 // here `content` is the JSON dictionary containing the String
@@ -99,7 +95,8 @@ class SignInViewController: UIViewController {
                     
                     let response1 = responseJSON["status"]! as! Int
                     let response2 = responseJSON["message"]! as! String
-                    
+                    let response3 = responseJSON["data"] as? NSDictionary
+                    let userTokenPublicKey = response3?.value(forKey: "publicKey") as? String
                     
                     //Check response from the sever
                     if response1 == 200            {
@@ -115,7 +112,7 @@ class SignInViewController: UIViewController {
                                     UserDefaults.standard.set(ck1[0], forKey: "USER")
                                 }
                             }
-                            self.userDefaults.set(true, forKey: "Login")
+                            self.userDefaults.set(true, forKey: "IsLoggedIn")
                             self.performSegue(withIdentifier: "tabBarViewController", sender: self)
                             
                         }

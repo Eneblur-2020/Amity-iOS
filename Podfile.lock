@@ -1,5 +1,9 @@
 PODS:
   - Alamofire (4.0.1)
+  - FSCalendar (2.8.1)
+  - Kingfisher (5.14.1):
+    - Kingfisher/Core (= 5.14.1)
+  - Kingfisher/Core (5.14.1)
   - NVActivityIndicatorView (5.0.0):
     - NVActivityIndicatorView/Base (= 5.0.0)
   - NVActivityIndicatorView/Base (5.0.0)
@@ -8,6 +12,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.0)
+  - FSCalendar
+  - Kingfisher
   - NVActivityIndicatorView
   - Toaster
   - Whisper
@@ -15,16 +21,20 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - FSCalendar
+    - Kingfisher
     - NVActivityIndicatorView
     - Toaster
     - Whisper
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
+  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   NVActivityIndicatorView: f109ed069924ac1b4adbc1ae9cfaeac0be1d6c2c
   Toaster: c1a81b376edcc2470157b4d1ee1e9341d3b96455
   Whisper: 169760fc4bab0abf24d5529f9276f95c25cf1025
 
-PODFILE CHECKSUM: 792ea195871f0fdae085653bef67dd0f2e8f44b9
+PODFILE CHECKSUM: d456f6bf423c052d711eacb25fbb752f89ce7814
 
 COCOAPODS: 1.9.1

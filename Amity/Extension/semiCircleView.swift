@@ -11,9 +11,8 @@ import UIKit
 class semiCircleView: UIView {
     
        
-        var circleView: UIImageView!
+    var circleView: UIImageView!
      var semiCircleLayer   = CAShapeLayer()
-
        
         var image: UIImage? {
             get { return circleView.image }
@@ -33,8 +32,9 @@ class semiCircleView: UIView {
         func initSubviews() {
             
             let center = CGPoint (x: self.frame.size.width / 2, y: self.frame.size.height / 2)
-             let circleRadius = self.frame.size.width / 2
-              let circlePath = UIBezierPath(arcCenter: center, radius: circleRadius,startAngle: CGFloat(M_PI), endAngle: CGFloat(M_PI * 2), clockwise: true)
+             let circleRadius = self.frame.size.height / 2
+           // var decimalInput = 0.75
+            let circlePath = UIBezierPath(arcCenter: center, radius: circleRadius,startAngle: CGFloat(M_PI * 1), endAngle: CGFloat(M_PI * 2), clockwise: true)
               self.layer.cornerRadius = 20
               semiCircleLayer.path = circlePath.cgPath
               semiCircleLayer.strokeColor = #colorLiteral(red: 0.2509803922, green: 0.4392156863, blue: 0.6235294118, alpha: 1)

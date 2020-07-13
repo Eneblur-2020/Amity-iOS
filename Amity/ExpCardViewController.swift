@@ -38,6 +38,7 @@ class ExpCardViewController: UIViewController {
     }
     
     func intialSetUp(){
+         self.title = "EXPERIENCE"
         let addButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(onClickAddButton))
         self.navigationItem.rightBarButtonItem  = addButtonItem
     }

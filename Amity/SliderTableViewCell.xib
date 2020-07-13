@@ -17,7 +17,7 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Aad-GV-iv1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="113"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yuP-co-raV">
                             <size key="itemSize" width="240" height="98"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>

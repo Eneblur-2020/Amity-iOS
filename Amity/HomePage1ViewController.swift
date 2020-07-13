@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import Alamofire
+
+
 
 class HomePage1ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    
     @IBOutlet weak var tableView: UITableView!
     
-    var sections = ["","All Webinars","All Events","Gallery"]
-    var sectionLabel = ["","Preview Upcoming Webinars","Upcoming Events","Recent Photos and Videos"]
+    var sections = ["","All Webinars","All Events","Gallery",""]
+    var sectionLabel = ["","Preview Upcoming Webinars","Upcoming Events","Recent Photos and Videos",""]
     var sectionButtonArray = ["VIEW ALL","VIEW ALL",]
+    var webinorArray = [Webinor]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +29,101 @@ class HomePage1ViewController: UIViewController,UITableViewDelegate,UITableViewD
         registerTableViewcell()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.estimatedRowHeight = 85.0
+        tableView.rowHeight = UITableView.automaticDimension
+    }
     func registerTableViewcell(){
         self.tableView.register(UINib(nibName: "SliderTableViewCell", bundle: nil), forCellReuseIdentifier: "SliderTableViewCell")
         self.tableView.register(UINib(nibName: "AllWebinarTableViewCell", bundle: nil), forCellReuseIdentifier: "AllWebinarTableViewCell")
         self.tableView.register(UINib(nibName: "AllEventsTableViewCell", bundle: nil), forCellReuseIdentifier: "AllEventsTableViewCell")
-         self.tableView.register(UINib(nibName: "GalleryTableViewCell", bundle: nil), forCellReuseIdentifier: "GalleryTableViewCell")
+        self.tableView.register(UINib(nibName: "GalleryTableViewCell", bundle: nil), forCellReuseIdentifier: "GalleryTableViewCell")
+        self.tableView.register(UINib(nibName: "VideoTableViewCell", bundle: nil),forCellReuseIdentifier: "VideoTableViewCell")
+        
+        
+    }
+    func apiCall(){
+        
+        // webinarAPI(url: WEBINAR_API)
+    }
+    
+    func webinarAPI(url:String){
+        
+        if isInternetAvailable(){
+            Util.Manager.request(url, method : .get, encoding: JSONEncoding.default).responseJSON { (response) in
+                switch response.result{
+                case .success(_):
+                    if let json = response.result.value{
+                        if let jsonData = json as? NSDictionary {
+                            if let status = jsonData.object(forKey: "status") as? Int {
+                                if status == 200{
+                                    if let data = jsonData.object(forKey: "data") as? [NSDictionary]{
+                                        self.parseWebinorData(webinorData: data)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break
+                case .failure(_):
+                    if (response.response?.statusCode) != nil {
+                        
+                    }
+                    break
+                    
+                }
+            }
+        } else {
+            Util.showWhistle(message: NO_INTERNET, viewController: self)
+        }
+        
+    }
+    func parseWebinorData(webinorData:[NSDictionary]){
+        webinorArray.removeAll()
+        for webinor in webinorData{
+            let webinorInfo = Webinor()
+            if let instructorImage =  webinor.object(forKey: "instructorImage") as? NSDictionary{
+                webinorInfo.instructorImage = instructorImage
+            }
+            if let webinarImage =  webinor.object(forKey: "webinarImage") as? NSDictionary{
+                webinorInfo.webinarImage = webinarImage
+            }
+            if let isActive =  webinor.object(forKey: "isActive") as? Bool{
+                webinorInfo.isActive = isActive
+            }
+            if let id =  webinor.object(forKey: "_id") as? String{
+                webinorInfo.id = id
+            }
+            if let webinarTitle =  webinor.object(forKey: "webinarTitle") as? String{
+                webinorInfo.webinarTitle = webinarTitle
+            }
+            if let instructorName =  webinor.object(forKey: "instructorName") as? String{
+                webinorInfo.instructorName = instructorName
+            }
+            if let instructorDetails =  webinor.object(forKey: "instructorDetails") as? String{
+                webinorInfo.instructorDetails = instructorDetails
+            }
+            if let webinarDateTime =  webinor.object(forKey: "webinarDateTime") as? String{
+                webinorInfo.webinarDateTime = webinarDateTime
+            }
+            if let webinarDetails =  webinor.object(forKey: "webinarDetails") as? String{
+                webinorInfo.webinarDetails = webinarDetails
+            }
+            if let webinarURL =  webinor.object(forKey: "webinarURL") as? String{
+                webinorInfo.webinarURL = webinarURL
+            }
+            if let v =  webinor.object(forKey: "__v") as? Int {
+                webinorInfo.v = v
+            }
+            if let createdAt =  webinor.object(forKey: "createdAt") as? String{
+                webinorInfo.createdAt = createdAt
+            }
+            if let updatedAt =  webinor.object(forKey: "updatedAt") as? String{
+                webinorInfo.updatedAt = updatedAt
+            }
+            webinorArray.append(webinorInfo)
+            self.tableView.reloadData()
+        }
         
         
     }
@@ -65,29 +160,56 @@ class HomePage1ViewController: UIViewController,UITableViewDelegate,UITableViewD
         button.tag = section
         button.addTarget(self, action: #selector(onClickViewAllButton), for: .touchUpInside)
         
-        button.backgroundColor = UIColor(named: "DarkYellowColour")
+        button.backgroundColor = UIColor(named: "ButtonYellowColour")
         view.addSubview(button)
         
         return view
     }
-    @objc func onClickViewAllButton(){
+    @objc func onClickViewAllButton(sender: UIButton){
+        
+        if let webinarCalenderViewController = self.storyboard?.instantiateViewController(withIdentifier: "WebinarCalenderViewController") as? WebinarCalenderViewController {
+            //nextViewController.finacerId = idArray[indexPath.row]
+            if sender.tag == 1 {
+                webinarCalenderViewController.isFrom = WEBINOR
+            } else {
+                webinarCalenderViewController.isFrom = EVENT
+            }
+            webinarCalenderViewController.tag = sender.tag
+            
+            self.navigationController?.pushViewController(webinarCalenderViewController, animated: true)
+        }
         
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        //return UITableViewAutomaticDimension
         if indexPath.section == 0{
-            return 280
+            return 300
+        }
+        if indexPath.section == 2{
+            return 270
+        }
+        if indexPath.section == 3{
+            return UITableView.automaticDimension
+        }
+        if indexPath.section == 4{
+            return UITableView.automaticDimension
         }
         else{
-            return 300
+            return 400
         }
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0{
             return 0
         }
+        if section == 4 {
+            return 0
+        }
+            
         else{
             return 90
         }
@@ -101,22 +223,56 @@ class HomePage1ViewController: UIViewController,UITableViewDelegate,UITableViewD
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell") as! SliderTableViewCell
+            cell.delegate = self
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier:"AllWebinarTableViewCell" ) as! AllWebinarTableViewCell
+            cell.delegate = self
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier:"AllEventsTableViewCell" ) as! AllEventsTableViewCell
+            
+            cell.eventDelegate = self
             return cell
         case 3:
-             let cell = tableView.dequeueReusableCell(withIdentifier:"GalleryTableViewCell" ) as! GalleryTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier:"GalleryTableViewCell" ) as! GalleryTableViewCell
+            //cell.galleryCollectionView.delegate = self as? UICollectionViewDelegate
+            // cell.galleryCollectionView.dataSource = self as? UICollectionViewDataSource
+            var height = cell.galleryCollectionView.collectionViewLayout.collectionViewContentSize.height
+            cell.galleryCollectionViewHeightLayout.constant = height
+            self.view.layoutIfNeeded()
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier:"VideoTableViewCell" ) as! VideoTableViewCell
+            cell.imageTitleLabel.text = "\(videoArray.count)" + "Videos"
             return cell
         default:
-            UITableViewCell()
+            print("do nothing")
         }
         
         return UITableViewCell()
         
     }
+}
+extension HomePage1ViewController :  TableViewInsideCollectionViewDelegate,EventsCollectionViewDelegate{
+    
+    
+    func onClickWebinarSlider(data: Webinor,indexPath:IndexPath,isFrom:String) {
+        if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "WebinorDetailViewController") as? WebinorDetailViewController {
+            //nextViewController.finacerId = idArray[indexPath.row]
+            nextViewController.webinarData = data
+            nextViewController.isFrom = isFrom
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+    }
+    func onClickEventsCollectionCell(data: Event, indexPath: IndexPath,isFrom:String) {
+        if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "WebinorDetailViewController") as? WebinorDetailViewController {
+            //nextViewController.finacerId = idArray[indexPath.row]
+            nextViewController.eventsData = data
+            nextViewController.isFrom = isFrom
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+    }
+    
 }
 

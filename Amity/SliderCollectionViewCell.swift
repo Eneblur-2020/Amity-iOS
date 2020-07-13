@@ -7,18 +7,31 @@
 //
 
 import UIKit
+import Kingfisher
+protocol TableViewInsideCollectionViewDelegate:class {
+    func onClickWebinarSlider(data:Webinor,indexPath:IndexPath,isFrom:String)
+}
+
 
 class SliderCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sliderImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var DetailLabel: UILabel!
-    @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-   // @IBOutlet weak var titleLabel: UILabel!
+  
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func setUpCell(webinor: Webinor){
+        let dateTime = Helper.dateFormatterForDateTime(dateString: webinor.webinarDateTime ?? "")
+        self.titleLabel.text = webinor.webinarTitle
+        self.dateLabel.text = dateTime.0
+        self.timeLabel.text = dateTime.1
+        if let url = URL(string: webinor.instructorImage?.value(forKey: "url") as? String ?? "") {
+            self.sliderImage.kf.setImage(with: url, placeholder: UIImage(named: "screen4.png"))
+        }
+    }
 }

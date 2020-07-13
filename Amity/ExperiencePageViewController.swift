@@ -45,21 +45,28 @@ class ExperiencePageViewController: UIViewController {
         
         createStartDatePicker()
         createEndDatePicker()
-         initialSetUp()
+        initialSetUp()
     }
     override func viewWillAppear(_ animated: Bool) {
-       
+        
     }
     func initialSetUp(){
         
         jobTitleTextField.text = expDetail?.jobTitle
         companyNameTextField.text = expDetail?.company
         cityTextField.text = expDetail?.city
-        startDate.text = expDetail?.startDate
-        endDate.text = expDetail?.endDate
-      
+        startDate.text = Helper.dateFormatter_dd_MM_yyyy(dateString:expDetail?.startDate ?? "")
+        if expDetail?.endDate == "Present"{
+            endDate.text = "Present"
+        } else {
+        endDate.text = Helper.dateFormatter_dd_MM_yyyy(dateString: expDetail?.endDate ?? "")
+        }
+        
         deleteButton.isHidden = isDeleteData ?? true
         
+        jobTitleTextField.delegate = self
+        companyNameTextField.delegate = self
+        cityTextField.delegate = self
     }
     func createStartDatePicker(){
         //toolbar
@@ -82,7 +89,9 @@ class ExperiencePageViewController: UIViewController {
         //format date
         let formatter = DateFormatter()
         formatter.dateStyle = .short
-        //formatter.timeStyle = .short
+        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale.current
         let dateString = formatter.string(from: datePicker.date)
         
         startDate.text = "\(dateString)"
@@ -109,8 +118,10 @@ class ExperiencePageViewController: UIViewController {
     @objc func onDonePressed(){
         //format date
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        //formatter.timeStyle = .short
+        //formatter.dateStyle = .short
+        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale.current
         let dateString = formatter.string(from: datePicker.date)
         
         endDate.text = "\(dateString)"
@@ -119,23 +130,23 @@ class ExperiencePageViewController: UIViewController {
     }
     
     @IBAction func onClickSwitch(_ sender: UISwitch) {
-//        if sender.isOn {
-//           endDate.text = "Present"
-//        } else {
-//            endDate.text = ""
-//        }
+        //        if sender.isOn {
+        //           endDate.text = "Present"
+        //        } else {
+        //            endDate.text = ""
+        //        }
         endDate.text = sender.isOn ? "Present" : ""
-     }
+    }
     
     
     @IBAction func onBackButtonPressed(_ sender: Any) {
-       dismiss(animated: true)
-    
+        dismiss(animated: true)
+        
     }
     
     @IBAction func onSaveButtonClick(_ sender: Any) {
         //self.performSegue(withIdentifier: "SaveExpToExpCard", sender: self)
-       saveExperienceDetail()
+        saveExperienceDetail()
     }
     
     @IBAction func onStartButtonClick(_ sender: Any) {
@@ -148,16 +159,16 @@ class ExperiencePageViewController: UIViewController {
         //        datePickerPopup.center = self.view.center
     }
     @IBAction func onDeleteButtonClick(_ sender:Any){
-      deleteExperienceData()
+        deleteExperienceData()
     }
     
-//    @IBAction func onClickSaveButton(_ sender: Any) {
-//        
-//        
-//     // self.performSegue(withIdentifier: "SaveExpToExpCard", sender: self)
-//       // self.prepareForSegue(segue: UIStoryboard, sender: AnyObject)
-//    }
-
+    //    @IBAction func onClickSaveButton(_ sender: Any) {
+    //
+    //
+    //     // self.performSegue(withIdentifier: "SaveExpToExpCard", sender: self)
+    //       // self.prepareForSegue(segue: UIStoryboard, sender: AnyObject)
+    //    }
+    
     func saveExperienceDetail(){
         
         let data :[String:String] = [
@@ -168,13 +179,13 @@ class ExperiencePageViewController: UIViewController {
             "toDate": endDate.text ?? ""
         ]
         if isInternetAvailable(){
-               Util.Manager.request(EXPERIENCE_API, method : .post,parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
-                   switch response.result{
-                   case .success(_):
-                       if let json = response.result.value{
-                           if let jsonData = json as? NSDictionary {
+            Util.Manager.request(EXPERIENCE_API, method : .post,parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+                switch response.result{
+                case .success(_):
+                    if let json = response.result.value{
+                        if let jsonData = json as? NSDictionary {
                             let responseMessage = jsonData.object(forKey: "message") as? String
-                               if let status = jsonData.object(forKey: "status") as? Int {
+                            if let status = jsonData.object(forKey: "status") as? Int {
                                 if status == 200 {
                                     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                                     let expCardViewController = storyBoard.instantiateViewController(withIdentifier: "ExpCardViewController") as! ExpCardViewController
@@ -193,36 +204,36 @@ class ExperiencePageViewController: UIViewController {
                                         self.present(alert, animated: true, completion: nil)
                                     }
                                 }
-                                  
-                                   
-                               }
-                           }
-                       }
-                       break
-                   case .failure(_):
-                       if let statusCode = response.response?.statusCode {
-                           
-                       }
-                       break
-                       
-                   }
-               }
-           } else {
-               Util.showWhistle(message: NO_INTERNET, viewController: self)
-           }
-           
+                                
+                                
+                            }
+                        }
+                    }
+                    break
+                case .failure(_):
+                    if let statusCode = response.response?.statusCode {
+                        
+                    }
+                    break
+                    
+                }
+            }
+        } else {
+            Util.showWhistle(message: NO_INTERNET, viewController: self)
+        }
+        
     }
     func deleteExperienceData()
-        {
-            if isInternetAvailable(){
-                if let expID = expDetail?.id {
+    {
+        if isInternetAvailable(){
+            if let expID = expDetail?.id {
                 Util.Manager.request(DELETE_EXPERIENCE_API + expID, method : .delete, encoding: JSONEncoding.default).responseJSON { (response) in
-                       switch response.result{
-                       case .success(_):
-                           if let json = response.result.value{
-                               if let jsonData = json as? NSDictionary {
+                    switch response.result{
+                    case .success(_):
+                        if let json = response.result.value{
+                            if let jsonData = json as? NSDictionary {
                                 let responseMessage = jsonData.object(forKey: "message") as? String
-                                   if let status = jsonData.object(forKey: "status") as? Int {
+                                if let status = jsonData.object(forKey: "status") as? Int {
                                     if status == 200 {
                                         self.navigationController?.popViewController(animated: true)
                                     }else if status == 422{
@@ -232,28 +243,28 @@ class ExperiencePageViewController: UIViewController {
                                             self.present(alert, animated: true, completion: nil)
                                         }
                                     }
-                                      
-                                       
-                                   }
-                               }
-                           }
-                           break
-                       case .failure(_):
-                           if let statusCode = response.response?.statusCode {
-                               
-                           }
-                           break
-                           
-                       }
+                                    
+                                    
+                                }
+                            }
+                        }
+                        break
+                    case .failure(_):
+                        if let statusCode = response.response?.statusCode {
+                            
+                        }
+                        break
+                        
                     }
-                   }
-               } else {
-                   Util.showWhistle(message: NO_INTERNET, viewController: self)
-               }
-               
+                }
+            }
+        } else {
+            Util.showWhistle(message: NO_INTERNET, viewController: self)
         }
+        
+    }
     
-
+    
 }
 
 extension ExperiencePageViewController: ExperienceDelegate {
@@ -265,7 +276,10 @@ extension ExperiencePageViewController: ExperienceDelegate {
         endDate.text = experienceCardData.endDate
     }
     
-    
-    
 }
-
+extension ExperiencePageViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        return self.view.endEditing(true)
+        
+    }
+}

@@ -26,6 +26,21 @@ class MyExperienceTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    func setUpCell(expData:MyExperince){
+        
+            self.companyLabel.isHidden = false
+            self.fromDateLabel.isHidden = false
+            self.editButton.isHidden = false
+            self.jobTitleLabel.text = expData.jobTitle
+            self.companyLabel.text = expData.company
+            self.fromDateLabel.text = (expData.startDate ?? "") + " To " + (expData.endDate ?? "")
+        
+    }
+    func setUpCellForNoData(){
+        self.companyLabel.isHidden = true
+        self.fromDateLabel.isHidden = true
+        self.editButton.isHidden = true
+    }
     
     func cardViewSetUp(){
         expCardView.layer.cornerRadius = 2

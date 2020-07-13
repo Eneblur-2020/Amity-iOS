@@ -12,18 +12,26 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
     
     @IBOutlet weak var allWebinorCollectionView: UICollectionView!
     @IBOutlet weak var allWebinorPageOutlet: UIPageControl!
- 
-    var section2Images = ["screen1","screen2","screen3","screen4","screen5"]
+    weak var delegate:TableViewInsideCollectionViewDelegate? = nil
     
     var sectionLabel: String = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.allWebinorCollectionView.register(UINib(nibName: "AllWebinorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AllWebinorCollectionViewCell")
+        initialSetUp()
+        apiCall()
+    }
+    func initialSetUp(){
+       self.allWebinorCollectionView.register(UINib(nibName: "AllWebinorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AllWebinorCollectionViewCell")
         allWebinorCollectionView.delegate = self
         allWebinorCollectionView.dataSource = self
         allWebinorPageOutlet.currentPageIndicatorTintColor = UIColor(named: "DarkBlueColour")
         allWebinorPageOutlet.pageIndicatorTintColor = UIColor(named: "DarkYellowColour")
+    }
+    func apiCall(){
+        ApiUtil.apiUtil.webinarAPI { (result) in
+            self.allWebinorCollectionView.reloadData()
+        }
     }
 
     
@@ -42,18 +50,28 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section2Images.count
+        return webinorArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllWebinorCollectionViewCell", for: indexPath) as! AllWebinorCollectionViewCell
         
         
-         cell.allWebinorImage.image = UIImage(named : section2Images[indexPath.item])
+        cell.setUpCell(webinor: webinorArray[indexPath.row])
+         //cell.allWebinorImage.image = UIImage(named : section2Images[indexPath.item])
         
         return cell
     }
    
+}
+extension AllWebinarTableViewCell: UITableViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath) as! SliderCollectionViewCell
+        if delegate != nil {
+            delegate?.onClickWebinarSlider(data: webinorArray[indexPath.row],indexPath:indexPath,isFrom:WEBINOR)
+        }
+       // cell.delegate?.cellTaped(data: indexPath)
+    }
 }
 extension AllWebinarTableViewCell : UIPageViewControllerDelegate{
     

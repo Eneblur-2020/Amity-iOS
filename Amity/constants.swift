@@ -35,6 +35,17 @@ let FORGOT_PASSWORD_RECOVER_API = "\(BASE_URL)authentication/recover"
 
 let RESET_PASSWORD_API = "\(BASE_URL)authentication/resetPassword"
 
+//WEBINAR API
+let WEBINAR_API = "\(BASE_URL)webinar"
+
+//ALL EVENTS
+
+let EVENT_API = "\(BASE_URL)event"
+
+//GALLERY API
+
+let GALLERY_API = "\(BASE_URL)gallery"
+
 //PROFILE API
 
 let PROFILE_SUMMARY_API = "\(BASE_URL)profile/summary"
@@ -67,3 +78,28 @@ let SECONDARY_FONT = UIFont(name: "Roboto", size: 15.0)
 
 // SEGUE BOOL
  var isFromOTPSegue = 0
+
+//ARRAY DECLARATION
+var webinorArray = [Webinor]()
+var eventArray = [Event]()
+var galleryArray = [Gallery]()
+var imageArray = [Gallery]()
+var videoArray = [Gallery]()
+
+
+enum Storyboard: String {
+    case Main
+    var instance: UIStoryboard {
+        return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
+    }
+}
+
+//KEY VALUE
+let WEBINOR = "WEBINOR"
+let EVENT = "EVENT"
+ 
+
+//Login check
+struct LoginDetails {
+    static let isLogin = "LoggedIn"
+}

@@ -37,14 +37,17 @@ class EducationViewController: UIViewController {
     func initialSetUp(){
         degree.text = educationDetail?.Degree
         school_College.text = educationDetail?.College_School
-        startDate.text = educationDetail?.startDate
-        endDate.text = educationDetail?.endDate
+        startDate.text = Helper.dateFormatter_dd_MM_yyyy(dateString:educationDetail?.startDate ?? "")
+        endDate.text = Helper.dateFormatter_dd_MM_yyyy(dateString: educationDetail?.endDate ?? "")
         
         deleteButton.isHidden = isDeleteData ?? true
+        degree.delegate = self
+        school_College.delegate = self
+        
     }
     @IBAction func onBackButtonClick(_ sender: Any) {
-      // dismiss(animated: true)
-       self.navigationController?.popViewController(animated: true)
+        // dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     func datePickerSetup(){
         datePickerPopup.layer.cornerRadius = 5
@@ -82,8 +85,10 @@ class EducationViewController: UIViewController {
     @objc func donePressed(){
         //format date
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        //formatter.timeStyle = .short
+        //  formatter.dateStyle = .short
+        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale.current
         let dateString = formatter.string(from: datePicker.date)
         
         startDate.text = "\(dateString)"
@@ -98,7 +103,6 @@ class EducationViewController: UIViewController {
         //done button for toolbar
         let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(onDonePressed))
         toolbar.setItems([done], animated: false)
-        
         endDate.inputAccessoryView = toolbar
         endDate.inputView = datePicker
         
@@ -109,8 +113,10 @@ class EducationViewController: UIViewController {
     @objc func onDonePressed(){
         //format date
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        //formatter.timeStyle = .short
+        // formatter.dateStyle = .short
+        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale.current
         let dateString = formatter.string(from: datePicker.date)
         
         endDate.text = "\(dateString)"
@@ -119,8 +125,8 @@ class EducationViewController: UIViewController {
     }
     @IBAction func onSaveButtonClick(_ sender: Any) {
         
-       addEducation()
-       
+        addEducation()
+        
     }
     @IBAction func onDeleteButtonClick(_ sender:Any){
         deleteEducationData()
@@ -138,19 +144,26 @@ class EducationViewController: UIViewController {
                 case .success(_):
                     if let json = response.result.value{
                         if let jsonData = json as? NSDictionary {
+                            let responseMessage = jsonData.object(forKey: "message") as? String
                             if let status = jsonData.object(forKey: "status") as? Int {
-                                 if status == 200 {
-                                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                       let educationCardViewController = storyBoard.instantiateViewController(withIdentifier: "EducationCardViewController") as! EducationCardViewController
-                                       let myEducation = MyEducation()
+                                if status == 200 {
+                                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let educationCardViewController = storyBoard.instantiateViewController(withIdentifier: "EducationCardViewController") as! EducationCardViewController
+                                    let myEducation = MyEducation()
                                     myEducation.Degree = self.degree.text
                                     myEducation.College_School = self.school_College.text
                                     myEducation.startDate = self.startDate.text
                                     myEducation.endDate = self.endDate.text
-                                      educationCardViewController.educationCardData = [myEducation]
-                                       //educationCardViewController.educationDelegate = self
-                                       educationCardViewController.educationCardData = [myEducation]
-                                       self.navigationController?.pushViewController(educationCardViewController, animated: true)
+                                    educationCardViewController.educationCardData = [myEducation]
+                                    //educationCardViewController.educationDelegate = self
+                                    educationCardViewController.educationCardData = [myEducation]
+                                    self.navigationController?.pushViewController(educationCardViewController, animated: true)
+                                }else if status == 422{
+                                    OperationQueue.main.addOperation {
+                                        let alert = UIAlertController(title:"", message: responseMessage, preferredStyle: UIAlertController.Style.alert)
+                                        alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
+                                        self.present(alert, animated: true, completion: nil)
+                                    }
                                 }
                             }
                         }
@@ -170,16 +183,16 @@ class EducationViewController: UIViewController {
         
     }
     func deleteEducationData()
-        {
-            if isInternetAvailable(){
-                if let educationID = educationDetail?.id {
+    {
+        if isInternetAvailable(){
+            if let educationID = educationDetail?.id {
                 Util.Manager.request(DELETE_EDUCATION_API + educationID, method : .delete, encoding: JSONEncoding.default).responseJSON { (response) in
-                       switch response.result{
-                       case .success(_):
-                           if let json = response.result.value{
-                               if let jsonData = json as? NSDictionary {
+                    switch response.result{
+                    case .success(_):
+                        if let json = response.result.value{
+                            if let jsonData = json as? NSDictionary {
                                 let responseMessage = jsonData.object(forKey: "message") as? String
-                                   if let status = jsonData.object(forKey: "status") as? Int {
+                                if let status = jsonData.object(forKey: "status") as? Int {
                                     if status == 200 {
                                         self.navigationController?.popViewController(animated: true)
                                     }else if status == 422{
@@ -189,26 +202,26 @@ class EducationViewController: UIViewController {
                                             self.present(alert, animated: true, completion: nil)
                                         }
                                     }
-                                      
-                                       
-                                   }
-                               }
-                           }
-                           break
-                       case .failure(_):
-                           if let statusCode = response.response?.statusCode {
-                               
-                           }
-                           break
-                           
-                       }
+                                    
+                                    
+                                }
+                            }
+                        }
+                        break
+                    case .failure(_):
+                        if let statusCode = response.response?.statusCode {
+                            
+                        }
+                        break
+                        
                     }
-                   }
-               } else {
-                   Util.showWhistle(message: NO_INTERNET, viewController: self)
-               }
-               
+                }
+            }
+        } else {
+            Util.showWhistle(message: NO_INTERNET, viewController: self)
         }
+        
+    }
     
     
     
@@ -223,4 +236,10 @@ extension EducationViewController: EducationDelegate {
     
     
     
+}
+extension EducationViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        return self.view.endEditing(true)
+        
+    }
 }

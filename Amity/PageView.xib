@@ -33,42 +33,43 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLK-g8-wh1">
-                            <rect key="frame" x="20" y="230" width="335" height="230"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLK-g8-wh1" customClass="semiCircleView" customModule="Amity" customModuleProvider="target">
+                            <rect key="frame" x="47.5" y="253" width="280" height="280"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDY-k7-jMu" customClass="semiCircleView" customModule="Amity" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="460"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PO-5q-l15">
+                                    <rect key="frame" x="-21" y="-12" width="318" height="272"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
-                                            <real key="value" value="150"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="272" id="jhg-lI-agA"/>
+                                        <constraint firstAttribute="width" constant="318" id="pml-gy-Qvx"/>
+                                    </constraints>
                                 </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen1" translatesAutoresizingMaskIntoConstraints="NO" id="dIi-8Y-VAv">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="230"/>
+                                    <rect key="frame" x="0.0" y="53" width="280" height="154"/>
                                 </imageView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="dIi-8Y-VAv" firstAttribute="top" secondItem="gLK-g8-wh1" secondAttribute="top" id="3La-ui-ZNU"/>
-                                <constraint firstItem="cDY-k7-jMu" firstAttribute="centerX" secondItem="gLK-g8-wh1" secondAttribute="centerX" id="JiN-iT-aHa"/>
-                                <constraint firstItem="cDY-k7-jMu" firstAttribute="leading" secondItem="gLK-g8-wh1" secondAttribute="leading" id="YNh-Xu-Tkd"/>
-                                <constraint firstItem="dIi-8Y-VAv" firstAttribute="centerY" secondItem="gLK-g8-wh1" secondAttribute="centerY" id="ZU4-Ii-oWB"/>
-                                <constraint firstAttribute="bottom" secondItem="cDY-k7-jMu" secondAttribute="bottom" constant="-230" id="e2P-UP-jys"/>
+                                <constraint firstItem="0PO-5q-l15" firstAttribute="centerY" secondItem="gLK-g8-wh1" secondAttribute="centerY" constant="-16" id="1EJ-en-4Vh"/>
+                                <constraint firstItem="dIi-8Y-VAv" firstAttribute="top" secondItem="gLK-g8-wh1" secondAttribute="top" constant="53" id="3La-ui-ZNU"/>
+                                <constraint firstItem="0PO-5q-l15" firstAttribute="centerX" secondItem="gLK-g8-wh1" secondAttribute="centerX" constant="-2" id="GWr-1h-rSE"/>
+                                <constraint firstItem="dIi-8Y-VAv" firstAttribute="centerY" secondItem="gLK-g8-wh1" secondAttribute="centerY" constant="-10" id="ZU4-Ii-oWB"/>
+                                <constraint firstAttribute="height" constant="280" id="dFW-SV-VYd"/>
                                 <constraint firstItem="dIi-8Y-VAv" firstAttribute="leading" secondItem="gLK-g8-wh1" secondAttribute="leading" id="h8P-ay-omO"/>
                                 <constraint firstItem="dIi-8Y-VAv" firstAttribute="centerX" secondItem="gLK-g8-wh1" secondAttribute="centerX" id="iRA-ZQ-ORU"/>
-                                <constraint firstItem="cDY-k7-jMu" firstAttribute="centerY" secondItem="gLK-g8-wh1" secondAttribute="centerY" constant="115" id="rQM-Yo-g9A"/>
-                                <constraint firstAttribute="trailing" secondItem="cDY-k7-jMu" secondAttribute="trailing" id="wag-me-iXH"/>
+                                <constraint firstAttribute="width" constant="280" id="oZ9-27-1Ya"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
+                                    <real key="value" value="140"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="ppt-fE-l00" firstAttribute="leading" secondItem="YZP-8j-cbw" secondAttribute="leading" constant="20" id="1R2-ZE-bu8"/>
                         <constraint firstItem="ppt-fE-l00" firstAttribute="top" secondItem="YZP-8j-cbw" secondAttribute="top" constant="50" id="1hq-ql-MXC"/>
-                        <constraint firstItem="gLK-g8-wh1" firstAttribute="height" secondItem="YZP-8j-cbw" secondAttribute="height" multiplier="0.5" id="AWr-SB-4Dg"/>
-                        <constraint firstItem="gLK-g8-wh1" firstAttribute="leading" secondItem="YZP-8j-cbw" secondAttribute="leading" constant="20" id="IrW-iS-k3K"/>
-                        <constraint firstAttribute="bottom" secondItem="gLK-g8-wh1" secondAttribute="bottom" id="Unb-Rt-Nmh"/>
+                        <constraint firstAttribute="bottom" secondItem="gLK-g8-wh1" secondAttribute="bottom" constant="-73" id="Unb-Rt-Nmh"/>
                         <constraint firstItem="ppt-fE-l00" firstAttribute="centerX" secondItem="YZP-8j-cbw" secondAttribute="centerX" id="mKl-zJ-Za3"/>
                         <constraint firstItem="gLK-g8-wh1" firstAttribute="centerX" secondItem="YZP-8j-cbw" secondAttribute="centerX" id="oK9-d2-3eO"/>
                     </constraints>
@@ -99,7 +100,6 @@
                 <constraint firstItem="YZP-8j-cbw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fRY-ou-rOP"/>
                 <constraint firstItem="tdb-es-Ggb" firstAttribute="width" secondItem="I3q-FE-oAl" secondAttribute="width" id="pOE-8n-g88"/>
                 <constraint firstItem="tdb-es-Ggb" firstAttribute="bottom" secondItem="I3q-FE-oAl" secondAttribute="bottom" id="sG3-rN-xdU"/>
-                <constraint firstItem="tdb-es-Ggb" firstAttribute="width" secondItem="I3q-FE-oAl" secondAttribute="height" multiplier="67:20" id="tvu-ON-RMI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

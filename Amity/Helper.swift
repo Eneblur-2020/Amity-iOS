@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 class Helper{
     static func dateFormatterMMMyyyy(dateString:String) -> String {
         
@@ -71,6 +72,23 @@ class Helper{
             return ""
         }
         
+    }
+    func saveCookies(response: DataResponse<Any>) {
+        let headerFields = response.response?.allHeaderFields as! [String: String]
+        let url = response.response?.url
+        let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: url!)
+        var cookieArray = [[HTTPCookiePropertyKey: Any]]()
+        for cookie in cookies {
+            cookieArray.append(cookie.properties!)
+        }
+        UserDefaults.standard.set(cookieArray, forKey: "savedCookies")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func getCookie () -> HTTPCookie
+    {
+        let cookie = HTTPCookie(properties: UserDefaults.standard.object(forKey: "kCookie") as! [HTTPCookiePropertyKey : Any])
+        return cookie!
     }
     
 }

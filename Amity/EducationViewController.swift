@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class EducationViewController: UIViewController {
+class EducationViewController: BaseViewController {
     
     @IBOutlet var datePickerPopup: UIView!
     @IBOutlet weak var educationCardView: UIView!
@@ -138,8 +138,10 @@ class EducationViewController: UIViewController {
             "instituteName": school_College.text ?? "",
             "fromDate": startDate.text ?? "",
             "toDate": endDate.text ?? ""]
+        startActivityIndicator()
         if isInternetAvailable(){
             Util.Manager.request(EDUCATION_API, method : .post,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+                self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{

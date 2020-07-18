@@ -11,7 +11,7 @@ import Alamofire
 
 
 
-class HomePage1ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class HomePage1ViewController: BaseViewController,UITableViewDataSource {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,14 +24,18 @@ class HomePage1ViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationItem.title = "Amity Future Academy"
         tableView.delegate = self
         tableView.dataSource = self
         registerTableViewcell()
         
     }
     override func viewWillAppear(_ animated: Bool) {
+       startActivityIndicator()
         tableView.estimatedRowHeight = 85.0
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.reloadData()
+        
     }
     func registerTableViewcell(){
         self.tableView.register(UINib(nibName: "SliderTableViewCell", bundle: nil), forCellReuseIdentifier: "SliderTableViewCell")
@@ -224,27 +228,31 @@ class HomePage1ViewController: UIViewController,UITableViewDelegate,UITableViewD
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SliderTableViewCell") as! SliderTableViewCell
             cell.delegate = self
+            cell.activityIndicatorDelegate = self
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier:"AllWebinarTableViewCell" ) as! AllWebinarTableViewCell
             cell.delegate = self
+              cell.activityIndicatorDelegate = self
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier:"AllEventsTableViewCell" ) as! AllEventsTableViewCell
             
             cell.eventDelegate = self
+              cell.activityIndicatorDelegate = self
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier:"GalleryTableViewCell" ) as! GalleryTableViewCell
-            //cell.galleryCollectionView.delegate = self as? UICollectionViewDelegate
-            // cell.galleryCollectionView.dataSource = self as? UICollectionViewDataSource
+            cell.galleryDelegate = self
+              cell.activityIndicatorDelegate = self
             var height = cell.galleryCollectionView.collectionViewLayout.collectionViewContentSize.height
             cell.galleryCollectionViewHeightLayout.constant = height
             self.view.layoutIfNeeded()
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier:"VideoTableViewCell" ) as! VideoTableViewCell
-            cell.imageTitleLabel.text = "\(videoArray.count)" + "Videos"
+            cell.videoCountLabel.text = "\(videoArray.count)" + "Videos"
+          //  stopActivityIndicator()
             return cell
         default:
             print("do nothing")
@@ -254,7 +262,17 @@ class HomePage1ViewController: UIViewController,UITableViewDelegate,UITableViewD
         
     }
 }
-extension HomePage1ViewController :  TableViewInsideCollectionViewDelegate,EventsCollectionViewDelegate{
+extension HomePage1ViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 4{
+            if let videoDetailViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "VideoDetailViewController") as? VideoDetailViewController {
+        self.navigationController?.pushViewController(videoDetailViewController, animated: true)
+                
+            }
+        }
+    }
+}
+extension HomePage1ViewController :  TableViewInsideCollectionViewDelegate,EventsCollectionViewDelegate,GalleryCollectionViewDelegate,ActivityIndicatorDelegate{
     
     
     func onClickWebinarSlider(data: Webinor,indexPath:IndexPath,isFrom:String) {
@@ -273,6 +291,16 @@ extension HomePage1ViewController :  TableViewInsideCollectionViewDelegate,Event
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }
     }
-    
+    func onClickGalleryCollectionCell(data: Gallery, indexPath: IndexPath) {
+        if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "GalleryDetailViewController") as? GalleryDetailViewController {
+            //nextViewController.finacerId = idArray[indexPath.row]
+            //nextViewController.eventsData = data
+            //nextViewController.isFrom = isFrom
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+    }
+    func activityIndicatorOnHomePage(){
+        self.stopActivityIndicator()
+    }
 }
 

@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '10.0'
+ platform :ios, '10.0'
 
 target 'Amity' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -8,10 +8,10 @@ target 'Amity' do
   # Pods for Amity
   pod 'Alamofire', '~> 4.0.0'
   pod 'Whisper'
-  pod 'NVActivityIndicatorView'
+  pod 'ANActivityIndicator'  
   pod 'Toaster'
   pod 'Kingfisher'
- pod 'FSCalendar'
+  pod 'FSCalendar'
 
   
 end

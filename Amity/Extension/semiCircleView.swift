@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ANActivityIndicator
 
 class semiCircleView: UIView {
     
@@ -48,3 +49,14 @@ class semiCircleView: UIView {
            
         }
     }
+class CustomIndicatorAnimation : ANActivityIndicatorAnimation{
+       required init() { }
+
+       func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor) {
+            ANActivityIndicatorAnimationType.ballSpinFadeLoader
+        UIColor.red
+       }
+}
+extension ANActivityIndicatorAnimationType{
+        public static let customIndicatorAnimation = ANActivityIndicatorAnimationType.init(animation: CustomIndicatorAnimation.self)
+}

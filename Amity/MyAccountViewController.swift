@@ -17,7 +17,7 @@ class MyAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
-       
+        
         //        // Label clickable
         //            myProfileLabel.isUserInteractionEnabled = true
         //            let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(clickable))
@@ -39,7 +39,7 @@ class MyAccountViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @IBAction func buttonSignOut(_ sender: Any) {
+    @IBAction func onClickSignOutButton(_ sender: Any) {
         
         callSignout()
     }
@@ -47,7 +47,7 @@ class MyAccountViewController: UIViewController {
     // Call SignOut API
     func callSignout(){
         
-        let userUrl = "http://35.165.245.142:8080/authentication/logout"
+        let userUrl = LOGOUT_API
         // Add one parameter
         let myUrl = NSURL(string: userUrl)
         
@@ -64,7 +64,18 @@ class MyAccountViewController: UIViewController {
             do {
                 
                 if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
-                    print(responseJSON)
+                    let status = responseJSON["status"] as? Int
+                    if status == 200 {
+                        DispatchQueue.main.async {
+                             if let signInViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "SignInVC") as? SignInViewController {
+                                                       
+                                UserDefaults.standard.set(false, forKey: "IsLoggedIn")
+                                 signInViewController.hidesBottomBarWhenPushed = true
+                                self.navigationController?.navigationBar.isHidden = true; self.navigationController?.pushViewController(signInViewController, animated: false)
+                        }
+                       
+                        }
+                    }
                 }
             }
                 
@@ -91,15 +102,15 @@ extension MyAccountViewController:UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         if indexPath.row == 0 {
-           // self.performSegue(withIdentifier: "myAccountToProfileSegue", sender: self)
-           // let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            // self.performSegue(withIdentifier: "myAccountToProfileSegue", sender: self)
+            // let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             if let myProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyProfileViewController1") as? MyProfileViewController1 {
-                          self.navigationController?.pushViewController(myProfileViewController, animated: true)
-                           }
+                self.navigationController?.pushViewController(myProfileViewController, animated: true)
+            }
         } else if indexPath.row == 1 {
             
         }
-               
+        
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

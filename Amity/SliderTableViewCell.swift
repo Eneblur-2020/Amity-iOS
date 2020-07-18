@@ -9,21 +9,24 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import ANActivityIndicator
 
 class SliderTableViewCell: UITableViewCell {
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     @IBOutlet weak var pageOutlet: UIPageControl!
     var timer : Timer!
+    let activity : ANActivityIndicatorView? = nil
     weak var delegate:TableViewInsideCollectionViewDelegate? = nil
+    weak var activityIndicatorDelegate: ActivityIndicatorDelegate? = nil
     override func awakeFromNib() {
         super.awakeFromNib()
         
         initialSetUp()
-        
-        
-       ApiCall()
-        
         // Initialization code
+    }
+    override func layoutSubviews() {
+        
+         apiCall()
     }
     func initialSetUp(){
         self.sliderCollectionView.register(UINib(nibName: "SliderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SliderCollectionViewCell")
@@ -33,10 +36,13 @@ class SliderTableViewCell: UITableViewCell {
         pageOutlet.pageIndicatorTintColor = UIColor(named: "DarkYellowColour")
         // Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(scrollAutomatically(_:)), userInfo: nil, repeats: true)
     }
-    func ApiCall(){
+    func apiCall(){
         //webinarAPI(url: WEBINAR_API)
+        
         ApiUtil.apiUtil.webinarAPI { (result) in
             self.sliderCollectionView.reloadData()
+            self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
+            
         }
     }
     func webinarAPI(url:String){

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ExperiencePageViewController: UIViewController {
+class ExperiencePageViewController: BaseViewController {
     @IBOutlet var datePickerPopup: UIView!
     @IBOutlet weak var experienceCardView: UIView!
     @IBOutlet weak var jobTitleTextField: UITextField!
@@ -179,7 +179,9 @@ class ExperiencePageViewController: UIViewController {
             "toDate": endDate.text ?? ""
         ]
         if isInternetAvailable(){
+            startActivityIndicator()
             Util.Manager.request(EXPERIENCE_API, method : .post,parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+                self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{

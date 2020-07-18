@@ -37,17 +37,42 @@ class Util{
      Custom Alamofire manager to manage server trust policies if the URL ceritifcate is not valid
      */
     static var Manager : Alamofire.SessionManager = { // Create the server trust policies
+        var headers = Alamofire.SessionManager.defaultHTTPHeaders
         
+//        if let cookie = getCookie(){
+//            headers["Cookie"] = cookie
+//        }
+//        print(headers["Cookie"])
+//        print(headers)
         let serverTrustPolicies: [String: ServerTrustPolicy] = [POLICY_URL: .disableEvaluation ] // Create custom manager
         let configuration = URLSessionConfiguration.default
         // Setting timeout for request
-        configuration.timeoutIntervalForResource = 15 // seconds
+        configuration.timeoutIntervalForResource = 15// seconds
         configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
         let man = Alamofire.SessionManager( configuration: URLSessionConfiguration.default, serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies) )
         return man
         
     }()
-    
+    /*static func setCookie (cookie:HTTPCookie)
+     {
+     UserDefaults.standard.set(cookie.properties, forKey: "kCookie")
+     UserDefaults.standard.synchronize()
+     }
+     */
+    static func setCookie(cookie:String)
+    {
+        UserDefaults.standard.set(cookie, forKey: "kCookie")
+        UserDefaults.standard.synchronize()
+    }
+    static func getCookie()-> String{
+        
+        if let cookie = UserDefaults.standard.string(forKey: "kCookie") {
+            return cookie
+        } else {
+            return ""
+        }
+       
+    }
     
     /**
      - parameters:
@@ -145,15 +170,15 @@ class Util{
 }
 extension Util {
     static func showWhistle(message : String, viewController : UIViewController){
-           var murmur = Murmur(title: message)
-           murmur.backgroundColor = UIColor.red
-           murmur.titleColor = UIColor.white
-           Whisper.show(whistle: murmur, action: .show(0.5))
-           Whisper.show(whistle: murmur, action: .present)
-           Whisper.hide(whistleAfter: 3)
-       }
+        var murmur = Murmur(title: message)
+        murmur.backgroundColor = UIColor.red
+        murmur.titleColor = UIColor.white
+        Whisper.show(whistle: murmur, action: .show(0.5))
+        Whisper.show(whistle: murmur, action: .present)
+        Whisper.hide(whistleAfter: 3)
+    }
     static func showAlert(message : String,viewController : UIViewController,title: String? = nil){
-        let attributeString = NSMutableAttributedString(string: message, attributes: [NSAttributedString.Key.font: SECONDARY_FONT!])
+        let attributeString = NSMutableAttributedString(string: message, attributes: [NSAttributedString.Key.font:UIFont.systemFontSize])
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.setValue(attributeString, forKey: "attributedMessage")
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)

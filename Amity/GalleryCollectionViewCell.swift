@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+protocol GalleryCollectionViewDelegate:class {
+    func onClickGalleryCollectionCell(data:Gallery,indexPath:IndexPath)
+}
 class GalleryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var galleryImage: UIImageView!
     @IBOutlet weak var imageTitleLabel:UILabel!
@@ -18,7 +20,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     func setUpCell(gallery: Gallery){
         self.imageTitleLabel.text = gallery.imageTitle
         if let url = URL(string: gallery.image?.value(forKey: "url") as? String ?? "") {
-            self.galleryImage.kf.setImage(with: url, placeholder: UIImage(named: "screen4.png"))
+            self.galleryImage.kf.setImage(with: url, placeholder: UIImage(named: ""))
         }
     }
 

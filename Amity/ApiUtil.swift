@@ -192,7 +192,7 @@ class ApiUtil{
                                 if status == 200{
                                     if let data = jsonData.object(forKey: "data") as? [NSDictionary]{
                                         let galleryData = self.parsegalleryData(galleryData: data)
-                                        completionHandler(galleryData as AnyObject)
+                                        completionHandler(galleryData as NSArray)
                                     }
                                 }
                             }
@@ -214,6 +214,8 @@ class ApiUtil{
     func parsegalleryData(galleryData:[NSDictionary]) -> [Gallery]{
         
         galleryArray.removeAll()
+        imageArray.removeAll()
+        videoArray.removeAll()
         for gallery in galleryData{
             let galleryInfo = Gallery()
             if let image =  gallery.object(forKey: "image") as? NSDictionary{
@@ -252,8 +254,32 @@ class ApiUtil{
             galleryArray.append(galleryInfo)
             
         }
-        return galleryArray
+                return galleryArray
         
         
     }
 }
+extension Sequence {
+    
+    func groupBy<G: Hashable>(closure: (Iterator.Element)->G) -> [G: [Iterator.Element]] {
+        var results = [G: Array<Iterator.Element>]()
+        
+        forEach {
+            let key = closure($0)
+            
+            if var array = results[key] {
+                array.append($0)
+                results[key] = array
+            }
+            else {
+                results[key] = [$0]
+            }
+        }
+        
+        return results
+    }
+}
+
+// Usage
+
+

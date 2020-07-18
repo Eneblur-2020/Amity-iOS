@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Alamofire
 
-class SignInViewController: UIViewController {
+
+class SignInViewController: BaseViewController {
     @IBOutlet weak var skipLabel: UILabel!
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
@@ -36,7 +38,7 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func onBackPressed(_ sender: Any) {
-        self.dismiss(animated: true)
+       // self.dismiss(animated: true)
     }
     
     @IBAction func onForgotPasswordPressed(_ sender: Any) {
@@ -55,8 +57,61 @@ class SignInViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    func SignUpUsingEmailId(url :String){
+     func SignUpUsingEmailId(url :String){
+       
+        let data : [String : String] = ["username": emailTextField.text ?? "","password": passwordTextField.text ?? ""]
+        startActivityIndicator()
+            if isInternetAvailable(){
+
+                
+                Util.Manager.request(url, method : .post,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+                    if let headerFields = response.response?.allHeaderFields as? [String: String]
+                       
+                    {
+                        if let URL = response.request?.url{
+                            let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
+                            print(cookies.first)
+                            print(cookies)
+                            print(cookies.first?.value(forKey: "value")as! String)
+                            
+                             let cookieSid = cookies.first?.value(forKey: "value") as! String 
+                            Util.setCookie(cookie: cookieSid)
+                            self.stopActivityIndicator()
+                    }
+                    }
+                    
+                    switch response.result{
+                    case .success(_):
+                        if let json = response.result.value{
+                            if let jsonData = json as? NSDictionary {
+                                 let status = jsonData.object(forKey: "status") as? Int
+                                let data = jsonData.object(forKey: "data") as? NSDictionary
+                                if status == 200 {
+                                    //TODO : LOCALIZATION REQUIRED
+                                    
+                                    self.userDefaults.set(true, forKey: "IsLoggedIn")
+                                    self.performSegue(withIdentifier: "tabBarViewController", sender: self)
+                                    
+                                }
+                            }
+                        }
+                        break
+                    case .failure(_):
+                        if let statusCode = response.response?.statusCode {
+                            
+                        }
+                        break
+                        
+                    }
+                }
+            } else {
+                Util.showWhistle(message: NO_INTERNET, viewController: self)
+            }
+            
+     
+        
+    }
+  /*  func SignUpUsingEmailId(url :String){
         
         
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
@@ -96,6 +151,7 @@ class SignInViewController: UIViewController {
                     let response1 = responseJSON["status"]! as! Int
                     let response2 = responseJSON["message"]! as! String
                     let response3 = responseJSON["data"] as? NSDictionary
+                    print(response3)
                     let userTokenPublicKey = response3?.value(forKey: "publicKey") as? String
                     
                     //Check response from the sever
@@ -148,6 +204,7 @@ class SignInViewController: UIViewController {
         task.resume()
         
     }
+ */
     func SignUpUsingPhone(url :String){
         
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)

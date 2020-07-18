@@ -11,7 +11,9 @@ import Kingfisher
 protocol TableViewInsideCollectionViewDelegate:class {
     func onClickWebinarSlider(data:Webinor,indexPath:IndexPath,isFrom:String)
 }
-
+protocol ActivityIndicatorDelegate:class {
+    func activityIndicatorOnHomePage()
+}
 
 class SliderCollectionViewCell: UICollectionViewCell {
     

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import MobileCoreServices
-class MyProfileViewController1: UIViewController {
+class MyProfileViewController1: BaseViewController {
     
     @IBOutlet weak var myProfileTableView: UITableView!
     var myProfileTitleArray = ["","PROFILE SUMMARY","EXPERIENCE","EDUCATION","RESUME"]
@@ -118,8 +118,11 @@ class MyProfileViewController1: UIViewController {
         
         let data : [String : String] = [
             "name" : userName]
+       let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+         startActivityIndicator()
         if isInternetAvailable(){
-            Util.Manager.request(UPDATE_NAME_API, method : .put,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+            Util.Manager.request(UPDATE_NAME_API, method : .put,  parameters: data,encoding: JSONEncoding.default, headers:headers).responseJSON { (response) in
+                self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{
@@ -148,8 +151,11 @@ class MyProfileViewController1: UIViewController {
         
         let data : [String : String] = [
             "email" : emailId ]
+         let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+        startActivityIndicator()
         if isInternetAvailable(){
-            Util.Manager.request(UPDATE_EMAIL_API, method : .put,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+            Util.Manager.request(UPDATE_EMAIL_API, method : .put,  parameters: data, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
+                self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{
@@ -179,9 +185,11 @@ class MyProfileViewController1: UIViewController {
         let data : [String : String] = [
             "countryCode": "+91",
             "contactNumber": phoneNumber ?? ""]
-        
+          let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+        startActivityIndicator()
         if isInternetAvailable(){
-            Util.Manager.request(UPDATE_MOBILE_API, method : .put,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+            Util.Manager.request(UPDATE_MOBILE_API, method : .put,  parameters: data, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
+                self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{
@@ -207,9 +215,11 @@ class MyProfileViewController1: UIViewController {
     }
     
     func getExpDetails(url:String){
-        
+        startActivityIndicator()
         if isInternetAvailable(){
-            Util.Manager.request(url, method : .get, encoding: JSONEncoding.default).responseJSON { (response) in
+              let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+            Util.Manager.request(url, method : .get, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
+                 self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{
@@ -257,9 +267,12 @@ class MyProfileViewController1: UIViewController {
         
     }
     func getEductaionDetails(url:String){
-        
+        startActivityIndicator()
         if isInternetAvailable(){
-            Util.Manager.request(url, method : .get, encoding: JSONEncoding.default).responseJSON { (response) in
+         let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+        
+            Util.Manager.request(url, method : .get,encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
+                self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{
@@ -305,9 +318,11 @@ class MyProfileViewController1: UIViewController {
         
     }
     func getUserDetail(url:String){
-        
+        startActivityIndicator()
         if isInternetAvailable(){
-            Util.Manager.request(url, method : .get, encoding: JSONEncoding.default).responseJSON { (response) in
+            let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+                Util.Manager.request(url, method : .get, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
+                    self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{
@@ -336,7 +351,8 @@ class MyProfileViewController1: UIViewController {
         
     }
     @objc func onClickProfileSummaryAddButton(){
-        self.performSegue(withIdentifier: "myProfileToSummary", sender: self)
+      //  self.performSegue(withIdentifier: "myProfileToSummary", sender: self)
+
     }
     
     @objc func onClickExperienceAddButton(sender:UIButton){
@@ -424,6 +440,13 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
             headerView.addButton.isHidden = true
             
         }
+        if section == 1 {
+           if self.userData.userMetaData?.count ?? 0 > 0 {
+                headerView.addButton.setTitle("Edit", for: .normal)
+           }else {
+             headerView.addButton.setTitle("Add", for: .normal)
+            }
+        }
         if section == 0 {
             headerView.contentView.backgroundColor = .white
         }
@@ -446,7 +469,14 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
     @objc func onClickAddButton(sender: UIButton!){
         switch sender.tag {
         case 1:
-            self.performSegue(withIdentifier: "myProfileToSummary", sender: self)
+           // self.performSegue(withIdentifier: "myProfileToSummary", sender: self)
+            if let profileSummaryDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileSummaryDetailsViewController") as? ProfileSummaryDetailsViewController{
+              //  let indexPath = IndexPath(row: 0, section: 1)
+                        //  let cell = self.myProfileTableView.cellForRow(at: indexPath) as! MyProfileDetailTableViewCell
+                profileSummaryDetailsViewController.profileSummary = self.userData.userMetaData?.value(forKey: "profileSummary") as? String ?? ""
+                self.navigationController?.pushViewController(profileSummaryDetailsViewController, animated: true)
+                
+            }
         case 2:
             //self.performSegue(withIdentifier: "myProfileToExperience", sender: self)
             if let experiencePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "ExperiencePageViewController") as? ExperiencePageViewController{
@@ -501,7 +531,7 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
                 
                 myProfileDetailTableViewCell.myProfileDescrption.text = self.userData.userMetaData?.value(forKey: "profileSummary") as? String
                 
-                myProfileDetailTableViewCell.addButon.addTarget(self, action: #selector(onClickProfileSummaryAddButton), for: .touchUpInside)
+               // myProfileDetailTableViewCell.addButon.addTarget(self, action: #selector(onClickProfileSummaryAddButton), for: .touchUpInside)
             
             return myProfileDetailTableViewCell
             
@@ -594,32 +624,24 @@ extension MyProfileViewController1:UIDocumentPickerDelegate,UINavigationControll
     }
     
     func uploadFilesServerCall(data: URL){
+        let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())",
+                                    "Connection":"Keep-Alive",
+                                    "Content-Type": "multipart/form-data"]
         
         if isInternetAvailable(){
             Util.Manager.upload(
                 multipartFormData: { (multipartFormData) in
                     
-                    // if data1 = data1{
-                    
-                    //  multipartFormData.append(data, withName:"uploaded_file", mimeType:"multipart/form-data")
-                   multipartFormData.append(data, withName: "application/doc")
-//                    multipartFormData.append(data, withName: "pdfDocuments", fileName: "pdfDocuments.pdf", mimeType:"application/pdf")
-//                    multipartFormData.append(data, withName: "file", fileName: "file", mimeType: "application/txt")
-//                    multipartFormData.append(data, withName: "file", fileName: "file", mimeType: "application/Docx")
-                    //}
-                    //                    if let data = selectedImgData{
-                    //
-                    //                        multipartFormData.append(data, withName: "image", fileName: "image.png", mimeType: "image/png")
-                    //
-                    //                    }
-                    //
+                     multipartFormData.append(data, withName: "resume")
+                   multipartFormData.append(Data(data.absoluteString.utf8), withName: "resume",mimeType: "application/doc")
+               
             },
-                to: RESUME_UPLOAD_API,
+                to: RESUME_UPLOAD_API,headers: headers,
                 encodingCompletion: { encodingResult in
                     switch encodingResult {
                     case .success(let upload, _, _):
                         upload.responseJSON(completionHandler: { response in
-                            print(response)
+                            print(response.result)
                             print("Response from the server is \(response.result)")
                             if let json = response.result.value{
                                 
@@ -629,7 +651,7 @@ extension MyProfileViewController1:UIDocumentPickerDelegate,UINavigationControll
                                         Util.showAlert(message: (jsonDict.object(forKey: "statusText") as? String ?? ""), viewController: self, title: "Success")
                                         
                                     }else{
-                                        Util.showAlert(message: (jsonDict.object(forKey: "message") as? String ?? ""), viewController: self, title: "Error")
+                                       // Util.showAlert(message: (jsonDict.object(forKey: "message") as? String ?? ""), viewController: self, title: "Error")
                                     }
                                 }
                             } else {

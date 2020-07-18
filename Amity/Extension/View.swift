@@ -1,11 +1,11 @@
-//
-//  View.swift
-//  InfiHeal
-//
-//  Created by Suhas Patil on 06/11/19.
-//  Copyright © 2019 FIGmd Inc. All rights reserved.
-//
 
+//
+//  semiCircleView.swift
+//  Amity
+//
+//  Created by Vinayak Tudayekar on 29/06/20.
+//  Copyright © 2020 Eneblur Consulting. All rights reserved.
+//
 import UIKit
 
 extension UIView {

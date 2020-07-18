@@ -38,6 +38,7 @@ class MyExperienceTableViewCell: UITableViewCell {
     }
     func setUpCellForNoData(){
         self.companyLabel.isHidden = true
+        self.jobTitleLabel.text = "Add your past experience here"
         self.fromDateLabel.isHidden = true
         self.editButton.isHidden = true
     }

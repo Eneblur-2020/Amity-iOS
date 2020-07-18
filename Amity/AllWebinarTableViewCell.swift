@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import ANActivityIndicator
 
 class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
     @IBOutlet weak var allWebinorCollectionView: UICollectionView!
     @IBOutlet weak var allWebinorPageOutlet: UIPageControl!
     weak var delegate:TableViewInsideCollectionViewDelegate? = nil
-    
+    weak var activityIndicatorDelegate:ActivityIndicatorDelegate? = nil
     var sectionLabel: String = ""
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +22,9 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
         initialSetUp()
         apiCall()
     }
+    override func layoutSubviews() {
+            apiCall()
+       }
     func initialSetUp(){
        self.allWebinorCollectionView.register(UINib(nibName: "AllWebinorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AllWebinorCollectionViewCell")
         allWebinorCollectionView.delegate = self
@@ -29,8 +33,10 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
         allWebinorPageOutlet.pageIndicatorTintColor = UIColor(named: "DarkYellowColour")
     }
     func apiCall(){
-        ApiUtil.apiUtil.webinarAPI { (result) in
+      
+                ApiUtil.apiUtil.webinarAPI { (result) in
             self.allWebinorCollectionView.reloadData()
+                    self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
         }
     }
 

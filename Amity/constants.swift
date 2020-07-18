@@ -24,6 +24,9 @@ let LOGIN_EMAIL_API = "\(BASE_URL)authentication/login"
 
 let LOGIN_MOBILE_API = "\(BASE_URL)authentication/mobile"
 
+//LOGOUT
+let LOGOUT_API = "\(BASE_URL)authentication/logout"
+
 // AUTHENTICATION
 let USER_API = "\(BASE_URL)authentication/user"
 

@@ -14,10 +14,14 @@ class AllEventsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
     @IBOutlet weak var allEventsCollectionView: UICollectionView!
     @IBOutlet weak var allEventsPageOutlet: UIPageControl!
     weak var eventDelegate: EventsCollectionViewDelegate? = nil
+     weak var activityIndicatorDelegate:ActivityIndicatorDelegate? = nil
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         initialSetUp()
+        
+    }
+    override func layoutSubviews() {
         apiCall()
     }
     func initialSetUp(){
@@ -30,6 +34,7 @@ class AllEventsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
     func apiCall(){
         ApiUtil.apiUtil.eventAPI { (result) in
             self.allEventsCollectionView.reloadData()
+             self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
         }
     }
     

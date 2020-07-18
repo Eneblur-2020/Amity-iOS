@@ -7,25 +7,41 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
-
-class BaseViewController: UIViewController{
+import ANActivityIndicator
+class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    func startActivityIndicator() {
+        
+   // showIndicator()
+    showIndicator(
+    CGSize(width: 70, height: 70),
+    message: "",
+    messageFont: .none,
+    messageTopMargin: nil,
+    animationType: ANActivityIndicatorAnimationType.ballSpinFadeLoader,
+    color: UIColor(named: "DarkBlueColour"),
+    padding: nil,
+    displayTimeThreshold: 3,
+    minimumDisplayTime: 10)
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+    
     }
-    */
 
+    func stopActivityIndicator() {
+          hideIndicator()
+        UIApplication.shared.endIgnoringInteractionEvents();
+    }
 }

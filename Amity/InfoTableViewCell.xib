@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoTableViewCell" rowHeight="185" id="KGk-i7-Jjw" customClass="InfoTableViewCell" customModule="Amity" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="193"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="193"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest Placement Package" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EC-Mn-DCd">
+                        <rect key="frame" x="20" y="12" width="138" height="39"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="138" id="a6n-lH-fRy"/>
+                            <constraint firstAttribute="height" constant="39" id="jK8-8D-JFa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Students Empowered" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-m6-2rc">
+                        <rect key="frame" x="41" y="126" width="97" height="47"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="97" id="Ycg-TD-eNG"/>
+                            <constraint firstAttribute="height" constant="47" id="mb5-K4-X3n"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15000+" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajP-pp-5jI">
+                        <rect key="frame" x="49" y="84" width="80" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="lxs-gx-iHa"/>
+                            <constraint firstAttribute="height" constant="25" id="zR5-nL-bSK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150+" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmg-24-V8a">
+                        <rect key="frame" x="263" y="84" width="50" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="dxs-Iu-cPB"/>
+                            <constraint firstAttribute="height" constant="25" id="grf-Y1-NB1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Salary Hike" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOH-sV-abN">
+                        <rect key="frame" x="224" y="12" width="131" height="39"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="39" id="e49-0A-jZj"/>
+                            <constraint firstAttribute="width" constant="131" id="s7K-Jd-aZ0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placement Partners" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-mT-vgF">
+                        <rect key="frame" x="243" y="126" width="105" height="47"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="105" id="G45-Rm-nrk"/>
+                            <constraint firstAttribute="height" constant="47" id="nlq-tx-c1Q"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.97254901960784312" green="0.84705882352941175" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="ffe-mT-vgF" firstAttribute="leading" secondItem="8Ml-m6-2rc" secondAttribute="trailing" constant="105" id="1Z2-Kz-95E"/>
+                    <constraint firstItem="ajP-pp-5jI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="29" id="7f8-R6-oAZ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ffe-mT-vgF" secondAttribute="trailing" constant="7" id="8q1-aF-xzG"/>
+                    <constraint firstItem="ajP-pp-5jI" firstAttribute="top" secondItem="5EC-Mn-DCd" secondAttribute="bottom" constant="33" id="E4H-Kl-3KY"/>
+                    <constraint firstItem="5EC-Mn-DCd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Hkt-BQ-3Xa"/>
+                    <constraint firstItem="xOH-sV-abN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="L2w-OZ-G9n"/>
+                    <constraint firstItem="8Ml-m6-2rc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="21" id="Nby-qd-xha"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ffe-mT-vgF" secondAttribute="bottom" constant="9" id="Ql6-EE-lze"/>
+                    <constraint firstItem="cmg-24-V8a" firstAttribute="leading" secondItem="ajP-pp-5jI" secondAttribute="trailing" constant="134" id="S0D-Ia-ZGQ"/>
+                    <constraint firstItem="5EC-Mn-DCd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="SJc-DF-TP6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="cmg-24-V8a" secondAttribute="trailing" constant="42" id="T35-kd-Gj7"/>
+                    <constraint firstItem="ajP-pp-5jI" firstAttribute="top" secondItem="5EC-Mn-DCd" secondAttribute="bottom" constant="33" id="TEX-70-47U"/>
+                    <constraint firstAttribute="trailing" secondItem="xOH-sV-abN" secondAttribute="trailing" constant="20" id="a1m-K6-8BC"/>
+                    <constraint firstItem="xOH-sV-abN" firstAttribute="leading" secondItem="5EC-Mn-DCd" secondAttribute="trailing" constant="66" id="gjw-Z8-unL"/>
+                    <constraint firstItem="xOH-sV-abN" firstAttribute="leading" secondItem="5EC-Mn-DCd" secondAttribute="trailing" constant="66" id="gmA-RN-RdX"/>
+                    <constraint firstItem="cmg-24-V8a" firstAttribute="top" secondItem="xOH-sV-abN" secondAttribute="bottom" constant="33" id="grS-mU-38f"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8Ml-m6-2rc" secondAttribute="bottom" constant="9" id="hcl-ZD-rNI"/>
+                    <constraint firstItem="8Ml-m6-2rc" firstAttribute="top" secondItem="ajP-pp-5jI" secondAttribute="bottom" constant="17" id="hqV-Ip-3jG"/>
+                    <constraint firstItem="ffe-mT-vgF" firstAttribute="top" secondItem="cmg-24-V8a" secondAttribute="bottom" constant="17" id="jAs-oF-a7J"/>
+                    <constraint firstItem="8Ml-m6-2rc" firstAttribute="top" secondItem="ajP-pp-5jI" secondAttribute="bottom" constant="17" id="kZo-ut-CuP"/>
+                    <constraint firstItem="ffe-mT-vgF" firstAttribute="leading" secondItem="8Ml-m6-2rc" secondAttribute="trailing" constant="105" id="m7D-PP-C12"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="177.536231884058" y="157.70089285714286"/>
+        </tableViewCell>
+    </objects>
+</document>

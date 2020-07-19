@@ -15,10 +15,11 @@ class SignInViewController: BaseViewController {
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailErrorLabel: UILabel!
+   
     @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var phoneNumberTextfield: UITextField!
     @IBOutlet weak var phoneNumberErrorLabel: UILabel!
+     @IBOutlet weak var emailErrorLabel: UILabel!
     let userDefaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()

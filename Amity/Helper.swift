@@ -21,4 +21,17 @@ class Helper{
         print(dateString)
     return dateString
     }
+    static func dateFormatterdatemonth(dateString:String) -> String {
+           
+        let dateFormatter = DateFormatter()
+        let tempLocale = dateFormatter.locale
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+           let date = dateFormatter.date(from: dateString) ?? Date()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        dateFormatter.locale = tempLocale // reset the locale
+        let dateString = dateFormatter.string(from: date)
+           print(dateString)
+       return dateString
+    }
 }

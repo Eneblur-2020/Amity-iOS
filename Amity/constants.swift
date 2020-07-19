@@ -56,6 +56,12 @@ let RESUME_UPLOAD_API = "\(BASE_URL)profile/resume"
 let DELETE_EXPERIENCE_API = "\(BASE_URL)profile/experience/"
 
 let DELETE_EDUCATION_API = "\(BASE_URL)profile/education/"
+//https://qa.backend.afawebapp.zotalabs.com/course?type=upcoming
+let GET_COURSES_API = "\(BASE_URL)course"
+//courseCategory
+let GET_COURSECATEGORY_API = "\(BASE_URL)courseCategory"
+let SUBMIT_STUDENTAPPLICATION_API = "\(BASE_URL)course/student/register"
+
 
 ///ALERT MESSAGES
 var NO_INTERNET = "No Internet Connection"

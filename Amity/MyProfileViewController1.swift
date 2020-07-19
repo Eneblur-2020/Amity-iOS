@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import MobileCoreServices
+import QuickLook
 class MyProfileViewController1: BaseViewController {
     
     @IBOutlet weak var myProfileTableView: UITableView!
@@ -26,6 +27,7 @@ class MyProfileViewController1: BaseViewController {
     var expCardData = [MyExperince]()
     var educationCardData = [MyEducation]()
     var userData = User()
+    var previewItem = NSURL()
     override func viewDidLoad() {
         super.viewDidLoad()
         intialSetup()
@@ -44,6 +46,7 @@ class MyProfileViewController1: BaseViewController {
         getUserDetail(url: USER_API)
         getExpDetails(url: EXPERIENCE_API)
         getEductaionDetails(url: EDUCATION_API)
+        //  getDocumentsDetails(url:DOCUMENTS_API)
         
     }
     func registerTableViewCell(){
@@ -118,8 +121,8 @@ class MyProfileViewController1: BaseViewController {
         
         let data : [String : String] = [
             "name" : userName]
-       let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
-         startActivityIndicator()
+        let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+        startActivityIndicator()
         if isInternetAvailable(){
             Util.Manager.request(UPDATE_NAME_API, method : .put,  parameters: data,encoding: JSONEncoding.default, headers:headers).responseJSON { (response) in
                 self.stopActivityIndicator()
@@ -151,7 +154,7 @@ class MyProfileViewController1: BaseViewController {
         
         let data : [String : String] = [
             "email" : emailId ]
-         let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+        let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
         startActivityIndicator()
         if isInternetAvailable(){
             Util.Manager.request(UPDATE_EMAIL_API, method : .put,  parameters: data, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
@@ -185,7 +188,7 @@ class MyProfileViewController1: BaseViewController {
         let data : [String : String] = [
             "countryCode": "+91",
             "contactNumber": phoneNumber ?? ""]
-          let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+        let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
         startActivityIndicator()
         if isInternetAvailable(){
             Util.Manager.request(UPDATE_MOBILE_API, method : .put,  parameters: data, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
@@ -217,9 +220,9 @@ class MyProfileViewController1: BaseViewController {
     func getExpDetails(url:String){
         startActivityIndicator()
         if isInternetAvailable(){
-              let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+            let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
             Util.Manager.request(url, method : .get, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
-                 self.stopActivityIndicator()
+                self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{
@@ -238,10 +241,10 @@ class MyProfileViewController1: BaseViewController {
                                         let fromDate = i.value(forKey: "fromDate") as? String ?? ""
                                         myExp.startDate = Helper.dateFormatterMMMyyyy(dateString: fromDate)
                                         if i.value(forKey: "toDate") as? String ?? "" == "Present" {
-                                           myExp.endDate = "Present"
+                                            myExp.endDate = "Present"
                                         } else{
-                                        myExp.endDate = Helper.dateFormatterMMMyyyy(dateString:i.value(forKey: "toDate") as? String ?? "")
-                                    }
+                                            myExp.endDate = Helper.dateFormatterMMMyyyy(dateString:i.value(forKey: "toDate") as? String ?? "")
+                                        }
                                         myExp.id = i.value(forKey: "_id") as? String
                                         self.expCardData.append(myExp)
                                         
@@ -269,8 +272,8 @@ class MyProfileViewController1: BaseViewController {
     func getEductaionDetails(url:String){
         startActivityIndicator()
         if isInternetAvailable(){
-         let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
-        
+            let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+            
             Util.Manager.request(url, method : .get,encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
                 self.stopActivityIndicator()
                 switch response.result{
@@ -321,13 +324,13 @@ class MyProfileViewController1: BaseViewController {
         startActivityIndicator()
         if isInternetAvailable(){
             let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
-                Util.Manager.request(url, method : .get, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
-                    self.stopActivityIndicator()
+            Util.Manager.request(url, method : .get, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
+                self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{
                         if let jsonData = json as? NSDictionary {
-                                                        
+                            
                             
                             self.userData.email = jsonData.value(forKey: "email") as? String
                             
@@ -350,9 +353,41 @@ class MyProfileViewController1: BaseViewController {
         }
         
     }
+    /*  func getDocumentsDetails(url:String){
+     startActivityIndicator()
+     if isInternetAvailable(){
+     let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+     Util.Manager.request(url, method : .get, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
+     self.stopActivityIndicator()
+     switch response.result{
+     case .success(_):
+     if let json = response.result.value{
+     if let jsonData = json as? NSDictionary {
+     let data = jsonData.value(forKey: "data") as? NSDictionary
+     
+     self.userData.userMetaData = data?.value(forKey: "userMetaData") as? NSDictionary
+     
+     
+     }
+     }
+     break
+     case .failure(_):
+     if let statusCode = response.response?.statusCode {
+     
+     }
+     break
+     
+     }
+     }
+     } else {
+     Util.showWhistle(message: NO_INTERNET, viewController: self)
+     }
+     
+     }
+     */
     @objc func onClickProfileSummaryAddButton(){
-      //  self.performSegue(withIdentifier: "myProfileToSummary", sender: self)
-
+        //  self.performSegue(withIdentifier: "myProfileToSummary", sender: self)
+        
     }
     
     @objc func onClickExperienceAddButton(sender:UIButton){
@@ -398,9 +433,71 @@ class MyProfileViewController1: BaseViewController {
     //
     //        return view
     //    }
-    @objc func onClickAddButton(){
+    @objc func onTapViewResume(_ sender:Any){
+        
+        // Download file
+        startActivityIndicator()
+        self.downloadfile(completion: {(success, fileLocationURL) in
+            
+            if success {
+                // Set the preview item to display======
+                self.previewItem = fileLocationURL! as NSURL
+                // Display file
+                DispatchQueue.main.async {
+                    let previewController = QLPreviewController()
+                    
+                    
+                    
+                    previewController.dataSource = self
+                    UINavigationBar.appearance(whenContainedInInstancesOf: [QLPreviewController.self]).setBackgroundImage(UIImage.init(color:UIColor(named: "DarkBlueColour")!), for: .default)
+                    self.navigationController?.pushViewController(previewController, animated: true)
+                    //  self.present(previewController, animated: true, completion: nil)
+                    self.stopActivityIndicator()
+                }
+                
+            }else{
+                debugPrint("File can't be downloaded")
+            }
+        })
         
     }
+    func downloadfile(completion: @escaping (_ success: Bool,_ fileLocation: URL?) -> Void){
+        
+        let resumeData = self.userData.userMetaData?.value(forKey: "resume") as? NSDictionary
+        
+        let itemUrl = URL(string:resumeData?.value(forKey: "url") as? String ?? "")
+        
+        // then lets create your document folder url
+        let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        // lets create your destination file url
+        let destinationUrl = documentsDirectoryURL.appendingPathComponent(resumeData?["fileName"] as? String ?? "")
+        
+        // to check if it exists before downloading it
+        if FileManager.default.fileExists(atPath: destinationUrl.path) {
+            debugPrint("The file already exists at path")
+            completion(true, destinationUrl)
+            
+            // if the file doesn't exist
+        } else {
+            
+            // you can use NSURLSession.sharedSession to download the data asynchronously
+            URLSession.shared.downloadTask(with: itemUrl!, completionHandler: { (location, response, error) -> Void in
+                guard let tempLocation = location, error == nil else { return }
+                do {
+                    // after downloading your file you need to move it to your destination url
+                    try FileManager.default.moveItem(at: tempLocation, to: destinationUrl)
+                    print("File moved to documents folder")
+                    completion(true, destinationUrl)
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                    completion(false, nil)
+                }
+            }).resume()
+        }
+    }
+    
+    
     
 }
 extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
@@ -441,10 +538,10 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
             
         }
         if section == 1 {
-           if self.userData.userMetaData?.count ?? 0 > 0 {
+            if self.userData.userMetaData?.count ?? 0 > 0 {
                 headerView.addButton.setTitle("Edit", for: .normal)
-           }else {
-             headerView.addButton.setTitle("Add", for: .normal)
+            }else {
+                headerView.addButton.setTitle("Add", for: .normal)
             }
         }
         if section == 0 {
@@ -469,10 +566,10 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
     @objc func onClickAddButton(sender: UIButton!){
         switch sender.tag {
         case 1:
-           // self.performSegue(withIdentifier: "myProfileToSummary", sender: self)
+            // self.performSegue(withIdentifier: "myProfileToSummary", sender: self)
             if let profileSummaryDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProfileSummaryDetailsViewController") as? ProfileSummaryDetailsViewController{
-              //  let indexPath = IndexPath(row: 0, section: 1)
-                        //  let cell = self.myProfileTableView.cellForRow(at: indexPath) as! MyProfileDetailTableViewCell
+                //  let indexPath = IndexPath(row: 0, section: 1)
+                //  let cell = self.myProfileTableView.cellForRow(at: indexPath) as! MyProfileDetailTableViewCell
                 profileSummaryDetailsViewController.profileSummary = self.userData.userMetaData?.value(forKey: "profileSummary") as? String ?? ""
                 self.navigationController?.pushViewController(profileSummaryDetailsViewController, animated: true)
                 
@@ -531,57 +628,68 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
                 
                 myProfileDetailTableViewCell.myProfileDescrption.text = self.userData.userMetaData?.value(forKey: "profileSummary") as? String
                 
-               // myProfileDetailTableViewCell.addButon.addTarget(self, action: #selector(onClickProfileSummaryAddButton), for: .touchUpInside)
-            
-            return myProfileDetailTableViewCell
-            
-        }
+                // myProfileDetailTableViewCell.addButon.addTarget(self, action: #selector(onClickProfileSummaryAddButton), for: .touchUpInside)
+                
+                return myProfileDetailTableViewCell
+                
+            }
         case 2:
-        if  let myExperienceTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyExperienceTableViewCell") as? MyExperienceTableViewCell {
-            if expCardData.count > 0 {
-                if indexPath.row < expCardData.count{
-                    myExperienceTableViewCell.setUpCell(expData:  expCardData[indexPath.row])
-                    myExperienceTableViewCell.editButton.tag = indexPath.row
-                    myExperienceTableViewCell.editButton.addTarget(self, action: #selector(onClickExperienceAddButton), for: .touchUpInside)
+            if  let myExperienceTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyExperienceTableViewCell") as? MyExperienceTableViewCell {
+                if expCardData.count > 0 {
+                    if indexPath.row < expCardData.count{
+                        myExperienceTableViewCell.setUpCell(expData:  expCardData[indexPath.row])
+                        myExperienceTableViewCell.editButton.tag = indexPath.row
+                        myExperienceTableViewCell.editButton.addTarget(self, action: #selector(onClickExperienceAddButton), for: .touchUpInside)
+                    }
+                } else {
+                    myExperienceTableViewCell.setUpCellForNoData()
                 }
-            } else {
-                myExperienceTableViewCell.setUpCellForNoData()
+                
+                return myExperienceTableViewCell
+                
             }
-            
-            return myExperienceTableViewCell
-            
-        }
         case 3:
-        if  let myEducationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyEducationTableViewCell") as? MyEducationTableViewCell {
-            if educationCardData.count > 0 {
-                if indexPath.row < educationCardData.count {
-                    myEducationTableViewCell.setUpCell(educationData: educationCardData[indexPath.row])
-                    
-                    myEducationTableViewCell.editButton.tag = indexPath.row
-                    myEducationTableViewCell.editButton.addTarget(self, action: #selector(onClickEducationAddButton), for: .touchUpInside)
+            if  let myEducationTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyEducationTableViewCell") as? MyEducationTableViewCell {
+                if educationCardData.count > 0 {
+                    if indexPath.row < educationCardData.count {
+                        myEducationTableViewCell.setUpCell(educationData: educationCardData[indexPath.row])
+                        
+                        myEducationTableViewCell.editButton.tag = indexPath.row
+                        myEducationTableViewCell.editButton.addTarget(self, action: #selector(onClickEducationAddButton), for: .touchUpInside)
+                    }
+                }else {
+                    myEducationTableViewCell.setUpCellForNoData()
                 }
-            }else {
-                myEducationTableViewCell.setUpCellForNoData()
+                return myEducationTableViewCell
+                
             }
-            return myEducationTableViewCell
-            
-        }
         case 4:
-        if  let myResumeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyResumeTableViewCell") as? MyResumeTableViewCell {
-            if indexPath.row < myResumeArray.count {
-                myResumeTableViewCell.myProfileTitle.text = myResumeArray[indexPath.row]
-                myResumeTableViewCell.myProfileDescrption.text = myResumeDetails[indexPath.row]
-                myResumeTableViewCell.addButon.addTarget(self, action: #selector(onClickResumeAddButton), for: .touchUpInside)
+            if  let myResumeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyResumeTableViewCell") as? MyResumeTableViewCell {
+                if indexPath.row < myResumeArray.count {
+                    myResumeTableViewCell.myProfileTitle.text = myResumeArray[indexPath.row]
+                    
+                    let resumeData = self.userData.userMetaData?.value(forKey: "resume") as? NSDictionary
+                    if resumeData?.count == 0{
+                        myResumeTableViewCell.myProfileDescrption.isUserInteractionEnabled = false
+                        myResumeTableViewCell.myProfileDescrption.text = myResumeDetails[indexPath.row]
+                    } else {
+                        myResumeTableViewCell.myProfileDescrption.isUserInteractionEnabled = true
+                        let viewResumeTap = UITapGestureRecognizer(target: self, action: #selector(self.onTapViewResume(_:)))
+                        myResumeTableViewCell.myProfileDescrption.addGestureRecognizer(viewResumeTap)
+                        myResumeTableViewCell.myProfileDescrption.text = "View resume"
+                    }
+                    
+                    myResumeTableViewCell.addButon.addTarget(self, action: #selector(onClickResumeAddButton), for: .touchUpInside)
+                }
+                return myResumeTableViewCell
+                
             }
-            return myResumeTableViewCell
-            
-        }
         default:
-        UITableViewCell()
+            UITableViewCell()
+        }
+        return UITableViewCell()
     }
-    return UITableViewCell()
-}
-
+    
 }
 extension MyProfileViewController1 : DataEnteredDelegate {
     func userDidEnterInformation(info: String) {
@@ -625,19 +733,20 @@ extension MyProfileViewController1:UIDocumentPickerDelegate,UINavigationControll
     
     func uploadFilesServerCall(data: URL){
         let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())",
-                                    "Connection":"Keep-Alive",
-                                    "Content-Type": "multipart/form-data"]
-        
+            "Connection":"Keep-Alive",
+            "Content-Type": "multipart/form-data"]
+        startActivityIndicator()
         if isInternetAvailable(){
             Util.Manager.upload(
                 multipartFormData: { (multipartFormData) in
                     
-                     multipartFormData.append(data, withName: "resume")
-                   multipartFormData.append(Data(data.absoluteString.utf8), withName: "resume",mimeType: "application/doc")
-               
+                    multipartFormData.append(data, withName: "resume")
+                    multipartFormData.append(Data(data.absoluteString.utf8), withName: "resume")
+                    
             },
                 to: RESUME_UPLOAD_API,headers: headers,
                 encodingCompletion: { encodingResult in
+                    self.stopActivityIndicator()
                     switch encodingResult {
                     case .success(let upload, _, _):
                         upload.responseJSON(completionHandler: { response in
@@ -646,12 +755,13 @@ extension MyProfileViewController1:UIDocumentPickerDelegate,UINavigationControll
                             if let json = response.result.value{
                                 
                                 let jsonDict = json as! NSDictionary
+                                let responseMessage = jsonDict.value(forKey: "message") as? String ?? ""
                                 if let status = jsonDict.object(forKey: "status") as? Int{
                                     if status == 200{
-                                        Util.showAlert(message: (jsonDict.object(forKey: "statusText") as? String ?? ""), viewController: self, title: "Success")
+                                        Util.showAlert(message: (jsonDict.object(forKey: "statusText") as? String ?? ""), viewController: self, title: responseMessage)
                                         
                                     }else{
-                                       // Util.showAlert(message: (jsonDict.object(forKey: "message") as? String ?? ""), viewController: self, title: "Error")
+                                        Util.showAlert(message: (jsonDict.object(forKey: "message") as? String ?? ""), viewController: self, title: responseMessage)
                                     }
                                 }
                             } else {
@@ -666,5 +776,29 @@ extension MyProfileViewController1:UIDocumentPickerDelegate,UINavigationControll
         }else{
             Util.showWhistle(message: NO_INTERNET, viewController: self)
         }
+    }
+}
+extension MyProfileViewController1: QLPreviewControllerDataSource {
+    func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
+        return 1
+    }
+    
+    func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+        
+        return self.previewItem as QLPreviewItem
+    }
+}
+extension UIImage {
+    
+    //image with color
+    convenience init?(color: UIColor) {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let path = UIBezierPath(rect: rect)
+        color.setFill()
+        path.fill()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: image!.cgImage!)
     }
 }

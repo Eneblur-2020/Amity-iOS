@@ -70,6 +70,10 @@ class MyAccountViewController: UIViewController {
                              if let signInViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "SignInVC") as? SignInViewController {
                                                        
                                 UserDefaults.standard.set(false, forKey: "IsLoggedIn")
+                                 let domain = Bundle.main.bundleIdentifier!
+                                  UserDefaults.standard.removePersistentDomain(forName: domain)
+                                  UserDefaults.standard.synchronize()
+                                  print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
                                  signInViewController.hidesBottomBarWhenPushed = true
                                 self.navigationController?.navigationBar.isHidden = true; self.navigationController?.pushViewController(signInViewController, animated: false)
                         }

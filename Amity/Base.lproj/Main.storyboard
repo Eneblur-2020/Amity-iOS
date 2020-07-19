@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Path 648" translatesAutoresizingMaskIntoConstraints="NO" id="LJS-Xy-c3l">
-                                <rect key="frame" x="-95.5" y="50.5" width="566" height="566"/>
+                                <rect key="frame" x="46" y="192" width="283" height="283"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myB-lO-r3o">
                                 <rect key="frame" x="42.5" y="158.5" width="290" height="300"/>
@@ -3180,7 +3180,7 @@
         <image name="messageIcon" width="512" height="512"/>
         <image name="passwordLock" width="512" height="512"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
-        <image name="phone.fill" catalog="system" width="64" height="56"/>
+        <image name="phone.fill" catalog="system" width="32" height="32"/>
         <namedColor name="ButtonYellowColour">
             <color red="0.9649999737739563" green="0.71399998664855957" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

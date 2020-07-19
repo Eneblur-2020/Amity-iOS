@@ -49,6 +49,10 @@ let EVENT_API = "\(BASE_URL)event"
 
 let GALLERY_API = "\(BASE_URL)gallery"
 
+//STUDENT
+
+let DOCUMENTS_API = "\(BASE_URL)student/documents"
+
 //PROFILE API
 
 let PROFILE_SUMMARY_API = "\(BASE_URL)profile/summary"

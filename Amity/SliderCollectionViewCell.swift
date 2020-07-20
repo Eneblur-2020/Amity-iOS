@@ -33,8 +33,8 @@ class SliderCollectionViewCell: UICollectionViewCell {
         self.titleLabel.text = webinor.webinarTitle
         self.dateLabel.text = dateTime.0
         self.timeLabel.text = dateTime.1
-        if let url = URL(string: webinor.instructorImage?.value(forKey: "url") as? String ?? "") {
-            self.sliderImage.kf.setImage(with: url, placeholder: UIImage(named: "screen4.png"))
+        if let url = URL(string: webinor.webinarImage?.value(forKey: "url") as? String ?? "") {
+            self.sliderImage.kf.setImage(with: url, placeholder: UIImage(named: ""))
         }
     }
 }

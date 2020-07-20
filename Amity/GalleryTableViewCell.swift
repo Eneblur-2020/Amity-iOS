@@ -65,7 +65,11 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
        
        
         self.imageGroups = Array(Dictionary(grouping:galleryArray){$0.imageTitle}.values)
-
+     let setshere = Set(imageArray)
+        uniqueimageArray = Array(setshere)
+        
+        print(uniqueimageArray)
+        
        }
        
        
@@ -83,7 +87,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
 //    }
   
    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       imageArray.count
+       uniqueimageArray.count
     }
     /* func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
              var reusableview: UICollectionReusableView? = nil
@@ -100,7 +104,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
     */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-         let galleyType = imageArray[indexPath.row]
+         let galleyType = uniqueimageArray[indexPath.row]
         if galleyType.type == "IMAGE" {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCollectionViewCell", for: indexPath) as! GalleryCollectionViewCell
        //  cell.collectionViewHeight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
@@ -121,7 +125,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
 extension GalleryTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if galleryDelegate != nil {
-            galleryDelegate?.onClickGalleryCollectionCell(data: imageArray[indexPath.row], indexPath: indexPath)
+            galleryDelegate?.onClickGalleryCollectionCell(data: uniqueimageArray[indexPath.row], indexPath: indexPath)
         }
     }
    

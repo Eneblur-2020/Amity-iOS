@@ -231,22 +231,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D407B4C6-C0CE-45A5-BC3C-E31DCAA701F3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/ForgotPasswordViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "SignUpUsingEmailId(url:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B30CEEFE-91C7-443D-8BD7-69A192E5914A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -359,22 +343,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "34EFFC3D-26B1-4C82-B9BB-2C26DCA0E57C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/WebinorDetailViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "initialSetUp()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "93D5160D-9EAD-470E-8E01-BDBFD60BC1D2"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -439,38 +407,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "797EFDD8-D9B8-4707-995A-A85A59EC1890"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/SignInViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "SignInViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D1067D50-C8EF-4AB1-8F23-F241F6A8199C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/SignInViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "SignInViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "ED09572A-BBC5-42AD-B8BB-62129F9AA22E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -480,7 +416,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "320"
             endingLineNumber = "320"
-            landmarkName = "getUserDetail(url:)"
+            landmarkName = "getEductaionDetails(url:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -513,70 +449,6 @@
             startingLineNumber = "265"
             endingLineNumber = "265"
             landmarkName = "getExpDetails(url:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3D4839B3-29CC-4605-9B4B-E63BDA4A07DB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/SignInViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "SignUpUsingEmailId(url:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3D4839B3-29CC-4605-9B4B-E63BDA4A07DB - 3db81cf9d570a47e"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in Amity.SignInViewController.SignUpUsingEmailId(url: Swift.String) -&gt; ()"
-                  moduleName = "Amity"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/VinuT/Documents/Amity_iOS_Eneblur/Amity/Amity/SignInViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "2128">
-               </Location>
-               <Location
-                  uuid = "3D4839B3-29CC-4605-9B4B-E63BDA4A07DB - 3db81cf9d570a47e"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in Amity.SignInViewController.SignUpUsingEmailId(url: Swift.String) -&gt; ()"
-                  moduleName = "Amity"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/VinuT/Documents/Amity_iOS_Eneblur/Amity/Amity/SignInViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "2265">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "26CEEA21-8A06-4EBA-A65F-6942D9A5D8D4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/SignInViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "SignUpUsingEmailId(url:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -673,38 +545,6 @@
             startingLineNumber = "59"
             endingLineNumber = "59"
             landmarkName = "ProfileSummary(url:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "21277A26-5683-41A5-80A9-431055F4CFD4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/PlayVideoViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "webView(_:didFinish:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "73A3204B-8D32-45A7-843F-D85E45049F59"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/PlayVideoViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "webView(_:didFail:withError:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -62,7 +62,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func screenNavigation(){
         
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "tabBarViewController") as? TabBarViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
         
         self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()

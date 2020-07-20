@@ -108,7 +108,7 @@ enum Storyboard: String {
 }
 
 //KEY VALUE
-let WEBINOR = "WEBINOR"
+let WEBINAR = "WEBINAR"
 let EVENT = "EVENT"
  
 

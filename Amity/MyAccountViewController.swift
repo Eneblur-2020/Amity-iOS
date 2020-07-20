@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyAccountViewController: UIViewController {
+class MyAccountViewController: BaseViewController {
     
     @IBOutlet weak var myAccountTabelView: UITableView!
     var myProfileArray = ["MY PROFILE","STUDENT WALLET"]
@@ -47,6 +47,7 @@ class MyAccountViewController: UIViewController {
     // Call SignOut API
     func callSignout(){
         
+        startActivityIndicator()
         let userUrl = LOGOUT_API
         // Add one parameter
         let myUrl = NSURL(string: userUrl)
@@ -62,7 +63,10 @@ class MyAccountViewController: UIViewController {
                 return
             }
             do {
-                
+                DispatchQueue.main.async {
+                     self.stopActivityIndicator()
+                }
+               
                 if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
                     let status = responseJSON["status"] as? Int
                     if status == 200 {
@@ -75,7 +79,7 @@ class MyAccountViewController: UIViewController {
                                   UserDefaults.standard.synchronize()
                                   print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
                                  signInViewController.hidesBottomBarWhenPushed = true
-                                self.navigationController?.navigationBar.isHidden = true; self.navigationController?.pushViewController(signInViewController, animated: false)
+                                 self.navigationController?.pushViewController(signInViewController, animated: false)
                         }
                        
                         }

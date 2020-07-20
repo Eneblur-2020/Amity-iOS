@@ -19,3 +19,7 @@ struct roleId {
     var _id:String?
     var description:String?
 }
+struct userMetaData {
+    var name:String?
+    var constactNumber:String?
+}

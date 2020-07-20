@@ -65,6 +65,7 @@
 		1B3D107B24BB1B6E00319811 /* WebinarCalenderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B3D107924BB1B6D00319811 /* WebinarCalenderCollectionViewCell.xib */; };
 		1B48EB5324C0095C006ADB99 /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B48EB5224C0095C006ADB99 /* VideoDetailViewController.swift */; };
 		1B48EB5524C00A05006ADB99 /* VideoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B48EB5424C00A05006ADB99 /* VideoDetailCollectionViewCell.swift */; };
+		1B4B242224C5CE790033BBD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BDBE45246E7A6500147DDB /* Assets.xcassets */; };
 		1B5032D724B206A700C1C484 /* AllEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5032D524B206A700C1C484 /* AllEventsCollectionViewCell.swift */; };
 		1B5032D824B206A700C1C484 /* AllEventsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B5032D624B206A700C1C484 /* AllEventsCollectionViewCell.xib */; };
 		1B51E9CA24AC33B80056C780 /* MyAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B51E9C824AC33B80056C780 /* MyAccountTableViewCell.swift */; };
@@ -123,7 +124,6 @@
 		80BDBE3F246E7A6200147DDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDBE3E246E7A6200147DDB /* SceneDelegate.swift */; };
 		80BDBE41246E7A6200147DDB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDBE40246E7A6200147DDB /* SignUpViewController.swift */; };
 		80BDBE44246E7A6200147DDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80BDBE42246E7A6200147DDB /* Main.storyboard */; };
-		80BDBE46246E7A6500147DDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BDBE45246E7A6500147DDB /* Assets.xcassets */; };
 		80BDBE49246E7A6500147DDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80BDBE47246E7A6500147DDB /* LaunchScreen.storyboard */; };
 		80BDBE51246E94FB00147DDB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDBE50246E94FB00147DDB /* SignInViewController.swift */; };
 		80BDBE53246EB44F00147DDB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDBE52246EB44F00147DDB /* ForgotPasswordViewController.swift */; };
@@ -632,10 +632,10 @@
 				EAF4413924A2547000533E01 /* PageView.xib in Resources */,
 				1BB0EC9924B389B100440A9A /* MyProfileHeadeTableViewCell.xib in Resources */,
 				1BBDEA9A24A7BA3C00E7AD47 /* SliderTableViewCell.xib in Resources */,
-				80BDBE46246E7A6500147DDB /* Assets.xcassets in Resources */,
 				1B35F99724C4C6020064EFF3 /* TestiTableViewCell.xib in Resources */,
 				1BBB652224A8758C006C10E2 /* SliderCollectionViewCell.xib in Resources */,
 				1B5F89B624B224AD001A991D /* AllEventsTableViewCell.xib in Resources */,
+				1B4B242224C5CE790033BBD1 /* Assets.xcassets in Resources */,
 				1B35F99B24C4C6020064EFF3 /* TopicTableViewCell.xib in Resources */,
 				1B3D107B24BB1B6E00319811 /* WebinarCalenderCollectionViewCell.xib in Resources */,
 				1B04C02F24B052BF00C0B316 /* MyProfileTableViewCell.xib in Resources */,
@@ -932,6 +932,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93A5F099FD4BC4B9098DA579 /* Pods-Amity.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8HF35YF258;
@@ -953,6 +954,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A4B97F346090EF87AA71442D /* Pods-Amity.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Amity/AmityRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;

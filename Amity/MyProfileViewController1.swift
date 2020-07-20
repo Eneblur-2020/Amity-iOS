@@ -78,43 +78,58 @@ class MyProfileViewController1: BaseViewController {
         
     }
     @objc func onEmailTextFieldtap(_ sender:Any){
-        
-        let alert = UIAlertController(title: "My Profile", message: "Please enter your email id", preferredStyle: .alert)
-        alert.addTextField()
-        alert.textFields?[0].placeholder = "emailID"
-        alert.textFields?[0].keyboardType = UIKeyboardType.emailAddress
-        alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: { (action) in
-            print("cancel")
-        }))
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action) in
-            let emailtext = alert.textFields?[0].text
-            let indexPath = IndexPath(row: 0, section: 0)
-            let cell = self.myProfileTableView.cellForRow(at: indexPath) as! MyProfileTableViewCell
-            cell.userEmailIdTextField.text = emailtext
-            self.updateEmailApiCal(emailId:cell.userEmailIdTextField.text ?? "")
-        }))
-        self.present(alert, animated: true, completion: nil)
-        
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell = self.myProfileTableView.cellForRow(at: indexPath) as! MyProfileTableViewCell
+        if cell.userEmailIdTextField.text?.isEmpty ?? false {
+            let alert = UIAlertController(title: "My Profile", message: "Please enter your email id", preferredStyle: .alert)
+            alert.addTextField()
+            alert.textFields?[0].placeholder = "emailID"
+            alert.textFields?[0].keyboardType = UIKeyboardType.emailAddress
+            alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: { (action) in
+                print("cancel")
+            }))
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action) in
+                let emailtext = alert.textFields?[0].text
+                
+                cell.userEmailIdTextField.text = emailtext
+                self.updateEmailApiCal(emailId:cell.userEmailIdTextField.text ?? "")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     @objc func onMobileNumberTap(_ sender:Any){
         
-        let alert = UIAlertController(title: "My Profile", message: "Please enter your mobile number", preferredStyle: .alert)
-        alert.addTextField()
-        alert.textFields?[0].placeholder = "Phone number"
-        alert.textFields?[0].keyboardType = UIKeyboardType.alphabet
-        // alert.textFields?[0].isSecureTextEntry = true
-        alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: { (action) in
-            print("cancel")
-        }))
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action) in
-            let phoneNumberText = alert.textFields?[0].text
-            
-            let indexPath = IndexPath(row: 0, section: 0)
-            let cell = self.myProfileTableView.cellForRow(at: indexPath) as! MyProfileTableViewCell
-            cell.phoneNumberTextField.text = phoneNumberText
-            self.updatePhoneApiCal(phoneNumber:  cell.phoneNumberTextField.text ?? "")
-        }))
-        self.present(alert, animated: true, completion: nil)
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell = self.myProfileTableView.cellForRow(at: indexPath) as! MyProfileTableViewCell
+        if cell.phoneNumberTextField.text?.isEmpty ?? false {
+            let alert = UIAlertController(title: "My Profile", message: "Please enter your mobile number", preferredStyle: .alert)
+            alert.addTextField()
+            alert.textFields?[0].placeholder = "Phone number"
+            alert.textFields?[0].keyboardType = UIKeyboardType.alphabet
+            // alert.textFields?[0].isSecureTextEntry = true
+            alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: { (action) in
+                print("cancel")
+            }))
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action) in
+                let phoneNumberText = alert.textFields?[0].text
+                
+                let indexPath = IndexPath(row: 0, section: 0)
+                let cell = self.myProfileTableView.cellForRow(at: indexPath) as! MyProfileTableViewCell
+                cell.phoneNumberTextField.text = phoneNumberText
+                self.updatePhoneApiCal(phoneNumber:  cell.phoneNumberTextField.text ?? "")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func validateTextFields(ContactNumber:String) -> Bool {
+        
+        
+        let PHONE_REGEX = "^\\d{3}-\\d{3}-\\d{4}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        let result = phoneTest.evaluate(with: ContactNumber)
+        return result
         
     }
     func updateNameApiCal(userName:String){

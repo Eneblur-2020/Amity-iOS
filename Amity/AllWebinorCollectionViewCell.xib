@@ -152,6 +152,7 @@
                 <outlet property="allWebinorView" destination="Pxk-xM-kaC" id="YP8-q5-Lr9"/>
                 <outlet property="dateLabel" destination="UmY-hi-9hh" id="mnk-F5-MT7"/>
                 <outlet property="participantsLabel" destination="YDd-WM-S6D" id="hjB-Wk-rc1"/>
+                <outlet property="registerButton" destination="7Gs-sW-2wK" id="Je7-gh-qF3"/>
                 <outlet property="timeLabel" destination="S5J-hh-Dyw" id="Xtz-IV-KOz"/>
                 <outlet property="webinorTitleLabel" destination="sMV-T5-v20" id="SHU-gE-bns"/>
             </connections>

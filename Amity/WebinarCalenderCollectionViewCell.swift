@@ -26,12 +26,12 @@ class WebinarCalenderCollectionViewCell: UICollectionViewCell {
         self.timeLabel.isHidden = false
         self.participantsLabel.isHidden = false
         self.registerButton.isHidden = false
-        self.dateLabel.text = webinor.webinarDate
-        self.timeLabel.text = webinor.webinarTime
+        self.dateLabel.text = "Date: " + (webinor.webinarDate ?? "")
+        self.timeLabel.text = "Time: " + (webinor.webinarTime ?? "")
         self.webinorTitleLabel.text = webinor.webinarTitle
-        self.participantsLabel.text = "2K"
+       // self.participantsLabel.text = "2K"
         if let url = URL(string: webinor.webinarImage?.value(forKey: "url") as? String ?? "") {
-            self.allWebinorImage.kf.setImage(with: url, placeholder: UIImage(named: "screen4.png"))
+            self.allWebinorImage.kf.setImage(with: url, placeholder: UIImage(named: ""))
         }
     }
     func setUpEventCell(event: Event){
@@ -45,7 +45,7 @@ class WebinarCalenderCollectionViewCell: UICollectionViewCell {
         self.webinorTitleLabel.text = event.eventTitle
         //  self.participantsLabel.text = "2K"
         if let url = URL(string: event.eventImage?.value(forKey: "url") as? String ?? "") {
-            self.allWebinorImage.kf.setImage(with: url, placeholder: UIImage(named: "screen4.png"))
+            self.allWebinorImage.kf.setImage(with: url, placeholder: UIImage(named: ""))
         }
     }
 }

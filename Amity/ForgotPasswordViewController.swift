@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Alamofire
 
-class ForgotPasswordViewController: UIViewController {
+class ForgotPasswordViewController: BaseViewController {
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var emailErrorLabel: UILabel!
@@ -17,17 +18,62 @@ class ForgotPasswordViewController: UIViewController {
         super.viewDidLoad()
         
         continueBtn.layer.cornerRadius = 5
-    }
+        self.title = "FORGOT PASSWORD"
+        let addButtonItem = UIBarButtonItem(title: "<", style: .plain, target: self, action: #selector(onClickBackButton))
+            self.navigationItem.leftBarButtonItem  = addButtonItem
+        }
     
-    @IBAction func onBackPressed(_ sender: Any) {
+      @objc func onClickBackButton(){
         self.dismiss(animated: true)
-    }
+         
+          //self.navigationController?.popViewController(animated: true)
+      }
+      
     @IBAction func onContinueBtnPressed(_ sender: Any){
         if (validateTextFields()){
             self.SignUpUsingEmailId(url: FORGOT_PASSWORD_RECOVER_API)
         }
     }
     func SignUpUsingEmailId(url :String){
+        
+        let data : [String : String] = [
+            "name" : emailTextField.text ?? ""]
+        startActivityIndicator()
+        if isInternetAvailable(){
+            Util.Manager.request(url, method : .post,  parameters: data,encoding: JSONEncoding.default).responseJSON { (response) in
+                self.stopActivityIndicator()
+                switch response.result{
+                case .success(_):
+                    if let json = response.result.value{
+                        if let jsonData = json as? NSDictionary {
+                            let responseMssage = jsonData.object(forKey: "message") as? String ?? ""
+                           let status = jsonData.object(forKey: "status") as? Int
+                            if status == 200 {
+                                if let oTPVarificationViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "OTPVarificationViewController") as? OTPVarificationViewController {
+                                    oTPVarificationViewController.isFrom = 2
+                                    oTPVarificationViewController.modalPresentationStyle = .fullScreen
+                                self.navigationController?.pushViewController(oTPVarificationViewController, animated: true)
+                                   
+                                     
+                                }
+                            }
+                        }
+                    }
+                    break
+                case .failure(_):
+                    if let statusCode = response.response?.statusCode {
+                        
+                    }
+                    break
+                    
+                }
+            }
+        } else {
+            Util.showWhistle(message: NO_INTERNET, viewController: self)
+        }
+        
+    }
+    /*func SignUpUsingEmailId(url :String){
         
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
         request.httpMethod = "POST"
@@ -120,6 +166,7 @@ class ForgotPasswordViewController: UIViewController {
         
         task.resume()
     }
+ */
     func validateTextFields() -> Bool {
         
         let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)

@@ -20,58 +20,57 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Til-dG-JXi">
                         <rect key="frame" x="10" y="10" width="178" height="277"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ksJ-Ru-aLR">
-                                <rect key="frame" x="0.0" y="172" width="178" height="98"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcu-Ek-JnI">
+                                <rect key="frame" x="20" y="237" width="142" height="30"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="avr-n1-nvI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="REGISTER NOW">
+                                    <color key="titleColor" red="0.0" green="0.18823529410000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" name="TitleBlackColour"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ksJ-Ru-aLR">
+                                <rect key="frame" x="0.0" y="172" width="178" height="55"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3xr-3q-hra">
-                                        <rect key="frame" x="0.0" y="0.0" width="178" height="62"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3xr-3q-hra">
+                                        <rect key="frame" x="33" y="0.0" width="112.5" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="May 22,Friday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqz-kg-Xme">
-                                                <rect key="frame" x="0.0" y="0.0" width="178" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="96.5" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="7 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kU0-h8-eL2">
-                                                <rect key="frame" x="0.0" y="22" width="178" height="18"/>
+                                                <rect key="frame" x="0.0" y="20" width="34.5" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="Participants: 2k" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgM-LC-kco">
-                                                <rect key="frame" x="0.0" y="44" width="178" height="18"/>
+                                                <rect key="frame" x="0.0" y="40" width="112.5" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcu-Ek-JnI">
-                                        <rect key="frame" x="0.0" y="68" width="178" height="30"/>
-                                        <color key="backgroundColor" red="0.96470588239999999" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="avr-n1-nvI"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="fkN-7P-Jxx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="REGISTER NOW">
-                                            <color key="titleColor" red="0.0" green="0.18823529410000001" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">
-                                                <real key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" name="TitleBlackColour"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="9"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="98" id="ec7-Rv-TPs"/>
@@ -88,7 +87,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Webinar Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-iS-KqK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Webinar Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWd-iS-KqK">
                                 <rect key="frame" x="0.0" y="130" width="178" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="KEs-F0-tvs"/>
@@ -101,17 +100,20 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="hWd-iS-KqK" firstAttribute="centerX" secondItem="Til-dG-JXi" secondAttribute="centerX" id="1na-qe-ye7"/>
-                            <constraint firstAttribute="bottom" secondItem="ksJ-Ru-aLR" secondAttribute="bottom" constant="7" id="2Hs-xL-OZf"/>
+                            <constraint firstAttribute="bottom" secondItem="ksJ-Ru-aLR" secondAttribute="bottom" constant="50" id="2Hs-xL-OZf"/>
                             <constraint firstItem="sC6-yP-Lbj" firstAttribute="top" secondItem="Til-dG-JXi" secondAttribute="top" id="8tg-rh-uKy"/>
                             <constraint firstItem="sC6-yP-Lbj" firstAttribute="leading" secondItem="Til-dG-JXi" secondAttribute="leading" id="Cyy-3i-sYy"/>
+                            <constraint firstItem="Qcu-Ek-JnI" firstAttribute="centerX" secondItem="Til-dG-JXi" secondAttribute="centerX" constant="2" id="HD2-8m-ZnY"/>
                             <constraint firstAttribute="trailing" secondItem="ksJ-Ru-aLR" secondAttribute="trailing" id="LOq-8E-bpN"/>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="277" id="PbQ-ou-brH"/>
                             <constraint firstItem="ksJ-Ru-aLR" firstAttribute="leading" secondItem="Til-dG-JXi" secondAttribute="leading" id="S6c-bg-eOs"/>
+                            <constraint firstItem="Qcu-Ek-JnI" firstAttribute="leading" secondItem="Til-dG-JXi" secondAttribute="leading" constant="20" id="TN5-eF-aPr"/>
                             <constraint firstItem="hWd-iS-KqK" firstAttribute="top" secondItem="sC6-yP-Lbj" secondAttribute="bottom" constant="10" id="ZZp-Ia-nGi"/>
                             <constraint firstAttribute="trailing" secondItem="sC6-yP-Lbj" secondAttribute="trailing" id="cbu-dH-hj9"/>
                             <constraint firstAttribute="width" constant="178" id="ghO-Ba-h9c"/>
                             <constraint firstItem="hWd-iS-KqK" firstAttribute="leading" secondItem="Til-dG-JXi" secondAttribute="leading" id="kBH-5e-zJd"/>
                             <constraint firstItem="ksJ-Ru-aLR" firstAttribute="top" secondItem="hWd-iS-KqK" secondAttribute="bottom" constant="6" id="lQL-xu-oQz"/>
+                            <constraint firstItem="Qcu-Ek-JnI" firstAttribute="top" secondItem="ksJ-Ru-aLR" secondAttribute="bottom" constant="10" id="yeA-cI-Xfd"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layerCornerRadius">

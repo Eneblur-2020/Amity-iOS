@@ -179,15 +179,22 @@ extension SliderTableViewCell:UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath) as! SliderCollectionViewCell
         // cell.sliderImage.image = UIImage(named : arrayOfImages[indexPath.item])
-        
+        cell.registerButton.addTarget(self, action: #selector(onRegisterButtonClick), for: .touchUpInside)
+        cell.registerButton.tag = indexPath.row
         cell.setUpCell(webinor: webinorArray[indexPath.row])
         return cell
+    }
+    @objc func onRegisterButtonClick(sender: UIButton){
+        let indexpath = IndexPath(row: sender.tag, section: 0)
+        if delegate != nil {
+            delegate?.onClickWebinarSlider(data: webinorArray[indexpath.row],indexPath:indexpath,isFrom:WEBINAR)
+        }
     }
 }
 extension SliderTableViewCell:UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if delegate != nil {
-            delegate?.onClickWebinarSlider(data: webinorArray[indexPath.row],indexPath:indexPath,isFrom:WEBINOR)
+            delegate?.onClickWebinarSlider(data: webinorArray[indexPath.row],indexPath:indexPath,isFrom:WEBINAR)
         }
        
     }

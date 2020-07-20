@@ -24,22 +24,27 @@ class SignInViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        continueBtn.layer.cornerRadius = 5
-        emailTextField.text = "apple@mailinator.com"
-        passwordTextField.text = "user1234!"
-        // Label clickable
-      
-        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(clickable))
-        tapGesture.numberOfTouchesRequired = 1
-       
+        
+       initialSetUp()
     }
-    
+    func initialSetUp(){
+        continueBtn.layer.cornerRadius = 5
+          emailTextField.text = "apple@mailinator.com"
+          passwordTextField.text = "user1234!"
+          // Label clickable
+        
+          let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(clickable))
+          tapGesture.numberOfTouchesRequired = 1
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        self.phoneNumberTextfield.delegate = self
+        self.title = "SIGN IN"
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
+    }
+
     @objc func clickable(){
         self.performSegue(withIdentifier: "skipNow", sender: self)
-    }
-    
-    @IBAction func onBackPressed(_ sender: Any) {
-       // self.dismiss(animated: true)
     }
     
     @IBAction func onForgotPasswordPressed(_ sender: Any) {
@@ -71,12 +76,10 @@ class SignInViewController: BaseViewController {
                     {
                         if let URL = response.request?.url{
                             let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
-                            print(cookies.first)
-                            print(cookies)
-                            print(cookies.first?.value(forKey: "value")as! String)
-                            
+                            if cookies.count > 0 {
                              let cookieSid = cookies.first?.value(forKey: "value") as! String 
                             Util.setCookie(cookie: cookieSid)
+                            }
                             self.stopActivityIndicator()
                     }
                     }
@@ -86,13 +89,25 @@ class SignInViewController: BaseViewController {
                         if let json = response.result.value{
                             if let jsonData = json as? NSDictionary {
                                  let status = jsonData.object(forKey: "status") as? Int
-                                let data = jsonData.object(forKey: "data") as? NSDictionary
+                                  let responseMessage = jsonData.object(forKey: "message") as? String
                                 if status == 200 {
                                     //TODO : LOCALIZATION REQUIRED
                                     
                                     self.userDefaults.set(true, forKey: "IsLoggedIn")
-                                    self.performSegue(withIdentifier: "tabBarViewController", sender: self)
+                                   if let tabBarViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
+                                       
+                                        tabBarViewController.modalPresentationStyle = .fullScreen
+                                    self.navigationController?.present(tabBarViewController, animated: true)
+                                       
+                                         
+                                    }
                                     
+                                }else {
+                                    OperationQueue.main.addOperation {
+                                        let alert = UIAlertController(title:"", message: responseMessage, preferredStyle: UIAlertController.Style.alert)
+                                        alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
+                                        self.present(alert, animated: true, completion: nil)
+                                    }
                                 }
                             }
                         }
@@ -112,100 +127,7 @@ class SignInViewController: BaseViewController {
      
         
     }
-  /*  func SignUpUsingEmailId(url :String){
-        
-        
-        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
-        request.httpMethod = "POST"
-        
-        
-        var indata: [String: Any] = ["username":"gauuuurav","password":"Pass@123"]
-        indata["username"] = emailTextField.text
-        indata["password"] = passwordTextField.text
-
-        if let json = try? JSONSerialization.data(withJSONObject : indata, options: []){
-            if let content = String(data: json, encoding: String.Encoding.utf8){
-                // here `content` is the JSON dictionary containing the String
-                print(content)
-                request.httpBody = content.data(using: String.Encoding.utf8)
-            }
-        }
-        print(request.httpBody as Any)
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        
-        
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            guard error == nil && data != nil else {      // check for fundamental networking error
-                print("error=\(String(describing: error))")
-                return
-            }
-            
-            do {
-                //settting cookies
-                
-                if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
-                    //            print(responseJSON)
-                    //            print(responseJSON["status"]!)
-                    //            print(responseJSON["message"]!)
-                    
-                    let response1 = responseJSON["status"]! as! Int
-                    let response2 = responseJSON["message"]! as! String
-                    let response3 = responseJSON["data"] as? NSDictionary
-                    print(response3)
-                    let userTokenPublicKey = response3?.value(forKey: "publicKey") as? String
-                    
-                    //Check response from the sever
-                    if response1 == 200            {
-                        OperationQueue.main.addOperation {
-                            //API call Successful and can perform other operatios
-                            
-                            if let httpResponse = response as? HTTPURLResponse {
-                                if let cookie = httpResponse.allHeaderFields["Set-Cookie"] as? String {
-                                    
-                                    var ck = cookie.components(separatedBy: ",")
-                                    var ck1 = ck[1].components(separatedBy: ";")
-                                    // use X-Dem-Auth here
-                                    UserDefaults.standard.set(ck1[0], forKey: "USER")
-                                }
-                            }
-                            self.userDefaults.set(true, forKey: "IsLoggedIn")
-                            self.performSegue(withIdentifier: "tabBarViewController", sender: self)
-                            
-                        }
-                        
-                    }
-                    else if(response1 == 422) {
-                        OperationQueue.main.addOperation {
-                            let alert = UIAlertController(title:"", message: response2, preferredStyle: UIAlertController.Style.alert)
-                            alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                        }
-                    }
-                    else
-                    {
-                        OperationQueue.main.addOperation {
-                            
-                            //API call failed and perform other operations
-                            
-                            
-                        }
-                        
-                    }
-                    
-                }
-            }
-            catch {
-                print("Error -> \(error)")
-            }
-            
-        }
-        
-        
-        task.resume()
-        
-    }
- */
+  
     func SignUpUsingPhone(url :String){
         
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
@@ -249,8 +171,14 @@ class SignInViewController: BaseViewController {
                         OperationQueue.main.addOperation {
                             
                             //API call Successful and can perform other operatios
-                            isFromOTPSegue = 1
-                            self.performSegue(withIdentifier: "signInToOtp", sender: self)
+                            self.userDefaults.set(true, forKey: "IsLoggedIn")
+                            if let oTPVarificationViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "OTPVarificationViewController") as? OTPVarificationViewController {
+                                                                   oTPVarificationViewController.isFrom = 1
+                                                                   oTPVarificationViewController.modalPresentationStyle = .fullScreen
+                                                               self.navigationController?.pushViewController(oTPVarificationViewController, animated: true)
+                                                                  
+                                                                    
+                                                               }
                             
                             print("SignUp Successful")
                         }
@@ -370,5 +298,11 @@ class SignInViewController: BaseViewController {
         else {
             return false
         }
+    }
+}
+extension SignInViewController:UITextFieldDelegate{
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        return self.view.endEditing(true)
+        
     }
 }

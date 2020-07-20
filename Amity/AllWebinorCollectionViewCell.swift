@@ -15,6 +15,7 @@ class AllWebinorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var participantsLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var registerButton: UIButton!
     
     
     override func awakeFromNib() {

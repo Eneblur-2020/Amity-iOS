@@ -6,7 +6,7 @@ PODS:
     - Kingfisher/Core (= 5.14.1)
   - Kingfisher/Core (5.14.1)
   - Toaster (2.2.0)
-  - Whisper (6.0.2)
+  - Whisper (6.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0.0)
@@ -31,8 +31,8 @@ SPEC CHECKSUMS:
   FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
   Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   Toaster: c1a81b376edcc2470157b4d1ee1e9341d3b96455
-  Whisper: 169760fc4bab0abf24d5529f9276f95c25cf1025
+  Whisper: 6869ae85284ae2ba0aa4c7d8a826be6436409fed
 
 PODFILE CHECKSUM: 17b03227d62a615fe16bed77814948cf117f5585
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1

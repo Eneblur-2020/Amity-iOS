@@ -170,17 +170,18 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         return view
     }
     @objc func onClickViewAllButton(sender: UIButton){
-        
+        if sender.tag == 1 || sender.tag == 2 {
         if let webinarCalenderViewController = self.storyboard?.instantiateViewController(withIdentifier: "WebinarCalenderViewController") as? WebinarCalenderViewController {
             //nextViewController.finacerId = idArray[indexPath.row]
             if sender.tag == 1 {
-                webinarCalenderViewController.isFrom = WEBINOR
-            } else {
+                webinarCalenderViewController.isFrom = WEBINAR
+            } else if sender.tag == 2 {
                 webinarCalenderViewController.isFrom = EVENT
             }
             webinarCalenderViewController.tag = sender.tag
             
             self.navigationController?.pushViewController(webinarCalenderViewController, animated: true)
+        }
         }
         
     }
@@ -191,7 +192,7 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         
         //return UITableViewAutomaticDimension
         if indexPath.section == 0{
-            return 300
+            return 320
         }
         if indexPath.section == 2{
             return 270

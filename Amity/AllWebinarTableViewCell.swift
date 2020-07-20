@@ -62,19 +62,26 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllWebinorCollectionViewCell", for: indexPath) as! AllWebinorCollectionViewCell
         
-        
+          cell.registerButton.addTarget(self, action: #selector(onRegisterButtonClick), for: .touchUpInside)
+        cell.registerButton.tag = indexPath.row
         cell.setUpCell(webinor: webinorArray[indexPath.row])
          //cell.allWebinorImage.image = UIImage(named : section2Images[indexPath.item])
         
         return cell
     }
    
+    @objc func onRegisterButtonClick(_ sender:UIButton){
+        let indexpath = IndexPath(row: sender.tag, section: 0)
+        if delegate != nil {
+            delegate?.onClickWebinarSlider(data: webinorArray[indexpath.row],indexPath:indexpath,isFrom:WEBINAR)
+        }
+    }
 }
 extension AllWebinarTableViewCell: UITableViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath) as! SliderCollectionViewCell
         if delegate != nil {
-            delegate?.onClickWebinarSlider(data: webinorArray[indexPath.row],indexPath:indexPath,isFrom:WEBINOR)
+            delegate?.onClickWebinarSlider(data: webinorArray[indexPath.row],indexPath:indexPath,isFrom:WEBINAR)
         }
        // cell.delegate?.cellTaped(data: indexPath)
     }

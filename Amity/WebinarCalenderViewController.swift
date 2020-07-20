@@ -16,7 +16,6 @@ class WebinarCalenderViewController: UIViewController {
     @IBOutlet weak var allWebinorCollectionView: UICollectionView!
     @IBOutlet weak var webinarEventSearchBar: UISearchBar!
     @IBOutlet weak var searchResultForLabel: UILabel!
-      @IBOutlet weak var allwebinarCollectionViewHeightLayout: NSLayoutConstraint!
     
     @IBOutlet weak var viewAllButton: UIButton!
     var tag: Int?
@@ -39,7 +38,7 @@ class WebinarCalenderViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func onClickViewAllButton(_ sender: Any) {
-        if isFrom == WEBINOR {
+        if isFrom == WEBINAR {
             filteredWebinorArray = webinorArray
             searchResultForLabel.text = "All Webinar"
         } else {
@@ -52,7 +51,7 @@ class WebinarCalenderViewController: UIViewController {
         
     }
     func initialSetUp(){
-        if isFrom == WEBINOR {
+        if isFrom == WEBINAR {
             filteredWebinorArray = webinorArray
             self.title = "WEBINAR"
             searchResultForLabel.text = "All Webinar"
@@ -82,7 +81,7 @@ extension WebinarCalenderViewController: FSCalendarDelegate{
             calendar.setCurrentPage(date, animated: true)
         }
         viewAllButton.isHidden = false
-        if isFrom == WEBINOR {
+        if isFrom == WEBINAR {
             filteredWebinorArray = webinorArray.filter({$0.webinarDate == selectedDate[0]})
             searchResultForLabel.text = filteredWebinorArray.count == 0 ? "No Result for " + selectedDate[0] : "Result for " + selectedDate[0]
         } else {
@@ -97,7 +96,7 @@ extension WebinarCalenderViewController: FSCalendarDelegate{
 }
 extension WebinarCalenderViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if isFrom == WEBINOR {
+        if isFrom == WEBINAR {
             return filteredWebinorArray.count
         } else {
             return filteredEventArray.count
@@ -105,10 +104,11 @@ extension WebinarCalenderViewController: UICollectionViewDataSource{
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WebinarCalenderCollectionViewCell", for: indexPath) as! WebinarCalenderCollectionViewCell
+        cell.registerButton.addTarget(self, action: #selector(onRegisterButtonClick), for: .touchUpInside)
+        cell.registerButton.tag = indexPath.row
         var height = allWebinorCollectionView.collectionViewLayout.collectionViewContentSize.height
-        allwebinarCollectionViewHeightLayout.constant = height
-                   self.view.layoutIfNeeded()
-        if isFrom == WEBINOR {
+        self.view.layoutIfNeeded()
+        if isFrom == WEBINAR {
             cell.setUpCell(webinor: filteredWebinorArray[indexPath.row])
         } else {
             cell.setUpEventCell(event: filteredEventArray[indexPath.row])
@@ -117,8 +117,35 @@ extension WebinarCalenderViewController: UICollectionViewDataSource{
         return cell
         
     }
+    @objc func onRegisterButtonClick(_ sender:UIButton){
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        let webinorDetailViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "WebinorDetailViewController") as! WebinorDetailViewController
+        if isFrom == WEBINAR {
+            webinorDetailViewController.isFrom = WEBINAR
+            webinorDetailViewController.webinarData = filteredWebinorArray[indexPath.row]
+        } else {
+            webinorDetailViewController.isFrom = "EVENTS"
+            webinorDetailViewController.eventsData = filteredEventArray[indexPath.row]
+        }
+        self.navigationController?.pushViewController(webinorDetailViewController, animated: true)
+    }
+    
     
 }
+extension WebinarCalenderViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let webinorDetailViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "WebinorDetailViewController") as! WebinorDetailViewController
+        if isFrom == WEBINAR {
+            webinorDetailViewController.isFrom = WEBINAR
+            webinorDetailViewController.webinarData = filteredWebinorArray[indexPath.row]
+        } else {
+            webinorDetailViewController.isFrom = "EVENTS"
+            webinorDetailViewController.eventsData = filteredEventArray[indexPath.row]
+        }
+        self.navigationController?.pushViewController(webinorDetailViewController, animated: true)
+    }
+}
+
 extension WebinarCalenderViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -148,7 +175,7 @@ extension WebinarCalenderViewController:UISearchBarDelegate {
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewAllButton.isHidden = false
-        if isFrom == WEBINOR {
+        if isFrom == WEBINAR {
             filteredWebinorArray = webinorArray.filter { text in
                 
                 return ((text.webinarTitle?.lowercased() as AnyObject).contains(searchText.lowercased()))

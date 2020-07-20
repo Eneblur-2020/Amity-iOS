@@ -39,7 +39,7 @@ let FORGOT_PASSWORD_RECOVER_API = "\(BASE_URL)authentication/recover"
 let RESET_PASSWORD_API = "\(BASE_URL)authentication/resetPassword"
 
 //WEBINAR API
-let WEBINAR_API = "\(BASE_URL)webinar"
+let WEBINAR_API = "\(BASE_URL)webinar?type=upcoming"
 
 //ALL EVENTS
 
@@ -97,6 +97,7 @@ var webinorArray = [Webinor]()
 var eventArray = [Event]()
 var galleryArray = [Gallery]()
 var imageArray = [Gallery]()
+var uniqueimageArray = [Gallery]()
 var videoArray = [Gallery]()
 
 

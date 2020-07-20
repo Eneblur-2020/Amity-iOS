@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 class ApiUtil{
     static let apiUtil = ApiUtil()
+    
+
     func webinarAPI(completionHandler: @escaping (AnyObject?) -> ()){
         if isInternetAvailable(){
             Util.Manager.request(WEBINAR_API, method : .get, encoding: JSONEncoding.default).responseJSON { (response) in

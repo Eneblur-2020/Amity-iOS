@@ -297,6 +297,12 @@ extension HomePage1ViewController :  TableViewInsideCollectionViewDelegate,Event
             //nextViewController.finacerId = idArray[indexPath.row]
             //nextViewController.eventsData = data
             //nextViewController.isFrom = isFrom
+           // let data = imageArray[indexPath.row]
+            imageArray = imageArray.filter {
+                $0.imageTitle == data.imageTitle
+
+
+                               }
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }
     }

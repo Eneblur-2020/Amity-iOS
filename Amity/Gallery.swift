@@ -7,7 +7,20 @@
 //
 
 import Foundation
-class Gallery {
+class Gallery : Hashable,Equatable {
+    static func == (lhs: Gallery, rhs: Gallery) -> Bool {
+       return  lhs.imageTitle == rhs.imageTitle
+    }
+    func hash(into hasher: inout Hasher) {
+           hasher.combine(label)
+          // hasher.combine(command)
+       }
+
+    let label: String = ""
+       let action: (() -> Void)? = nil
+    //  let command: Command? = nil
+    
+    
     var image: NSDictionary?
     var id: String?
     var imageTitle: String?

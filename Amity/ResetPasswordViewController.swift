@@ -8,32 +8,37 @@
 
 import UIKit
 
-class ResetPasswordViewController: UIViewController {
+class ResetPasswordViewController: BaseViewController {
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordErrorLabel: UILabel!
     @IBOutlet weak var confirmPasswordErrorLabel: UILabel!
-   
-
+    var otpToken = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        newPasswordTextField.delegate = self
+        confirmPasswordTextField.delegate = self
+        self.title = "RESET PASSWORD"
         // Do any additional setup after loading the view.
     }
     @IBAction func onContinueBtnPressed(_ sender: Any){
-           if (validateTextFields()){
-               self.ResetPasswordUsingEmailId(url: RESET_PASSWORD_API )
-           }
-       }
-    func ResetPasswordUsingEmailId(url :String){
-        
-        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
+        if (validateTextFields()){
+            self.ResetPasswordUsingEmailId(url: RESET_PASSWORD_API)
+        }
+    }
+    func ResetPasswordUsingEmailId(url :String?){
+        if let URL = url {
+            startActivityIndicator()
+            let request = NSMutableURLRequest(url: NSURL(string: URL + otpToken ) as! URL)
         request.httpMethod = "POST"
         
         //let postString = "email=\(String(describing: emailTextField))&password=\(passwordTextField!)&confirmPassword=\(confirmTextField!)"
         var indata: [String: Any] = ["email":"gauuuuravk@gmail.com"]
-        indata["email"] =  newPasswordTextField.text
-        
+        indata["password"] =  newPasswordTextField.text
+        indata["confirmPassword"] = confirmPasswordTextField.text
+      
         
         // let content : String
         //let jrequest = try? JSONSerialization.data(withJSONObject: indata,options: [])
@@ -66,8 +71,7 @@ class ResetPasswordViewController: UIViewController {
                 
                 if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
                     print(responseJSON)
-                    print(responseJSON["status"]!)
-                    print(responseJSON["message"]!)
+                    self.stopActivityIndicator()
                     
                     let response1 = responseJSON["status"]! as! Int
                     let response2 = responseJSON["message"]! as! String
@@ -79,8 +83,13 @@ class ResetPasswordViewController: UIViewController {
                     if response1 == 200
                     {
                         OperationQueue.main.addOperation {
-                            self.performSegue(withIdentifier: "signInToTabbar", sender: self)
-                            print("sent recover otp Successful")
+                              if let tabBarViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
+                                                                
+                                                                 tabBarViewController.modalPresentationStyle = .fullScreen
+                                                             self.navigationController?.present(tabBarViewController, animated: true)
+                                                                
+                                                                  
+                                                             }
                         }
                         
                     }
@@ -116,20 +125,30 @@ class ResetPasswordViewController: UIViewController {
         
         
         task.resume()
+        }else {
+            
+        }
     }
     
     func validateTextFields() -> Bool {
         
         let email = newPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-       
+        let passWord = confirmPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         var flag1 = 1
         
-        if(email!.isEmpty){
+        if(email?.isEmpty ?? false) {
             newPasswordErrorLabel.alpha = 1
             flag1 = 0
         }
         else{
             newPasswordErrorLabel.alpha = 0
+        }
+        if(passWord?.isEmpty ?? false){
+            confirmPasswordErrorLabel.alpha = 1
+            flag1 = 0
+        } else {
+            confirmPasswordErrorLabel.alpha = 0
         }
         
         if (flag1 == 1){
@@ -139,5 +158,11 @@ class ResetPasswordViewController: UIViewController {
             return false
         }
     }
-
+    
+}
+extension ResetPasswordViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        return self.view.endEditing(true)
+        
+    }
 }

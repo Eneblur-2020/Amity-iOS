@@ -37,7 +37,8 @@ class ForgotPasswordViewController: BaseViewController {
     func SignUpUsingEmailId(url :String){
         
         let data : [String : String] = [
-            "name" : emailTextField.text ?? ""]
+            "email" : emailTextField.text ?? ""]
+        
         startActivityIndicator()
         if isInternetAvailable(){
             Util.Manager.request(url, method : .post,  parameters: data,encoding: JSONEncoding.default).responseJSON { (response) in

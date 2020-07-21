@@ -15,26 +15,26 @@ class SignInViewController: BaseViewController {
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-   
+    
     @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var phoneNumberTextfield: UITextField!
     @IBOutlet weak var phoneNumberErrorLabel: UILabel!
-     @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet weak var emailErrorLabel: UILabel!
     let userDefaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-       initialSetUp()
+        initialSetUp()
     }
     func initialSetUp(){
         continueBtn.layer.cornerRadius = 5
-          emailTextField.text = "apple@mailinator.com"
-          passwordTextField.text = "user1234!"
-          // Label clickable
+        emailTextField.text = "apple@mailinator.com"
+        passwordTextField.text = "user1234!"
+        // Label clickable
         
-          let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(clickable))
-          tapGesture.numberOfTouchesRequired = 1
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(clickable))
+        tapGesture.numberOfTouchesRequired = 1
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         self.phoneNumberTextfield.delegate = self
@@ -42,7 +42,7 @@ class SignInViewController: BaseViewController {
         self.navigationItem.setHidesBackButton(true, animated: false)
         
     }
-
+    
     @objc func clickable(){
         self.performSegue(withIdentifier: "skipNow", sender: self)
     }
@@ -53,169 +53,245 @@ class SignInViewController: BaseViewController {
     
     @IBAction func onContinueBtnClick(_ sender: Any) {
         if(validateEmailTextFields()) {
-            self.SignUpUsingEmailId(url:LOGIN_EMAIL_API)
+            self.SignInUsingEmailId(url:LOGIN_EMAIL_API)
         } else if (validatePhoneTextFields()){
-            self.SignUpUsingPhone(url:LOGIN_MOBILE_API )
+            self.SignInUsingPhone(url:LOGIN_MOBILE_API )
         }
         
     }
     @IBAction func onSignUpBtnClick(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        // self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "signInToSignUp", sender: self)
+        
     }
     
-     func SignUpUsingEmailId(url :String){
-       
+    func SignInUsingEmailId(url :String){
+        
         let data : [String : String] = ["username": emailTextField.text ?? "","password": passwordTextField.text ?? ""]
         startActivityIndicator()
-            if isInternetAvailable(){
-
-                
-                Util.Manager.request(url, method : .post,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
-                    if let headerFields = response.response?.allHeaderFields as? [String: String]
-                       
-                    {
-                        if let URL = response.request?.url{
-                            let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
-                            if cookies.count > 0 {
-                             let cookieSid = cookies.first?.value(forKey: "value") as! String 
-                            Util.setCookie(cookie: cookieSid)
-                            }
-                            self.stopActivityIndicator()
-                    }
-                    }
+        if isInternetAvailable(){
+            
+            
+            Util.Manager.request(url, method : .post,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+                if let headerFields = response.response?.allHeaderFields as? [String: String]
                     
-                    switch response.result{
-                    case .success(_):
-                        if let json = response.result.value{
-                            if let jsonData = json as? NSDictionary {
-                                 let status = jsonData.object(forKey: "status") as? Int
-                                  let responseMessage = jsonData.object(forKey: "message") as? String
-                                if status == 200 {
-                                    //TODO : LOCALIZATION REQUIRED
+                {
+                    if let URL = response.request?.url{
+                        let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
+                        if cookies.count > 0 {
+                            let cookieSid = cookies.first?.value(forKey: "value") as! String
+                            Util.setCookie(cookie: cookieSid)
+                        }
+                        self.stopActivityIndicator()
+                    }
+                }
+                
+                switch response.result{
+                case .success(_):
+                    if let json = response.result.value{
+                        if let jsonData = json as? NSDictionary {
+                            let status = jsonData.object(forKey: "status") as? Int
+                            let responseMessage = jsonData.object(forKey: "message") as? String
+                            if status == 200 {
+                                //TODO : LOCALIZATION REQUIRED
+                                
+                                self.userDefaults.set(true, forKey: "IsLoggedIn")
+                                if let tabBarViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
                                     
-                                    self.userDefaults.set(true, forKey: "IsLoggedIn")
-                                   if let tabBarViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
-                                       
-                                        tabBarViewController.modalPresentationStyle = .fullScreen
+                                    tabBarViewController.modalPresentationStyle = .fullScreen
                                     self.navigationController?.present(tabBarViewController, animated: true)
-                                       
-                                         
-                                    }
                                     
-                                }else {
-                                    OperationQueue.main.addOperation {
-                                        let alert = UIAlertController(title:"", message: responseMessage, preferredStyle: UIAlertController.Style.alert)
-                                        alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
-                                        self.present(alert, animated: true, completion: nil)
-                                    }
+                                    
+                                }
+                                
+                            }else {
+                                OperationQueue.main.addOperation {
+                                    let alert = UIAlertController(title:"", message: responseMessage, preferredStyle: UIAlertController.Style.alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
+                                    self.present(alert, animated: true, completion: nil)
                                 }
                             }
                         }
-                        break
-                    case .failure(_):
-                        if let statusCode = response.response?.statusCode {
-                            
-                        }
-                        break
+                    }
+                    break
+                case .failure(_):
+                    if let statusCode = response.response?.statusCode {
                         
                     }
+                    break
+                    
                 }
-            } else {
-                Util.showWhistle(message: NO_INTERNET, viewController: self)
             }
-            
-     
+        } else {
+            Util.showWhistle(message: NO_INTERNET, viewController: self)
+        }
+        
+        
         
     }
-  
-    func SignUpUsingPhone(url :String){
+    func SignInUsingPhone(url :String){
         
-        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
-        request.httpMethod = "POST"
-        
-        var indata: [String: Any] = ["contactNumber":"1234567","countryCode":"+91"]
-        indata["contactNumber"] =  phoneNumberTextfield.text
-        indata["countryCode"] = "+91"
-        
-        if let json = try? JSONSerialization.data(withJSONObject : indata, options: []){
-            if let content = String(data: json, encoding: String.Encoding.utf8){
-                // here `content` is the JSON dictionary containing the String
-                print(content)
-                request.httpBody = content.data(using: String.Encoding.utf8)
-            }
-        }
-        print(request.httpBody as Any)
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            guard error == nil && data != nil else {      // check for fundamental networking error
-                print("error=\(String(describing: error))")
-                return
-            }
-            
-            do {
-                if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
-                    print(responseJSON)
-                    print(responseJSON["status"]!)
-                    print(responseJSON["message"]!)
+        let data : [String : String] = ["contactNumber":  phoneNumberTextfield.text ?? "","countryCode": "+91"]
+        startActivityIndicator()
+        if isInternetAvailable(){
+            Util.Manager.request(url, method : .post,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+                if let headerFields = response.response?.allHeaderFields as? [String: String]
                     
-                    let response1 = responseJSON["status"]! as! Int
-                    let response2 = responseJSON["message"]! as! String
-                    
-                    print(response1)
-                    print(response2)
-                    
-                    //Check response from the sever
-                    if (response1 == 200)
-                    {
-                        OperationQueue.main.addOperation {
-                            
-                            //API call Successful and can perform other operatios
-                            self.userDefaults.set(true, forKey: "IsLoggedIn")
-                            if let oTPVarificationViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "OTPVarificationViewController") as? OTPVarificationViewController {
-                                                                   oTPVarificationViewController.isFrom = 1
-                                                                   oTPVarificationViewController.modalPresentationStyle = .fullScreen
-                                                               self.navigationController?.pushViewController(oTPVarificationViewController, animated: true)
-                                                                  
-                                                                    
-                                                               }
-                            
-                            print("SignUp Successful")
+                {
+                    if let URL = response.request?.url{
+                        let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
+                        if cookies.count > 0 {
+                            let cookieSid = cookies.first?.value(forKey: "value") as! String
+                            Util.setCookie(cookie: cookieSid)
                         }
-                        
+                        self.stopActivityIndicator()
                     }
-                    else if (response1 == 300){
-                        OperationQueue.main.addOperation {
-                            let alert = UIAlertController(title:"", message: response2, preferredStyle: UIAlertController.Style.alert)
-                            alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
-                            print("Failed to send OTP")
+                }
+                
+                switch response.result{
+                case .success(_):
+                    if let json = response.result.value{
+                        if let jsonData = json as? NSDictionary {
+                            let status = jsonData.object(forKey: "status") as? Int
+                            let responseMessage = jsonData.object(forKey: "message") as? String
+                            if status == 200 {
+                                self.userDefaults.set(true, forKey: "IsLoggedIn")
+                                if let oTPVarificationViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "OTPVarificationViewController") as? OTPVarificationViewController {
+                                    oTPVarificationViewController.isFrom = 1
+                                    oTPVarificationViewController.modalPresentationStyle = .fullScreen
+                                    self.navigationController?.pushViewController(oTPVarificationViewController, animated: true)
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                            }else {
+                                OperationQueue.main.addOperation {
+                                    let alert = UIAlertController(title:"", message: responseMessage, preferredStyle: UIAlertController.Style.alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                            }
                         }
                     }
-                        
-                    else
-                    {
-                        OperationQueue.main.addOperation {
-                            
-                            //API call failed and perform other operations
-                            print("SignUp Failed")
-                            
-                        }
+                    break
+                case .failure(_):
+                    if let statusCode = response.response?.statusCode {
                         
                     }
+                    break
                     
                 }
             }
-            catch {
-                print("Error -> \(error)")
-            }
-            
+        } else {
+            Util.showWhistle(message: NO_INTERNET, viewController: self)
         }
         
         
-        task.resume()
+        
     }
     
+    /*  func SignInUsingPhone(url :String){
+     startActivityIndicator()
+     let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
+     request.httpMethod = "POST"
+     
+     var indata: [String: Any] = ["contactNumber":"1234567","countryCode":"+91"]
+     indata["contactNumber"] =  phoneNumberTextfield.text
+     indata["countryCode"] = "+91"
+     
+     if let json = try? JSONSerialization.data(withJSONObject : indata, options: []){
+     if let content = String(data: json, encoding: String.Encoding.utf8){
+     // here `content` is the JSON dictionary containing the String
+     print(content)
+     request.httpBody = content.data(using: String.Encoding.utf8)
+     }
+     }
+     print(request.httpBody as Any)
+     request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+     
+     let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+     guard error == nil && data != nil else {      // check for fundamental networking error
+     print("error=\(String(describing: error))")
+     return
+     }
+     
+     do {
+     if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
+     print(responseJSON)
+     print(responseJSON["status"]!)
+     print(responseJSON["message"]!)
+     
+     let response1 = responseJSON["status"]! as! Int
+     let response2 = responseJSON["message"]! as! String
+     
+     print(response1)
+     print(response2)
+     if let URL = response.request?.url{
+     let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
+     if cookies.count > 0 {
+     let cookieSid = cookies.first?.value(forKey: "value") as! String
+     Util.setCookie(cookie: cookieSid)
+     }
+     }
+     self.stopActivityIndicator()
+     self.stopActivityIndicator()
+     //Check response from the sever
+     if (response1 == 200)
+     {
+     OperationQueue.main.addOperation {
+     
+     //API call Successful and can perform other operatios
+     self.userDefaults.set(true, forKey: "IsLoggedIn")
+     if let oTPVarificationViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "OTPVarificationViewController") as? OTPVarificationViewController {
+     oTPVarificationViewController.isFrom = 1
+     oTPVarificationViewController.modalPresentationStyle = .fullScreen
+     self.navigationController?.pushViewController(oTPVarificationViewController, animated: true)
+     
+     
+     }
+     
+     print("SignUp Successful")
+     }
+     
+     }
+     else if (response1 == 300){
+     OperationQueue.main.addOperation {
+     let alert = UIAlertController(title:"", message: response2, preferredStyle: UIAlertController.Style.alert)
+     alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
+     self.present(alert, animated: true, completion: nil)
+     print("Failed to send OTP")
+     }
+     }
+     
+     else
+     {
+     OperationQueue.main.addOperation {
+     
+     //API call failed and perform other operations
+     print("SignUp Failed")
+     
+     }
+     
+     }
+     
+     }
+     }
+     catch {
+     print("Error -> \(error)")
+     }
+     
+     }
+     
+     
+     task.resume()
+     }
+     */
     //Email Validation
     func isValidEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
@@ -267,7 +343,7 @@ class SignInViewController: BaseViewController {
         else {
             emailErrorLabel.alpha = 0
         }
-      
+        
         if (flag1 == 1){
             return true
         }

@@ -640,9 +640,11 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
             }
         case 1:
             if  let myProfileDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyProfileDetailTableViewCell") as? MyProfileDetailTableViewCell {
-                
-                myProfileDetailTableViewCell.myProfileDescrption.text = self.userData.userMetaData?.value(forKey: "profileSummary") as? String
-                
+                if let myProfile = self.userData.userMetaData?.value(forKey: "profileSummary") as? String {
+                myProfileDetailTableViewCell.myProfileDescrption.text = myProfile
+                } else {
+                    
+                }
                 // myProfileDetailTableViewCell.addButon.addTarget(self, action: #selector(onClickProfileSummaryAddButton), for: .touchUpInside)
                 
                 return myProfileDetailTableViewCell

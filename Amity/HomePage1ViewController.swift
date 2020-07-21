@@ -166,7 +166,9 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         
         button.backgroundColor = UIColor(named: "ButtonYellowColour")
         view.addSubview(button)
-        
+        if section == 3 {
+            button.isHidden = true
+        }
         return view
     }
     @objc func onClickViewAllButton(sender: UIButton){
@@ -208,13 +210,9 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0{
+        if section == 0 || section == 4{
             return 0
         }
-        if section == 4 {
-            return 0
-        }
-            
         else{
             return 90
         }
@@ -253,7 +251,8 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier:"VideoTableViewCell" ) as! VideoTableViewCell
             cell.videoCountLabel.text = "\(videoArray.count)" + "Videos"
-          //  stopActivityIndicator()
+            cell.viewAllButton.tag = indexPath.row
+            cell.viewAllButton.addTarget(self, action: #selector(onClickGalleryViewAllButton), for: .touchUpInside)
             return cell
         default:
             print("do nothing")
@@ -261,6 +260,14 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         
         return UITableViewCell()
         
+    }
+    @objc func onClickGalleryViewAllButton(sender:UIButton){
+        let indexPath = IndexPath(row: sender.tag, section: 4)
+        if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllAlbumViewController") as? AllAlbumViewController {
+            nextViewController.allalbumData = galleryArray[indexPath.row]
+                  
+                   self.navigationController?.pushViewController(nextViewController, animated: true)
+               }
     }
 }
 extension HomePage1ViewController: UITableViewDelegate{
@@ -303,6 +310,7 @@ extension HomePage1ViewController :  TableViewInsideCollectionViewDelegate,Event
 
 
                                }
+            nextViewController.pageTitle = imageArray[0].imageTitle ?? ""
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }
     }

@@ -39,8 +39,9 @@ let FORGOT_PASSWORD_RECOVER_API = "\(BASE_URL)authentication/recover"
 let RESET_PASSWORD_API = "\(BASE_URL)authentication/resetPassword"
 
 //WEBINAR API
-let WEBINAR_API = "\(BASE_URL)webinar?type=upcoming"
+let WEBINAR_API = "\(BASE_URL)webinar"
 
+let WEBINAR_UPCOMING_API = "\(BASE_URL)webinar?type=upcoming"
 //ALL EVENTS
 
 let EVENT_API = "\(BASE_URL)event"
@@ -74,10 +75,11 @@ let RESUME_UPLOAD_API = "\(BASE_URL)profile/resume"
 let DELETE_EXPERIENCE_API = "\(BASE_URL)profile/experience/"
 
 let DELETE_EDUCATION_API = "\(BASE_URL)profile/education/"
-//https://qa.backend.afawebapp.zotalabs.com/course?type=upcoming
+
 let GET_COURSES_API = "\(BASE_URL)course"
 //courseCategory
 let GET_COURSECATEGORY_API = "\(BASE_URL)courseCategory"
+
 let SUBMIT_STUDENTAPPLICATION_API = "\(BASE_URL)course/student/register"
 
 
@@ -94,6 +96,7 @@ let SECONDARY_FONT = UIFont(name: "Roboto", size: 15.0)
 
 //ARRAY DECLARATION
 var webinorArray = [Webinor]()
+var upComingWebinorArray = [Webinor]()
 var eventArray = [Event]()
 var galleryArray = [Gallery]()
 var imageArray = [Gallery]()

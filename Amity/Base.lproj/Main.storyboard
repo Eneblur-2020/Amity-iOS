@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Path 648" translatesAutoresizingMaskIntoConstraints="NO" id="LJS-Xy-c3l">
-                                <rect key="frame" x="46" y="192" width="283" height="283"/>
+                                <rect key="frame" x="-95.5" y="50.5" width="566" height="566"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myB-lO-r3o">
                                 <rect key="frame" x="42.5" y="158.5" width="290" height="300"/>
@@ -931,7 +931,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRM-rY-Fi5">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="165"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MTech" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZa-CB-23R">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MTech" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZa-CB-23R">
                                                                 <rect key="frame" x="8" y="117.5" width="307" height="37.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" name="DarkBlueColour"/>
@@ -1359,7 +1359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYj-x4-HOD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="1728"/>
+            <point key="canvasLocation" x="1729" y="1632"/>
         </scene>
         <!--Video Detail View Controller-->
         <scene sceneID="qWq-SK-vLD">
@@ -1469,7 +1469,72 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jf9-yH-ILu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="2345"/>
+            <point key="canvasLocation" x="1729" y="2367"/>
+        </scene>
+        <!--All Album View Controller-->
+        <scene sceneID="Agv-bc-VzK">
+            <objects>
+                <viewController storyboardIdentifier="AllAlbumViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R34-Dt-jye" customClass="AllAlbumViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Gb-gz-ePk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VZt-7U-sBI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4RB-XM-jFR">
+                                    <size key="itemSize" width="115" height="132"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AllAlbumCollectionViewCell" id="Zze-BT-JOX" customClass="AllAlbumCollectionViewCell" customModule="Amity" customModuleProvider="target">
+                                        <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="joq-3H-FT2">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U3f-qE-wir">
+                                                    <rect key="frame" x="0.0" y="8" width="200" height="192"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="U3f-qE-wir" firstAttribute="leading" secondItem="joq-3H-FT2" secondAttribute="leading" id="dmX-BB-Ped"/>
+                                                <constraint firstAttribute="bottom" secondItem="U3f-qE-wir" secondAttribute="bottom" id="j7N-dB-m2W"/>
+                                                <constraint firstAttribute="trailing" secondItem="U3f-qE-wir" secondAttribute="trailing" id="oiO-4Q-l51"/>
+                                                <constraint firstItem="U3f-qE-wir" firstAttribute="top" secondItem="joq-3H-FT2" secondAttribute="top" constant="8" id="uoB-Wv-Xbo"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="200" height="200"/>
+                                        <connections>
+                                            <outlet property="galleryImage" destination="U3f-qE-wir" id="iRU-OL-aO5"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="R34-Dt-jye" id="fot-gS-9Fo"/>
+                                    <outlet property="delegate" destination="R34-Dt-jye" id="neM-FU-RbZ"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VZt-7U-sBI" firstAttribute="top" secondItem="Bom-zT-4el" secondAttribute="top" id="2RC-Lt-AXm"/>
+                            <constraint firstItem="VZt-7U-sBI" firstAttribute="leading" secondItem="Bom-zT-4el" secondAttribute="leading" id="bBQ-ur-pFd"/>
+                            <constraint firstItem="Bom-zT-4el" firstAttribute="bottom" secondItem="VZt-7U-sBI" secondAttribute="bottom" id="bqt-dZ-iZC"/>
+                            <constraint firstItem="Bom-zT-4el" firstAttribute="trailing" secondItem="VZt-7U-sBI" secondAttribute="trailing" id="hhS-Jw-a3L"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bom-zT-4el"/>
+                    </view>
+                    <connections>
+                        <outlet property="allAlbumCollectionView" destination="VZt-7U-sBI" id="oTl-S4-nMW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rOL-ic-sS6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2834.4000000000001" y="2388.7556221889058"/>
         </scene>
         <!--Play Video View Controller-->
         <scene sceneID="ipI-ek-pky">
@@ -1481,7 +1546,7 @@
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIy-jv-N04">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -1503,7 +1568,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W2d-Qg-5yM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="2289"/>
+            <point key="canvasLocation" x="2817" y="1685"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="KRK-PV-A6T">
@@ -2833,7 +2898,7 @@
         <!--Varification View Controller-->
         <scene sceneID="55K-hg-cdb">
             <objects>
-                <viewController storyboardIdentifier="otpVarificationVC" id="XMd-tH-M5b" customClass="OTPVarificationViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OTPVarificationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XMd-tH-M5b" customClass="OTPVarificationViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="161-GJ-II3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3161,14 +3226,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNy-qR-ea5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1078" y="1745"/>
+            <point key="canvasLocation" x="-972" y="2230"/>
         </scene>
         <!--Course Details Table View Controller-->
         <scene sceneID="ADp-gV-hwh">
             <objects>
                 <tableViewController storyboardIdentifier="CourseDetailsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gpi-wo-J5K" customClass="CourseDetailsTableViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PLY-3b-Ej0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3718,8 +3783,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ng0-8m-WbC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-
-            <point key="canvasLocation" x="-690.39999999999998" y="548.7256371814093"/>
+            <point key="canvasLocation" x="-84" y="549"/>
         </scene>
         <!--STUDENT WALLET-->
         <scene sceneID="96A-bc-78d">
@@ -3797,7 +3861,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T48-se-N6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-
             <point key="canvasLocation" x="-404" y="-1630"/>
         </scene>
         <!--View Controller-->
@@ -3922,7 +3985,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hct-eR-TNR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="232.80000000000001" y="-1650.224887556222"/>
->>>>>>> Stashed changes
         </scene>
         <!--Interestedform Table View Controller-->
         <scene sceneID="w1h-CA-HNF">
@@ -4379,7 +4441,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AoW-kI-V6I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5740" y="-387.25637181409297"/>
+            <point key="canvasLocation" x="-5994" y="103"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6uF-wb-iO8">
@@ -4420,15 +4482,15 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="messageIcon" width="512" height="512"/>
         <image name="passwordLock" width="512" height="512"/>
-        <image name="person" catalog="system" width="128" height="117"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="phone" catalog="system" width="128" height="115"/>
-        <image name="phone.fill" catalog="system" width="128" height="114"/>
-        <image name="pin.fill" catalog="system" width="119" height="128"/>
-        <image name="play.circle" catalog="system" width="128" height="121"/>
-        <image name="printer.fill" catalog="system" width="128" height="111"/>
-        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
-        <image name="square.split.2x2.fill" catalog="system" width="128" height="114"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="phone" catalog="system" width="64" height="56"/>
+        <image name="phone.fill" catalog="system" width="64" height="56"/>
+        <image name="pin.fill" catalog="system" width="58" height="64"/>
+        <image name="play.circle" catalog="system" width="64" height="60"/>
+        <image name="printer.fill" catalog="system" width="64" height="54"/>
+        <image name="square.and.arrow.down.fill" catalog="system" width="60" height="64"/>
+        <image name="square.split.2x2.fill" catalog="system" width="64" height="56"/>
         <namedColor name="ButtonYellowColour">
             <color red="0.9649999737739563" green="0.71399998664855957" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

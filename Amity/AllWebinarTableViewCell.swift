@@ -29,14 +29,20 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
        self.allWebinorCollectionView.register(UINib(nibName: "AllWebinorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AllWebinorCollectionViewCell")
         allWebinorCollectionView.delegate = self
         allWebinorCollectionView.dataSource = self
+      
         allWebinorPageOutlet.currentPageIndicatorTintColor = UIColor(named: "DarkBlueColour")
         allWebinorPageOutlet.pageIndicatorTintColor = UIColor(named: "DarkYellowColour")
     }
     func apiCall(){
       
-                ApiUtil.apiUtil.webinarAPI { (result) in
+      /*          ApiUtil.apiUtil.webinarAPI { (result) in
             self.allWebinorCollectionView.reloadData()
                     self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
+        }
+ */
+        ApiUtil.apiUtil.webinarUpcomingAPI { (result) in
+        self.allWebinorCollectionView.reloadData()
+                self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
         }
     }
 
@@ -56,7 +62,7 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return webinorArray.count
+        return upComingWebinorArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -64,7 +70,7 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
         
           cell.registerButton.addTarget(self, action: #selector(onRegisterButtonClick), for: .touchUpInside)
         cell.registerButton.tag = indexPath.row
-        cell.setUpCell(webinor: webinorArray[indexPath.row])
+        cell.setUpCell(webinor: upComingWebinorArray[indexPath.row])
          //cell.allWebinorImage.image = UIImage(named : section2Images[indexPath.item])
         
         return cell
@@ -73,7 +79,7 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
     @objc func onRegisterButtonClick(_ sender:UIButton){
         let indexpath = IndexPath(row: sender.tag, section: 0)
         if delegate != nil {
-            delegate?.onClickWebinarSlider(data: webinorArray[indexpath.row],indexPath:indexpath,isFrom:WEBINAR)
+            delegate?.onClickWebinarSlider(data: upComingWebinorArray[indexpath.row],indexPath:indexpath,isFrom:WEBINAR)
         }
     }
 }
@@ -81,7 +87,7 @@ extension AllWebinarTableViewCell: UITableViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath) as! SliderCollectionViewCell
         if delegate != nil {
-            delegate?.onClickWebinarSlider(data: webinorArray[indexPath.row],indexPath:indexPath,isFrom:WEBINAR)
+            delegate?.onClickWebinarSlider(data: upComingWebinorArray[indexPath.row],indexPath:indexPath,isFrom:WEBINAR)
         }
        // cell.delegate?.cellTaped(data: indexPath)
     }
@@ -89,8 +95,10 @@ extension AllWebinarTableViewCell: UITableViewDelegate{
 extension AllWebinarTableViewCell : UIPageViewControllerDelegate{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.allWebinorPageOutlet.currentPage = indexPath.item
+        self.allWebinorPageOutlet.currentPage = indexPath.section
+        self.allWebinorPageOutlet.numberOfPages = upComingWebinorArray.count
     }
+    
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.allWebinorPageOutlet.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)

@@ -42,6 +42,96 @@ class ApiUtil{
             //Util.showWhistle(message: NO_INTERNET, viewController: self)
         }
     }
+    func webinarUpcomingAPI(completionHandler: @escaping (AnyObject?) -> ()){
+        if isInternetAvailable(){
+            Util.Manager.request(WEBINAR_UPCOMING_API, method : .get, encoding: JSONEncoding.default).responseJSON { (response) in
+                switch response.result{
+                case .success(_):
+                    if let json = response.result.value{
+                        if let jsonData = json as? NSDictionary {
+                            if let status = jsonData.object(forKey: "status") as? Int {
+                                if status == 200{
+                                    if let data = jsonData.object(forKey: "data") as? [NSDictionary]{
+                                        let webinorData = self.parseUpComingWebinorData(webinorData: data)
+                                        completionHandler(webinorData as AnyObject)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break
+                case .failure(_):
+                    if (response.response?.statusCode) != nil {
+                        
+                    }
+                    break
+                    
+                }
+            }
+        } else {
+            //Util.showWhistle(message: NO_INTERNET, viewController: self)
+        }
+    }
+    func parseUpComingWebinorData(webinorData:[NSDictionary]) -> [Webinor]{
+        
+        upComingWebinorArray.removeAll()
+        for webinor in webinorData{
+            let webinorInfo = Webinor()
+            if let instructorImage =  webinor.object(forKey: "instructorImage") as? NSDictionary{
+                webinorInfo.instructorImage = instructorImage
+            }
+            if let instructorImageName = webinorInfo.instructorImage?.object(forKey: "name") as? String{
+                webinorInfo.instructorImageName = instructorImageName
+            }
+            if let webinarImage =  webinor.object(forKey: "webinarImage") as? NSDictionary{
+                webinorInfo.webinarImage = webinarImage
+            }
+            if let isActive =  webinor.object(forKey: "isActive") as? Bool{
+                webinorInfo.isActive = isActive
+            }
+            if let id =  webinor.object(forKey: "_id") as? String{
+                webinorInfo.id = id
+            }
+            if let webinarTitle =  webinor.object(forKey: "webinarTitle") as? String{
+                webinorInfo.webinarTitle = webinarTitle
+            }
+            if let instructorName =  webinor.object(forKey: "instructorName") as? String{
+                webinorInfo.instructorName = instructorName
+            }
+            if let instructorDetails =  webinor.object(forKey: "instructorDetails") as? String{
+                webinorInfo.instructorDetails = instructorDetails
+            }
+            if let webinarDateTime =  webinor.object(forKey: "webinarDateTime") as? String{
+                print(webinarDateTime)
+                webinorInfo.webinarDateTime = webinarDateTime
+                let seprateDateTime = Helper.dateFormatterForDateTime(dateString:   webinarDateTime)
+                print(seprateDateTime)
+                webinorInfo.webinarDate = seprateDateTime.0
+                webinorInfo.webinarTime = seprateDateTime.1
+            }
+            
+            if let webinarDetails =  webinor.object(forKey: "webinarDetails") as? String{
+                webinorInfo.webinarDetails = webinarDetails
+            }
+            if let webinarURL =  webinor.object(forKey: "webinarURL") as? String{
+                webinorInfo.webinarURL = webinarURL
+            }
+            if let v =  webinor.object(forKey: "__v") as? Int {
+                webinorInfo.v = v
+            }
+            if let createdAt =  webinor.object(forKey: "createdAt") as? String{
+                webinorInfo.createdAt = createdAt
+            }
+            if let updatedAt =  webinor.object(forKey: "updatedAt") as? String{
+                webinorInfo.updatedAt = updatedAt
+            }
+            upComingWebinorArray.append(webinorInfo)
+            
+        }
+        return upComingWebinorArray
+        
+        
+    }
     func parseWebinorData(webinorData:[NSDictionary]) -> [Webinor]{
         
         webinorArray.removeAll()

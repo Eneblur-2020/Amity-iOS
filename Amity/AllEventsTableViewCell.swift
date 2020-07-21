@@ -76,6 +76,7 @@ extension AllEventsTableViewCell : UIPageViewControllerDelegate{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         self.allEventsPageOutlet.currentPage = indexPath.item
+        allEventsPageOutlet.numberOfPages = eventArray.count
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

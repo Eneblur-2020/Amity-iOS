@@ -13,8 +13,9 @@ class GalleryDetailViewController: UIViewController {
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
-    
     private let spacing:CGFloat = 16.0
+    var imageArrayFromAlbum = [Gallery]()
+    var pageTitle = "Gallery"
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,8 +25,10 @@ class GalleryDetailViewController: UIViewController {
         layout.minimumInteritemSpacing = spacing
         self.galleryCollectionView?.collectionViewLayout = layout
         initialSetUp()
+        print(imageArrayFromAlbum.count)
     }
     func initialSetUp(){
+        self.title = pageTitle
         self.imageView.isHidden = true
         self.closeButton.isHidden = true
         self.galleryCollectionView.alpha = 1.0

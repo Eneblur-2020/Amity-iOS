@@ -22,6 +22,7 @@ class OTPVarificationViewController: BaseViewController {
         self.otpTextField.keyboardType = .numberPad
         continueButton.layer.cornerRadius = 5
         self.title = "SIGN UP"
+        self.navigationController?.navigationBar.isHidden = false
     }
     @IBAction func onContinueBtnPressed(_ sender: Any) {
         self.OTPVerification(url:VERIFY_MOBILE_OTP )

@@ -16,6 +16,8 @@
 		1B0A93B824B18FE600373140 /* MyEducation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A93B724B18FE600373140 /* MyEducation.swift */; };
 		1B0A93BB24B194EE00373140 /* EducationCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0A93BA24B194EE00373140 /* EducationCardTableViewCell.swift */; };
 		1B0C73A724BE1E7100113261 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C73A624BE1E7100113261 /* TabBarViewController.swift */; };
+		1B10B55524C61271006CACB8 /* AllAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B10B55424C61271006CACB8 /* AllAlbumViewController.swift */; };
+		1B10B55724C6176F006CACB8 /* AllAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B10B55624C6176F006CACB8 /* AllAlbumCollectionViewCell.swift */; };
 		1B15873B24B0994F000583AE /* MyProfileViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15873A24B0994F000583AE /* MyProfileViewController1.swift */; };
 		1B15873E24B09D23000583AE /* MyProfileDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15873C24B09D23000583AE /* MyProfileDetailTableViewCell.swift */; };
 		1B15873F24B09D23000583AE /* MyProfileDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B15873D24B09D23000583AE /* MyProfileDetailTableViewCell.xib */; };
@@ -143,6 +145,8 @@
 		1B0A93B724B18FE600373140 /* MyEducation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEducation.swift; sourceTree = "<group>"; };
 		1B0A93BA24B194EE00373140 /* EducationCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationCardTableViewCell.swift; sourceTree = "<group>"; };
 		1B0C73A624BE1E7100113261 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		1B10B55424C61271006CACB8 /* AllAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAlbumViewController.swift; sourceTree = "<group>"; };
+		1B10B55624C6176F006CACB8 /* AllAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		1B15873A24B0994F000583AE /* MyProfileViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController1.swift; sourceTree = "<group>"; };
 		1B15873C24B09D23000583AE /* MyProfileDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1B15873D24B09D23000583AE /* MyProfileDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProfileDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -407,6 +411,8 @@
 				1BEFA41A24BCB7B4008D66AB /* GalleryDetailViewController.swift */,
 				1B48EB5224C0095C006ADB99 /* VideoDetailViewController.swift */,
 				1BEDAC2B24C0366900DE3EC1 /* PlayVideoViewController.swift */,
+				1B10B55424C61271006CACB8 /* AllAlbumViewController.swift */,
+				1B10B55624C6176F006CACB8 /* AllAlbumCollectionViewCell.swift */,
 			);
 			name = Gallery;
 			sourceTree = "<group>";
@@ -696,6 +702,7 @@
 			files = (
 				1BC3DB9E24AEDA7500052FEE /* ExperienceCardTableViewCell.swift in Sources */,
 				1B23442924A8943C006F0271 /* AllWebinarTableViewCell.swift in Sources */,
+				1B10B55524C61271006CACB8 /* AllAlbumViewController.swift in Sources */,
 				1B35F97724C4C53F0064EFF3 /* Courses.swift in Sources */,
 				1B35F98624C4C5CF0064EFF3 /* InfoTableViewCell.swift in Sources */,
 				1BF37B2624B7974E00EE2A77 /* Gallery.swift in Sources */,
@@ -735,6 +742,7 @@
 				1B35F96C24C4C5160064EFF3 /* CourseDetailViewController.swift in Sources */,
 				800A46932477C0B3001FF2D7 /* ProfileSummaryViewController.swift in Sources */,
 				1B51E9CA24AC33B80056C780 /* MyAccountTableViewCell.swift in Sources */,
+				1B10B55724C6176F006CACB8 /* AllAlbumCollectionViewCell.swift in Sources */,
 				1B35F97B24C4C53F0064EFF3 /* customtextfield.swift in Sources */,
 				804342F92483E7DD0040C2BD /* ProfileSummaryDetailsViewController.swift in Sources */,
 				1B35F99924C4C6020064EFF3 /* TestiTableViewCell.swift in Sources */,

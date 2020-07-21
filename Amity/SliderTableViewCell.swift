@@ -44,6 +44,9 @@ class SliderTableViewCell: UITableViewCell {
             self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
             
         }
+        ApiUtil.apiUtil.webinarUpcomingAPI{ (result) in
+            
+        }
     }
     func webinarAPI(url:String){
         
@@ -204,6 +207,7 @@ extension SliderTableViewCell : UIPageViewControllerDelegate{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         self.pageOutlet.currentPage = indexPath.item
+        self.pageOutlet.numberOfPages = webinorArray.count
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

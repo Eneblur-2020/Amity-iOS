@@ -36,7 +36,9 @@ let VERIFY_MOBILE_OTP = "\(BASE_URL)authentication/verifyMobileOTP"
 //FORGOT/RESET PASSWORD
 let FORGOT_PASSWORD_RECOVER_API = "\(BASE_URL)authentication/recover"
 
-let RESET_PASSWORD_API = "\(BASE_URL)authentication/resetPassword"
+let VALIDATION_TOKEN_API = "\(BASE_URL)authentication/validateToken/"
+
+let RESET_PASSWORD_API = "\(BASE_URL)authentication/resetPassword/"
 
 //WEBINAR API
 let WEBINAR_API = "\(BASE_URL)webinar"

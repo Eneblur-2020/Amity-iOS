@@ -25,7 +25,21 @@ class OTPVarificationViewController: BaseViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     @IBAction func onContinueBtnPressed(_ sender: Any) {
-        self.OTPVerification(url:VERIFY_MOBILE_OTP )
+        if otpTextField.text?.isEmpty ?? false {
+            OperationQueue.main.addOperation {
+                let alert = UIAlertController(title:"", message: "Enter OTP", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        } else {
+            if self.isFrom == 1 {
+                self.OTPVerification(url:VERIFY_MOBILE_OTP )
+            } else if self.isFrom == 2 {
+                self.OTPVerificationForResetPassword(url: VALIDATION_TOKEN_API)
+            }else {
+                self.OTPVerification(url:VERIFY_MOBILE_OTP )
+            }
+        }
     }
     
     @IBAction func onBackBtnPressed(_ sender: Any) {
@@ -40,6 +54,18 @@ class OTPVarificationViewController: BaseViewController {
         self.startActivityIndicator()
         if isInternetAvailable(){
             Util.Manager.request(url, method : .post,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+                if let headerFields = response.response?.allHeaderFields as? [String: String]
+                    
+                {
+                    if let URL = response.request?.url{
+                        let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
+                        if cookies.count > 0 {
+                            let cookieSid = cookies.first?.value(forKey: "value") as! String
+                            Util.setCookie(cookie: cookieSid)
+                        }
+                        self.stopActivityIndicator()
+                    }
+                }
                 self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
@@ -48,16 +74,11 @@ class OTPVarificationViewController: BaseViewController {
                             let responseMessage = jsonData.object(forKey: "message") as? String
                             if let status = jsonData.object(forKey: "status") as? Int {
                                 if status == 200 {
-                                    if self.isFrom == 1 { //self.performSegue(withIdentifier: "otpToTabbar", sender: self)
-                                       
-                                        
-                                        let tabBarViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
-                                        tabBarViewController.modalPresentationStyle = .fullScreen
-                                        self.present(tabBarViewController, animated: true, completion: nil)
-                                    }else if self.isFrom == 2{
-                                        self.performSegue(withIdentifier: "otpToResetPassword", sender: self)
-                                       
-                                    }
+                                    
+                                    let tabBarViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+                                    tabBarViewController.modalPresentationStyle = .fullScreen
+                                    self.present(tabBarViewController, animated: true, completion: nil)
+                                    
                                     
                                 }else{
                                     OperationQueue.main.addOperation {
@@ -83,10 +104,62 @@ class OTPVarificationViewController: BaseViewController {
         }
         
     }
+    func OTPVerificationForResetPassword(url:String){
+        if let Otp = otpTextField.text {
+            self.startActivityIndicator()
+            if isInternetAvailable(){
+                Util.Manager.request(url + Otp, method : .get, encoding: JSONEncoding.default).responseJSON { (response) in
+                    self.stopActivityIndicator()
+                    switch response.result{
+                    case .success(_):
+                        if let json = response.result.value{
+                            if let jsonData = json as? NSDictionary {
+                                let responseMessage = jsonData.object(forKey: "message") as? String
+                                if let status = jsonData.object(forKey: "status") as? Int {
+                                    if status == 200 {
+                                        
+                                        //  self.performSegue(withIdentifier: "otpToResetPassword", sender: self)
+                                        if let resetPasswordViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "ResetPasswordViewController") as? ResetPasswordViewController {
+                                            resetPasswordViewController.otpToken = Otp
+                                            
+                                            resetPasswordViewController.modalPresentationStyle = .fullScreen
+                                            self.navigationController?.pushViewController(resetPasswordViewController, animated: true)
+                                            
+                                            
+                                        }
+                                        
+                                        
+                                    }else{
+                                        OperationQueue.main.addOperation {
+                                            let alert = UIAlertController(title:"", message: responseMessage, preferredStyle: UIAlertController.Style.alert)
+                                            alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
+                                            self.present(alert, animated: true, completion: nil)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        break
+                    case .failure(_):
+                        if let statusCode = response.response?.statusCode {
+                            
+                        }
+                        break
+                        
+                    }
+                }
+            } else {
+                Util.showWhistle(message: NO_INTERNET, viewController: self)
+            }
+            
+        } else {
+            
+        }
+    }
     
 }
 extension OTPVarificationViewController: UITextFieldDelegate{
-   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for txt in self.view.subviews {
             if txt.isKind(of: UITextField.self) && txt.isFirstResponder {
                 txt.resignFirstResponder()

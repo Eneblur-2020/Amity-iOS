@@ -117,6 +117,8 @@ extension MyAccountViewController:UITableViewDelegate,UITableViewDataSource {
             }
         } else if indexPath.row == 1 {
             
+            performSegue(withIdentifier: "studentwallet", sender: self)
+            
         }
         
         
@@ -124,6 +126,13 @@ extension MyAccountViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "studentwallet" {
+               let studentVC = segue.destination as! StudentwalletViewController
+             
+           }
+          
+       }
     
 }
 

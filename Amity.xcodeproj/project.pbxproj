@@ -67,7 +67,6 @@
 		1B3D107B24BB1B6E00319811 /* WebinarCalenderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B3D107924BB1B6D00319811 /* WebinarCalenderCollectionViewCell.xib */; };
 		1B48EB5324C0095C006ADB99 /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B48EB5224C0095C006ADB99 /* VideoDetailViewController.swift */; };
 		1B48EB5524C00A05006ADB99 /* VideoDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B48EB5424C00A05006ADB99 /* VideoDetailCollectionViewCell.swift */; };
-		1B4B242224C5CE790033BBD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BDBE45246E7A6500147DDB /* Assets.xcassets */; };
 		1B5032D724B206A700C1C484 /* AllEventsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5032D524B206A700C1C484 /* AllEventsCollectionViewCell.swift */; };
 		1B5032D824B206A700C1C484 /* AllEventsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B5032D624B206A700C1C484 /* AllEventsCollectionViewCell.xib */; };
 		1B51E9CA24AC33B80056C780 /* MyAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B51E9C824AC33B80056C780 /* MyAccountTableViewCell.swift */; };
@@ -130,6 +129,9 @@
 		80BDBE51246E94FB00147DDB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDBE50246E94FB00147DDB /* SignInViewController.swift */; };
 		80BDBE53246EB44F00147DDB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDBE52246EB44F00147DDB /* ForgotPasswordViewController.swift */; };
 		80BDBE55246FBCDC00147DDB /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BDBE54246FBCDC00147DDB /* SplashScreenViewController.swift */; };
+		843FFBC124C6D490009BAF95 /* StudentwalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FFBC024C6D490009BAF95 /* StudentwalletViewController.swift */; };
+		843FFBC324C6F38F009BAF95 /* StudentWalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FFBC224C6F38F009BAF95 /* StudentWalletTableViewCell.swift */; };
+		843FFBC424C81762009BAF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BDBE45246E7A6500147DDB /* Assets.xcassets */; };
 		EAF4413924A2547000533E01 /* PageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAF4413824A2547000533E01 /* PageView.xib */; };
 		EAF4413C24A255D200533E01 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4413B24A255D200533E01 /* PageView.swift */; };
 		EAF4413E24A2587400533E01 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4413D24A2587400533E01 /* MainPageViewController.swift */; };
@@ -263,6 +265,8 @@
 		80BDBE50246E94FB00147DDB /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		80BDBE52246EB44F00147DDB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		80BDBE54246FBCDC00147DDB /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		843FFBC024C6D490009BAF95 /* StudentwalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentwalletViewController.swift; sourceTree = "<group>"; };
+		843FFBC224C6F38F009BAF95 /* StudentWalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentWalletTableViewCell.swift; sourceTree = "<group>"; };
 		93A5F099FD4BC4B9098DA579 /* Pods-Amity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amity.debug.xcconfig"; path = "Target Support Files/Pods-Amity/Pods-Amity.debug.xcconfig"; sourceTree = "<group>"; };
 		A4B97F346090EF87AA71442D /* Pods-Amity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amity.release.xcconfig"; path = "Target Support Files/Pods-Amity/Pods-Amity.release.xcconfig"; sourceTree = "<group>"; };
 		EAF4413824A2547000533E01 /* PageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageView.xib; sourceTree = "<group>"; };
@@ -503,6 +507,8 @@
 		84F595E224C45CC9005AB857 /* Course_section */ = {
 			isa = PBXGroup;
 			children = (
+				843FFBC024C6D490009BAF95 /* StudentwalletViewController.swift */,
+				1B35F97324C4C53F0064EFF3 /* CourseViewController.swift */,
 				1B35F96424C4C4780064EFF3 /* CircleImageview.swift */,
 				1B35F96624C4C4970064EFF3 /* CoursedetailCollectionViewCell.swift */,
 				1B35F96824C4C4D90064EFF3 /* CourseDetailsTableViewController.swift */,
@@ -513,7 +519,6 @@
 				1B35F96E24C4C53F0064EFF3 /* CourseSliderCollectionViewCell.xib */,
 				1B35F97124C4C53F0064EFF3 /* CourseSliderTableViewCell.swift */,
 				1B35F97224C4C53F0064EFF3 /* CourseSliderTableViewCell.xib */,
-				1B35F97324C4C53F0064EFF3 /* CourseViewController.swift */,
 				1B35F97424C4C53F0064EFF3 /* customtextfield.swift */,
 				1B35F97C24C4C56D0064EFF3 /* DynamicheightColeectionView.swift */,
 				1B35F97E24C4C5800064EFF3 /* FacultyCollectionViewCell.swift */,
@@ -532,6 +537,7 @@
 				1B35F98924C4C6010064EFF3 /* TopicTableViewCell.swift */,
 				1B35F99024C4C6010064EFF3 /* TopicTableViewCell.xib */,
 				1B35F98B24C4C6010064EFF3 /* TopicViewController.swift */,
+				843FFBC224C6F38F009BAF95 /* StudentWalletTableViewCell.swift */,
 			);
 			name = Course_section;
 			sourceTree = "<group>";
@@ -641,7 +647,7 @@
 				1B35F99724C4C6020064EFF3 /* TestiTableViewCell.xib in Resources */,
 				1BBB652224A8758C006C10E2 /* SliderCollectionViewCell.xib in Resources */,
 				1B5F89B624B224AD001A991D /* AllEventsTableViewCell.xib in Resources */,
-				1B4B242224C5CE790033BBD1 /* Assets.xcassets in Resources */,
+				843FFBC424C81762009BAF95 /* Assets.xcassets in Resources */,
 				1B35F99B24C4C6020064EFF3 /* TopicTableViewCell.xib in Resources */,
 				1B3D107B24BB1B6E00319811 /* WebinarCalenderCollectionViewCell.xib in Resources */,
 				1B04C02F24B052BF00C0B316 /* MyProfileTableViewCell.xib in Resources */,
@@ -734,6 +740,7 @@
 				1BBDEA9024A790BB00E7AD47 /* HomePage1ViewController.swift in Sources */,
 				1B35F97624C4C53F0064EFF3 /* CourseSliderCollectionViewCell.swift in Sources */,
 				80159C3A2487910900E1FC82 /* HomeViewController.swift in Sources */,
+				843FFBC324C6F38F009BAF95 /* StudentWalletTableViewCell.swift in Sources */,
 				1B5032D724B206A700C1C484 /* AllEventsCollectionViewCell.swift in Sources */,
 				1BF9F18424AA3B13003DD31B /* semiCircleView.swift in Sources */,
 				1B35F99424C4C6020064EFF3 /* TopicTableViewCell.swift in Sources */,
@@ -787,6 +794,7 @@
 				8023B6D92480DF300070F6EC /* OTPVarificationViewController.swift in Sources */,
 				1BEE8E4C24B75D9C002ADCB4 /* ApiUtil.swift in Sources */,
 				1B15874224B0B3BD000583AE /* MyExperienceTableViewCell.swift in Sources */,
+				843FFBC124C6D490009BAF95 /* StudentwalletViewController.swift in Sources */,
 				EAF4413C24A255D200533E01 /* PageView.swift in Sources */,
 				1B35F98724C4C5CF0064EFF3 /* InterestedformTableViewController.swift in Sources */,
 				1B15874A24B0B637000583AE /* MyResumeTableViewCell.swift in Sources */,

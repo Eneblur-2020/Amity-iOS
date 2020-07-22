@@ -719,6 +719,7 @@ extension MyProfileViewController1 : DataEnteredDelegate {
             let profileSummaryDetailsVC = segue.destination as! ProfileSummaryDetailsViewController
             profileSummaryDetailsVC.delegate = self
         }
+       
     }
     
 }

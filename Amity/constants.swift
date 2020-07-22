@@ -83,7 +83,8 @@ let GET_COURSES_API = "\(BASE_URL)course"
 let GET_COURSECATEGORY_API = "\(BASE_URL)courseCategory"
 
 let SUBMIT_STUDENTAPPLICATION_API = "\(BASE_URL)course/student/register"
-
+//
+let GET_STUDENTWALLET_API = "\(BASE_URL)student/documents"
 
 ///ALERT MESSAGES
 var NO_INTERNET = "No Internet Connection"

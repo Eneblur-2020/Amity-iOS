@@ -594,6 +594,38 @@
             endingLineNumber = "104"
             landmarkName = "submitform(url:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2047757B-774E-4F36-9374-0D3623FE4312 - c9b91a3a39e8d4f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Amity.InterestedformTableViewController.submitform(url: Swift.String) -&gt; ()"
+                  moduleName = "Amity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snehalathadesai/Documents/Project/Amity%2019July/Amity-iOS/Amity/InterestedformTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "5874">
+               </Location>
+               <Location
+                  uuid = "2047757B-774E-4F36-9374-0D3623FE4312 - ba4ee739ba855b4e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in Amity.InterestedformTableViewController.submitform(url: Swift.String) -&gt; ()"
+                  moduleName = "Amity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snehalathadesai/Documents/Project/Amity%2019July/Amity-iOS/Amity/InterestedformTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "192">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -784,8 +816,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "299"
             endingLineNumber = "299"
-            landmarkName = "onClickGalleryCollectionCell(data:indexPath:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -800,8 +832,40 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "301"
             endingLineNumber = "301"
-            landmarkName = "onClickGalleryCollectionCell(data:indexPath:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "4F2F3739-D4C3-4854-BAE0-F7E94C01652C - e01babc76e5e3aa7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Amity.HomePage1ViewController.onClickGalleryCollectionCell(data: Amity.Gallery, indexPath: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Amity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snehalathadesai/Documents/Project/Amity%2019July/Amity-iOS/Amity/HomePage1ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "301"
+                  endingLineNumber = "301"
+                  offsetFromSymbolStart = "608">
+               </Location>
+               <Location
+                  uuid = "4F2F3739-D4C3-4854-BAE0-F7E94C01652C - 1c9b64e7f309f63f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Amity.Gallery) -&gt; Swift.Bool in Amity.HomePage1ViewController.onClickGalleryCollectionCell(data: Amity.Gallery, indexPath: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "Amity"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snehalathadesai/Documents/Project/Amity%2019July/Amity-iOS/Amity/HomePage1ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "302"
+                  endingLineNumber = "302"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -816,8 +880,24 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "304"
             endingLineNumber = "304"
-            landmarkName = "onClickGalleryCollectionCell(data:indexPath:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98DA192F-F0E9-4F5A-B2DE-0EF75082CD88"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Amity/StudentwalletViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

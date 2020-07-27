@@ -39,7 +39,7 @@ class AllWebinorCollectionViewCell: UICollectionViewCell {
         self.webinorTitleLabel.text = webinor.webinarTitle
         self.participantsLabel.text = "2K"
         if let url = URL(string: webinor.webinarImage?.value(forKey: "url") as? String ?? "") {
-            self.allWebinorImage.kf.setImage(with: url, placeholder: UIImage(named: "screen4.png"))
+            self.allWebinorImage.kf.setImage(with: url, placeholder: UIImage(named: ""))
         }
     }
     

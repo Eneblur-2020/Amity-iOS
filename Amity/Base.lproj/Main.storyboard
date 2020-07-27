@@ -1705,7 +1705,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="tYc-Qu-3h1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.054901960780000002" green="0.18039215689999999" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" name="DarkBlueColour"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -4248,12 +4248,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="GU0-Ts-mo7">
                                         <rect key="frame" x="0.0" y="604" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GU0-Ts-mo7" id="OHa-wM-iEP">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GU0-Ts-mo7" id="OHa-wM-iEP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Education Qualification*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rza-MA-jrD" customClass="customtextfield" customModule="Amity" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="11" width="343" height="34"/>
+                                                    <rect key="frame" x="8" y="11" width="343" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="343" id="1ZI-EF-9O3"/>
                                                         <constraint firstAttribute="height" constant="34" id="eN3-de-nhR"/>
@@ -4470,7 +4470,7 @@
         <image name="passwordLock" width="512" height="512"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="phone" catalog="system" width="64" height="56"/>
-        <image name="phone.fill" catalog="system" width="64" height="56"/>
+        <image name="phone.fill" catalog="system" width="32" height="32"/>
         <image name="pin.fill" catalog="system" width="58" height="64"/>
         <image name="play.circle" catalog="system" width="64" height="60"/>
         <image name="printer.fill" catalog="system" width="64" height="54"/>

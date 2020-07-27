@@ -23,7 +23,7 @@ class AllEventsCollectionViewCell: UICollectionViewCell {
     func setUpCell(event: Event){
         self.alleventsLabel.text = event.eventTitle
         if let url = URL(string: event.eventImage?.value(forKey: "url") as? String ?? "") {
-            self.allEventsImage.kf.setImage(with: url, placeholder: UIImage(named: "screen4.png"))
+            self.allEventsImage.kf.setImage(with: url, placeholder: UIImage(named: ""))
         }
     }
 

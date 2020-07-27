@@ -8,16 +8,17 @@
 
 import UIKit
 import Alamofire
-class StudentwalletViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class StudentwalletViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return docdata.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"StudentWalletTableViewCell" ) as! StudentWalletTableViewCell
+        let data = docdata[indexPath.row]
+        cell.titlelabel.text = data.docname
         
-        cell.titlelabel.text = "Introduction to Product management"
                    return cell
         
         
@@ -26,6 +27,7 @@ class StudentwalletViewController: UIViewController,UITableViewDelegate,UITableV
 
      @IBOutlet weak var tableView: UITableView!
     
+    var docdata = [studentwallet]()
     
     
     override func viewDidLoad() {
@@ -39,6 +41,7 @@ class StudentwalletViewController: UIViewController,UITableViewDelegate,UITableV
     override func viewWillAppear(_ animated: Bool) {
         
         getstudentwalletAPI()
+        self.tableView.reloadData()
         
     }
     
@@ -58,23 +61,59 @@ class StudentwalletViewController: UIViewController,UITableViewDelegate,UITableV
                                        if status == 200
                                        {
                                         print("response here",jsonData)
-    //
-//                                        if let data = jsonData.object(forKey: "data") as? NSArray{
+//                                        let path = Bundle.main.path(forResource: "filename", ofType: "json")
+//                                           let jsonData2 = try? NSData(contentsOfFile: path!, options: NSData.ReadingOptions.mappedIfSafe)
+                                    guard let path = Bundle.main.path(forResource: "samplejson", ofType: "json") else { return }
+
+                                        let url = URL(fileURLWithPath: path)
+
+                                       
+                                            let datas = try? Data(contentsOf: url)
+
+                                        let jsonnew = try? JSONSerialization.jsonObject(with: datas!, options: .fragmentsAllowed)
+
+                                          if let jsonDatanew = jsonnew as? NSDictionary {
+                                        if let data = jsonDatanew.object(forKey: "data") as? NSDictionary{
 //                                                                          for exp in data {
-//                                                                              let course = Courses()
+                                                                              
 //                                                                              let i = exp as! NSDictionary
-//                                                                            course.categorycode = i.value(forKey: "code") as? Int
-//                                                                            course.categoryname = i.value(forKey: "displayName") as? String
-//
-//                                                                              self.categorydata.append(course)
-//
-                                                                          //}
-                                      //  }
+                                                                              let stud = studentwallet()
+                                                                            if let docdetails = data.object(forKey: "documentDetails") as? NSArray{
+                                                                                        
+                                                                                for fac in docdetails
+                                                                                {
+                                                                                                                                  let i = fac as! NSDictionary
+                                                                                          if let degree = i.object(forKey: "degreeId") as? NSDictionary{
+                                                                                            
+                                                                                               
+                                                                                                stud.docname = degree.value(forKey: "displayName") as? String
+                                                                                            
+                                                                                            
+                                                                                    }
+                                                                                    
+                                                                                    
+                                                                                                                                stud.docidentity = i.value(forKey: "documentIdentity") as? String
+                                                                                                                                 self.docdata.append(stud)
+                                                                                }
+                                                                               
+                                                                            }
+                                                                            
+
+                                                                            
+                                                                             
+
+                                                                         }
+                                        }
                                        }
+                                        else if status == 401
+                                       {
+                                        print("sigin again")
+                                        self.callSignout()
+                                        }
                                      }
                                  }
                              }
-                          //   self.tableView.reloadData()
+                    self.tableView.reloadData()
                              break
                          case .failure(_):
                              if let statusCode = response.response?.statusCode {
@@ -93,7 +132,55 @@ class StudentwalletViewController: UIViewController,UITableViewDelegate,UITableV
     
     
     
-    
+    func callSignout(){
+            
+            startActivityIndicator()
+            let userUrl = LOGOUT_API
+            // Add one parameter
+            let myUrl = NSURL(string: userUrl)
+            
+            // Creaste URL Request
+            let request = NSMutableURLRequest(url:myUrl! as URL)
+            request.httpMethod = "GET"
+            request.setValue(UserDefaults.standard.string(forKey: "USER"), forHTTPHeaderField: "Cookie")
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+                guard error == nil && data != nil else {      // check for fundamental networking error
+                    print("error=\(String(describing: error))")
+                    return
+                }
+                do {
+                    DispatchQueue.main.async {
+                         self.stopActivityIndicator()
+                    }
+                   
+                    if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
+                        let status = responseJSON["status"] as? Int
+                        if status == 200 {
+                            DispatchQueue.main.async {
+                                 if let signInViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "SignInVC") as? SignInViewController {
+                                                           
+                                    UserDefaults.standard.set(false, forKey: "IsLoggedIn")
+                                     let domain = Bundle.main.bundleIdentifier!
+                                      UserDefaults.standard.removePersistentDomain(forName: domain)
+                                      UserDefaults.standard.synchronize()
+                                      print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
+                                     signInViewController.hidesBottomBarWhenPushed = true
+                                     self.navigationController?.pushViewController(signInViewController, animated: false)
+                            }
+                           
+                            }
+                        }
+                    }
+                }
+                    
+                catch {
+                    print("Error -> \(error)")
+                }
+            }
+            task.resume()
+        }
+    }
     
     
     
@@ -113,4 +200,4 @@ class StudentwalletViewController: UIViewController,UITableViewDelegate,UITableV
     }
     */
 
-}
+

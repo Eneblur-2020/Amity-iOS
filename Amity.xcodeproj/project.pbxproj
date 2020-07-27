@@ -132,6 +132,7 @@
 		843FFBC124C6D490009BAF95 /* StudentwalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FFBC024C6D490009BAF95 /* StudentwalletViewController.swift */; };
 		843FFBC324C6F38F009BAF95 /* StudentWalletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FFBC224C6F38F009BAF95 /* StudentWalletTableViewCell.swift */; };
 		843FFBC424C81762009BAF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BDBE45246E7A6500147DDB /* Assets.xcassets */; };
+		843FFBC624C89A10009BAF95 /* studentwallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FFBC524C89A10009BAF95 /* studentwallet.swift */; };
 		EAF4413924A2547000533E01 /* PageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAF4413824A2547000533E01 /* PageView.xib */; };
 		EAF4413C24A255D200533E01 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4413B24A255D200533E01 /* PageView.swift */; };
 		EAF4413E24A2587400533E01 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4413D24A2587400533E01 /* MainPageViewController.swift */; };
@@ -267,6 +268,7 @@
 		80BDBE54246FBCDC00147DDB /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		843FFBC024C6D490009BAF95 /* StudentwalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentwalletViewController.swift; sourceTree = "<group>"; };
 		843FFBC224C6F38F009BAF95 /* StudentWalletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentWalletTableViewCell.swift; sourceTree = "<group>"; };
+		843FFBC524C89A10009BAF95 /* studentwallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentwallet.swift; sourceTree = "<group>"; };
 		93A5F099FD4BC4B9098DA579 /* Pods-Amity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amity.debug.xcconfig"; path = "Target Support Files/Pods-Amity/Pods-Amity.debug.xcconfig"; sourceTree = "<group>"; };
 		A4B97F346090EF87AA71442D /* Pods-Amity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amity.release.xcconfig"; path = "Target Support Files/Pods-Amity/Pods-Amity.release.xcconfig"; sourceTree = "<group>"; };
 		EAF4413824A2547000533E01 /* PageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageView.xib; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 			isa = PBXGroup;
 			children = (
 				843FFBC024C6D490009BAF95 /* StudentwalletViewController.swift */,
+				843FFBC524C89A10009BAF95 /* studentwallet.swift */,
 				1B35F97324C4C53F0064EFF3 /* CourseViewController.swift */,
 				1B35F96424C4C4780064EFF3 /* CircleImageview.swift */,
 				1B35F96624C4C4970064EFF3 /* CoursedetailCollectionViewCell.swift */,
@@ -790,6 +793,7 @@
 				1B5394DD24B8C202003FAA39 /* VideoCollectionViewCell.swift in Sources */,
 				1BF37B2424B78E8A00EE2A77 /* Event.swift in Sources */,
 				1B15873E24B09D23000583AE /* MyProfileDetailTableViewCell.swift in Sources */,
+				843FFBC624C89A10009BAF95 /* studentwallet.swift in Sources */,
 				1B35F96724C4C4970064EFF3 /* CoursedetailCollectionViewCell.swift in Sources */,
 				8023B6D92480DF300070F6EC /* OTPVarificationViewController.swift in Sources */,
 				1BEE8E4C24B75D9C002ADCB4 /* ApiUtil.swift in Sources */,

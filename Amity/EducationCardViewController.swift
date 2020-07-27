@@ -57,7 +57,7 @@ class EducationCardViewController: UIViewController {
                                         myEducation.College_School = i.value(forKey: "instituteName") as? String
                                         
                                             myEducation.startDate = Helper.dateFormatterMMMyyyy(dateString:  i.value(forKey: "fromDate") as? String ?? "")
-                                            myEducation.endDate = Helper.dateFormatterMMMyyyy(dateString:  i.value(forKey: "toDate") as? String ?? "")
+                                            myEducation.endDate = Helper.dateFormatterMMddWW(dateString:  i.value(forKey: "toDate") as? String ?? "")
                                        
                                             self.educationCardData.append(myEducation)
                                             

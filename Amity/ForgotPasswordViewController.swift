@@ -19,8 +19,9 @@ class ForgotPasswordViewController: BaseViewController {
         
         continueBtn.layer.cornerRadius = 5
         self.title = "FORGOT PASSWORD"
-        let addButtonItem = UIBarButtonItem(title: "<", style: .plain, target: self, action: #selector(onClickBackButton))
-            self.navigationItem.leftBarButtonItem  = addButtonItem
+       
+        let addButtonItem  = UIBarButtonItem(image: UIImage(named: "Icon material-keyboard-arrow-left-2"), style: .plain, target: self, action: #selector(onClickBackButton))
+        self.navigationItem.leftBarButtonItem  = addButtonItem
         }
     
       @objc func onClickBackButton(){

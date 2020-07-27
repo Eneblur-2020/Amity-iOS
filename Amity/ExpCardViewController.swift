@@ -70,7 +70,7 @@ class ExpCardViewController: UIViewController {
                                           myExp.startDate =    Helper.dateFormatterMMMyyyy(dateString: i.value(forKey: "fromDate") as? String ?? "")
                                         let endDate = i.value(forKey: "toDate") as? String ?? ""
                                         if endDate != "Present"{
-                                        myExp.endDate = Helper.dateFormatterMMMyyyy(dateString: endDate)
+                                        myExp.endDate = Helper.dateFormatterMMddWW(dateString: endDate)
                                         } else {
                                              myExp.endDate = endDate
                                         }

@@ -13,6 +13,7 @@ class OTPVarificationViewController: BaseViewController {
     @IBOutlet weak var otpTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
     var isFrom :Int?
+     let userDefaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -23,7 +24,17 @@ class OTPVarificationViewController: BaseViewController {
         continueButton.layer.cornerRadius = 5
         self.title = "SIGN UP"
         self.navigationController?.navigationBar.isHidden = false
+        if isFromSignUp == 1  {
+             let addButtonItem  = UIBarButtonItem(image: UIImage(named: "Icon material-keyboard-arrow-left-2"), style: .plain, target: self, action: #selector(onClickBackButton))
+                          self.navigationItem.leftBarButtonItem  = addButtonItem
+        }
+      
     }
+    @objc func onClickBackButton(){
+        self.dismiss(animated: true)
+           
+         //  self.navigationController?.popViewController(animated: true)
+        }
     @IBAction func onContinueBtnPressed(_ sender: Any) {
         if otpTextField.text?.isEmpty ?? false {
             OperationQueue.main.addOperation {
@@ -41,7 +52,6 @@ class OTPVarificationViewController: BaseViewController {
             }
         }
     }
-    
     @IBAction func onBackBtnPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -74,7 +84,7 @@ class OTPVarificationViewController: BaseViewController {
                             let responseMessage = jsonData.object(forKey: "message") as? String
                             if let status = jsonData.object(forKey: "status") as? Int {
                                 if status == 200 {
-                                    
+                                       self.userDefaults.set(true, forKey: "IsLoggedIn")
                                     let tabBarViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
                                     tabBarViewController.modalPresentationStyle = .fullScreen
                                     self.present(tabBarViewController, animated: true, completion: nil)

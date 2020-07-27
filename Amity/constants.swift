@@ -62,6 +62,8 @@ let PROFILE_SUMMARY_API = "\(BASE_URL)profile/summary"
 
 let EXPERIENCE_API = "\(BASE_URL)profile/experience"
 
+let UPDATE_EXPERIENCE_API = "\(BASE_URL)profile/experience/"
+
 let UPDATE_NAME_API = "\(BASE_URL)profile/updateName"
 
 let UPDATE_EMAIL_API = "\(BASE_URL)profile/updateEmail"
@@ -71,6 +73,8 @@ let UPDATE_MOBILE_API = "\(BASE_URL)profile/updateContactNumber"
 let SUMMARY_API = "\(BASE_URL)profile/summary"
 
 let EDUCATION_API = "\(BASE_URL)profile/education"
+
+let UPDATE_EDUCATION_API = "\(BASE_URL)profile/education/"
 
 let RESUME_UPLOAD_API = "\(BASE_URL)profile/resume"
 

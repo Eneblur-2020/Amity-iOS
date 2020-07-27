@@ -258,7 +258,7 @@ class MyProfileViewController1: BaseViewController {
                                         if i.value(forKey: "toDate") as? String ?? "" == "Present" {
                                             myExp.endDate = "Present"
                                         } else{
-                                            myExp.endDate = Helper.dateFormatterMMMyyyy(dateString:i.value(forKey: "toDate") as? String ?? "")
+                                            myExp.endDate = Helper.dateFormatterMMddWW(dateString:i.value(forKey: "toDate") as? String ?? "")
                                         }
                                         myExp.id = i.value(forKey: "_id") as? String
                                         self.expCardData.append(myExp)
@@ -310,7 +310,7 @@ class MyProfileViewController1: BaseViewController {
                                         myEducation.startDate = Helper.dateFormatterMMMyyyy(dateString:i.value(forKey: "fromDate") as? String ?? "")
                                         
                                         
-                                        myEducation.endDate = Helper.dateFormatterMMMyyyy(dateString:i.value(forKey: "toDate") as? String ?? "")
+                                        myEducation.endDate = Helper.dateFormatterMMddWW(dateString:i.value(forKey: "toDate") as? String ?? "")
                                         myEducation.id = i.value(forKey: "_id") as? String
                                         self.educationCardData.append(myEducation)
                                         
@@ -409,8 +409,10 @@ class MyProfileViewController1: BaseViewController {
         
         if let experiencePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "ExperiencePageViewController") as? ExperiencePageViewController{
             let indexpath = IndexPath(row: sender.tag, section: 2)
+            
             experiencePageViewController.expDetail = expCardData[indexpath.row]
             experiencePageViewController.isDeleteData = false
+            experiencePageViewController.isEditData = true
             
             self.navigationController?.pushViewController(experiencePageViewController, animated: true)
             
@@ -423,6 +425,7 @@ class MyProfileViewController1: BaseViewController {
         let indexpath = IndexPath(row: sender.tag, section: 2)
         educationViewController.educationDetail = educationCardData[indexpath.row]
         educationViewController.isDeleteData = false
+        educationViewController.isEditData = true
         self.navigationController?.pushViewController(educationViewController, animated: true)
     }
     @objc func onClickResumeAddButton(){
@@ -641,7 +644,7 @@ extension MyProfileViewController1:UITableViewDataSource,UITableViewDelegate{
         case 1:
             if  let myProfileDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyProfileDetailTableViewCell") as? MyProfileDetailTableViewCell {
                 if let myProfile = self.userData.userMetaData?.value(forKey: "profileSummary") as? String {
-                myProfileDetailTableViewCell.myProfileDescrption.text = myProfile
+                    myProfileDetailTableViewCell.myProfileDescrption.text = myProfile
                 } else {
                     
                 }
@@ -719,7 +722,7 @@ extension MyProfileViewController1 : DataEnteredDelegate {
             let profileSummaryDetailsVC = segue.destination as! ProfileSummaryDetailsViewController
             profileSummaryDetailsVC.delegate = self
         }
-       
+        
     }
     
 }

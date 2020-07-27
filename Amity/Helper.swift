@@ -15,7 +15,7 @@ class Helper{
         let tempLocale = dateFormatter.locale
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-       
+        
         let date = dateFormatter.date(from: dateString) ?? Date()
         dateFormatter.dateFormat = "MMM yyyy"
         dateFormatter.locale = tempLocale // reset the locale
@@ -25,14 +25,15 @@ class Helper{
     static func dateFormatterMMddWW(dateString:String) -> String {
         
         let dateFormatter = DateFormatter()
-        let tempLocale = dateFormatter.locale
+        
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "E MMM d yyyy HH:mm:ss 'GMT'ZZZ"
         let date = dateFormatter.date(from: dateString) ?? Date()
         dateFormatter.dateFormat = "MMM yyyy"
-        dateFormatter.locale = tempLocale // reset the locale
+        dateFormatter.timeZone = TimeZone.current// reset the locale
         let dateString = dateFormatter.string(from: date)
-        print(dateString)
+        
         return dateString
     }
     static func dateFormatterForDateTime(dateString:String) -> (String,String) {
@@ -74,17 +75,17 @@ class Helper{
         
     }
     static func dateFormatterdatemonth(dateString:String) -> String {
-           
+        
         let dateFormatter = DateFormatter()
         let tempLocale = dateFormatter.locale
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-           let date = dateFormatter.date(from: dateString) ?? Date()
+        let date = dateFormatter.date(from: dateString) ?? Date()
         dateFormatter.dateFormat = "dd MMM yyyy"
         dateFormatter.locale = tempLocale // reset the locale
         let dateString = dateFormatter.string(from: date)
-           print(dateString)
-       return dateString
+        print(dateString)
+        return dateString
     }
     func saveCookies(response: DataResponse<Any>) {
         let headerFields = response.response?.allHeaderFields as! [String: String]

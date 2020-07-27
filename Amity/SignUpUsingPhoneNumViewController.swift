@@ -12,7 +12,7 @@ import Toaster
 class CellClass: UITableViewCell{
     
 }
-
+var isFromSignUp = 0
 class SignUpUsingPhoneNumViewController: BaseViewController {
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var accountBtn: UIButton!
@@ -98,6 +98,7 @@ class SignUpUsingPhoneNumViewController: BaseViewController {
                             
                             //API call Successful and can perform other operatios
                             self.performSegue(withIdentifier: "OTPSegue", sender: self)
+                            isFromSignUp = 1
                             Toast(text: "OTP send successFully", duration: Delay.short)
                             print("SignUp Successful")
                         }

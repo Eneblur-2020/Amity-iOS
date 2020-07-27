@@ -42,7 +42,9 @@ class SignInViewController: BaseViewController {
         self.navigationItem.setHidesBackButton(true, animated: false)
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        isFromSignUp = 2
+    }
     @objc func clickable(){
         self.performSegue(withIdentifier: "skipNow", sender: self)
     }
@@ -135,19 +137,7 @@ class SignInViewController: BaseViewController {
         startActivityIndicator()
         if isInternetAvailable(){
             Util.Manager.request(url, method : .post,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
-                if let headerFields = response.response?.allHeaderFields as? [String: String]
-                    
-                {
-                    if let URL = response.request?.url{
-                        let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
-                        if cookies.count > 0 {
-                            let cookieSid = cookies.first?.value(forKey: "value") as! String
-                            Util.setCookie(cookie: cookieSid)
-                        }
-                        self.stopActivityIndicator()
-                    }
-                }
-                
+                self.stopActivityIndicator()
                 switch response.result{
                 case .success(_):
                     if let json = response.result.value{
@@ -155,7 +145,7 @@ class SignInViewController: BaseViewController {
                             let status = jsonData.object(forKey: "status") as? Int
                             let responseMessage = jsonData.object(forKey: "message") as? String
                             if status == 200 {
-                                self.userDefaults.set(true, forKey: "IsLoggedIn")
+                             
                                 if let oTPVarificationViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "OTPVarificationViewController") as? OTPVarificationViewController {
                                     oTPVarificationViewController.isFrom = 1
                                     oTPVarificationViewController.modalPresentationStyle = .fullScreen

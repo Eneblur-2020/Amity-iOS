@@ -25,6 +25,7 @@ class ExperiencePageViewController: BaseViewController {
     let datePicker = UIDatePicker()
     var expDetail : MyExperince?
     var isDeleteData : Bool?
+    var isEditData: Bool?
     //let picker = UIDatePicker()
     
     override func viewDidLoad() {
@@ -59,7 +60,7 @@ class ExperiencePageViewController: BaseViewController {
         if expDetail?.endDate == "Present"{
             endDate.text = "Present"
         } else {
-        endDate.text = Helper.dateFormatter_dd_MM_yyyy(dateString: expDetail?.endDate ?? "")
+            endDate.text = Helper.dateFormatter_dd_MM_yyyy(dateString: expDetail?.endDate ?? "")
         }
         
         deleteButton.isHidden = isDeleteData ?? true
@@ -146,7 +147,11 @@ class ExperiencePageViewController: BaseViewController {
     
     @IBAction func onSaveButtonClick(_ sender: Any) {
         //self.performSegue(withIdentifier: "SaveExpToExpCard", sender: self)
+        if isEditData ?? false {
+            UpdateExperienceDetail()
+        } else {
         saveExperienceDetail()
+        }
     }
     
     @IBAction func onStartButtonClick(_ sender: Any) {
@@ -168,7 +173,54 @@ class ExperiencePageViewController: BaseViewController {
     //     // self.performSegue(withIdentifier: "SaveExpToExpCard", sender: self)
     //       // self.prepareForSegue(segue: UIStoryboard, sender: AnyObject)
     //    }
-    
+    func UpdateExperienceDetail(){
+        
+        let data :[String:String] = [
+            "jobTitle": jobTitleTextField.text ?? "",
+            "city": cityTextField.text ?? "",
+            "company": companyNameTextField.text ?? "",
+            "fromDate": startDate.text ?? "",
+            "toDate": endDate.text ?? ""
+        ]
+        if isInternetAvailable(){
+            startActivityIndicator()
+            
+            Util.Manager.request(UPDATE_EXPERIENCE_API+(expDetail?.id ?? ""), method : .put,parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+                self.stopActivityIndicator()
+                switch response.result{
+                case .success(_):
+                    if let json = response.result.value{
+                        if let jsonData = json as? NSDictionary {
+                            let responseMessage = jsonData.object(forKey: "message") as? String
+                            if let status = jsonData.object(forKey: "status") as? Int {
+                                if status == 200 {
+                            self.navigationController?.popViewController(animated: true)
+                                }else if status == 422{
+                                    OperationQueue.main.addOperation {
+                                        let alert = UIAlertController(title:"", message: responseMessage, preferredStyle: UIAlertController.Style.alert)
+                                        alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
+                                        self.present(alert, animated: true, completion: nil)
+                                    }
+                                }
+                                
+                                
+                            }
+                        }
+                    }
+                    break
+                case .failure(_):
+                    if let statusCode = response.response?.statusCode {
+                        
+                    }
+                    break
+                    
+                }
+            }
+        } else {
+            Util.showWhistle(message: NO_INTERNET, viewController: self)
+        }
+        
+    }
     func saveExperienceDetail(){
         
         let data :[String:String] = [
@@ -189,16 +241,17 @@ class ExperiencePageViewController: BaseViewController {
                             let responseMessage = jsonData.object(forKey: "message") as? String
                             if let status = jsonData.object(forKey: "status") as? Int {
                                 if status == 200 {
-                                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                    let expCardViewController = storyBoard.instantiateViewController(withIdentifier: "ExpCardViewController") as! ExpCardViewController
-                                    let myExperience = MyExperince()
-                                    myExperience.company = self.companyNameTextField.text
-                                    myExperience.jobTitle = self.jobTitleTextField.text
-                                    myExperience.city = self.cityTextField.text
-                                    myExperience.startDate = self.startDate.text
-                                    myExperience.endDate = self.endDate.text
-                                    expCardViewController.expCardData = [myExperience]
-                                    self.navigationController?.pushViewController(expCardViewController, animated: true)
+                                        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                        let expCardViewController = storyBoard.instantiateViewController(withIdentifier: "ExpCardViewController") as! ExpCardViewController
+                                        let myExperience = MyExperince()
+                                        myExperience.company = self.companyNameTextField.text
+                                        myExperience.jobTitle = self.jobTitleTextField.text
+                                        myExperience.city = self.cityTextField.text
+                                        myExperience.startDate = self.startDate.text
+                                        myExperience.endDate = self.endDate.text
+                                        expCardViewController.expCardData = [myExperience]
+                                        self.navigationController?.pushViewController(expCardViewController, animated: true)
+                                    
                                 }else if status == 422{
                                     OperationQueue.main.addOperation {
                                         let alert = UIAlertController(title:"", message: responseMessage, preferredStyle: UIAlertController.Style.alert)

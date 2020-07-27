@@ -24,6 +24,7 @@ class EducationViewController: BaseViewController {
     let datePicker = UIDatePicker()
     var educationDetail : MyEducation?
     var isDeleteData : Bool?
+    var isEditData: Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
         datePickerSetup()
@@ -124,12 +125,58 @@ class EducationViewController: BaseViewController {
         
     }
     @IBAction func onSaveButtonClick(_ sender: Any) {
-        
-        addEducation()
+        if isEditData ?? false{
+            UpdateEducation()
+        }else {
+            addEducation()
+        }
         
     }
     @IBAction func onDeleteButtonClick(_ sender:Any){
         deleteEducationData()
+    }
+    func UpdateEducation(){
+        
+        let data : [String : String] = [
+            "degreeTitle": degree.text ?? "",
+            "instituteName": school_College.text ?? "",
+            "fromDate": startDate.text ?? "",
+            "toDate": endDate.text ?? ""]
+        startActivityIndicator()
+        if isInternetAvailable(){
+            Util.Manager.request(UPDATE_EDUCATION_API+(educationDetail?.id ?? ""), method : .put,  parameters: data, encoding: JSONEncoding.default).responseJSON { (response) in
+                self.stopActivityIndicator()
+                switch response.result{
+                case .success(_):
+                    if let json = response.result.value{
+                        if let jsonData = json as? NSDictionary {
+                            let responseMessage = jsonData.object(forKey: "message") as? String
+                            if let status = jsonData.object(forKey: "status") as? Int {
+                                if status == 200{
+                                    self.navigationController?.popViewController(animated: true)
+                                }else if status == 422{
+                                    OperationQueue.main.addOperation {
+                                        let alert = UIAlertController(title:"", message: responseMessage, preferredStyle: UIAlertController.Style.alert)
+                                        alert.addAction(UIAlertAction(title: "OK", style:.default, handler: nil))
+                                        self.present(alert, animated: true, completion: nil)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break
+                case .failure(_):
+                    if let statusCode = response.response?.statusCode {
+                        
+                    }
+                    break
+                    
+                }
+            }
+        } else {
+            Util.showWhistle(message: NO_INTERNET, viewController: self)
+        }
+        
     }
     func addEducation(){
         

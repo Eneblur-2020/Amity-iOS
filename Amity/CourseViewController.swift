@@ -82,6 +82,7 @@ class CourseViewController:  UIViewController,UITableViewDelegate,UITableViewDat
                                          if status == 200
                                          {
       //
+                                            
                                           if let data = jsonData.object(forKey: "data") as? NSArray{
                                             for exp in data {
                                                 let course = Courses()
@@ -100,16 +101,11 @@ class CourseViewController:  UIViewController,UITableViewDelegate,UITableViewDat
                                                   for fac in faculty
                                                   {
                                                        let i = fac as! NSDictionary
-                                                  
-                                                      //description
                                              course.facultyname = i.value(forKey: "name") as? String
                                                     let facname = i.value(forKey: "name") as? String
                                                     var facimg = String()
                                                     if let coursedetail = i.object(forKey: "image") as? NSDictionary{
-                                                                                                     
-                                                                                                          // let i = fac as! NSDictionary
-                                                                                                          //description
-                                                                                                 course.facultyimg = coursedetail.value(forKey: "url") as? String
+                                                                      course.facultyimg = coursedetail.value(forKey: "url") as? String
                                                                                                       
                                                         facimg = coursedetail.value(forKey: "url") as! String
                                                         
@@ -228,9 +224,10 @@ class CourseViewController:  UIViewController,UITableViewDelegate,UITableViewDat
                                                                                 course.categorycode = i.value(forKey: "code") as? Int
                                                                                 course.categoryname = i.value(forKey: "displayName") as? String
                                                                                   
-                                                                                  self.categorydata.append(course)
+                                                                                 self.categorydata.append(course)
                                                                                  
                                                                               }
+                                                 
                                             }
                                            }
                                          }
@@ -337,19 +334,17 @@ class CourseViewController:  UIViewController,UITableViewDelegate,UITableViewDat
         case 0:
             
              if let cell = tableView.dequeueReusableCell(withIdentifier: "CourseSliderTableViewCell") as? CourseSliderTableViewCell {
-           
+                if(cell.coursedata.count>0)
+                {
+                    cell.coursedata.removeAll()
+                }
            cell.coursedata.append(contentsOf: coursedata)
                 cell.sliderCollectionView.reloadData()
                
                 
                  cell.course_Action = {
                                 
-                //                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                //                    let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "TopicViewController") as! TopicViewController
-                //
-                //                  loggedInViewController.modalPresentationStyle = .fullScreen
-                //                 self.present(loggedInViewController, animated: true, completion: nil)
-                                //performSegue(withIdentifier: "topicdetails", sender: AnyObject.self)
+             
                     if self.sendfacultydata.count > 0
                                    {
                                        self.sendfacultydata.removeAll()
@@ -374,17 +369,15 @@ class CourseViewController:  UIViewController,UITableViewDelegate,UITableViewDat
         case 1:
          
             if let cell = tableView.dequeueReusableCell(withIdentifier: "TopicSliderTableViewCell") as? TopicSliderTableViewCell {
-                
-                cell.coursedata.append(contentsOf: categorydata)
+                if(cell.coursedata.count>0)
+                               {
+                                   cell.coursedata.removeAll()
+                               }
+                cell.coursedata.append(contentsOf: self.categorydata)
                 cell.topicCollectionView.reloadData()
             cell.topic_Action = {
                 
-//                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "TopicViewController") as! TopicViewController
-//
-//                  loggedInViewController.modalPresentationStyle = .fullScreen
-//                 self.present(loggedInViewController, animated: true, completion: nil)
-                //performSegue(withIdentifier: "topicdetails", sender: AnyObject.self)
+
                 self.code = cell.selectedcode
                 self.nextpage(segue:"topicdetails")
             }

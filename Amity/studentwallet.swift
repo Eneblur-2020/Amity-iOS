@@ -14,6 +14,7 @@ class studentwallet {
     var docname: String?
     var docidentity: String?
     var docurl: String?
+      var issuedby: String?
     
     
     

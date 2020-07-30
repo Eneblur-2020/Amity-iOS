@@ -13,6 +13,6 @@ class FacultyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var fimage: UIImageView!
          @IBOutlet weak var fname: UILabel!
        
-         @IBOutlet weak var fdescr: UILabel!
+         @IBOutlet weak var fdescr: UITextView!
         
 }

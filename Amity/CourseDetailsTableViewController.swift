@@ -17,7 +17,9 @@ class CourseDetailsTableViewController: UITableViewController,UICollectionViewDe
        @IBOutlet weak var coursename: UILabel!
        @IBOutlet weak var duration: UILabel!
         @IBOutlet weak var batchdate: UILabel!
-         @IBOutlet weak var loutcome: UILabel!
+         
+     @IBOutlet weak var loutcome: UITextView!
+    
        
        
        
@@ -231,7 +233,7 @@ class CourseDetailsTableViewController: UITableViewController,UICollectionViewDe
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        return 7
     }
 }
 extension CourseDetailsTableViewController: UICollectionViewDelegateFlowLayout {

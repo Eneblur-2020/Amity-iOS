@@ -22,6 +22,8 @@ class InterestedformTableViewController: UITableViewController {
     @IBOutlet weak var phoneNumberErrorLabel: UILabel!
     @IBOutlet weak var emailErrorLabel: UILabel!
     
+     var userData = User()
+    let baseview = BaseViewController()
     
     @IBAction func submit_action(_sender : UIButton)
     {
@@ -66,7 +68,43 @@ class InterestedformTableViewController: UITableViewController {
     
     
     
-    
+    func getUserDetail(url:String){
+        baseview.startActivityIndicator()
+           if isInternetAvailable(){
+               let headers : [String:String] = ["Cookie":"sid=\(Util.getCookie())"]
+               Util.Manager.request(url, method : .get, encoding: JSONEncoding.default,headers: headers).responseJSON { (response) in
+                self.baseview.stopActivityIndicator()
+                   switch response.result{
+                   case .success(_):
+                       if let json = response.result.value{
+                           if let jsonData = json as? NSDictionary {
+                               
+                               
+                               self.userData.email = jsonData.value(forKey: "email") as? String
+                               
+                               self.userData.userMetaData = jsonData.value(forKey: "userMetaData") as? NSDictionary
+                               
+                               
+                           }
+                       }
+                       self.nametxt.text = self.userData.userMetaData?.value(forKey: "name") as? String
+                       self.emailtxt.text = self.userData.email
+                       self.phonetxt.text = self.userData.userMetaData?.value(forKey: "contactNumber") as? String
+                       
+                       break
+                   case .failure(_):
+                       if let statusCode = response.response?.statusCode {
+                           
+                       }
+                       break
+                       
+                   }
+               }
+           } else {
+               Util.showWhistle(message: NO_INTERNET, viewController: self)
+           }
+           
+       }
     
     func submitform(url :String){
         
@@ -260,6 +298,7 @@ class InterestedformTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+     
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -268,7 +307,11 @@ class InterestedformTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+//
+    override func viewWillAppear(_ animated: Bool) {
+        getUserDetail(url: USER_API)
+       
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

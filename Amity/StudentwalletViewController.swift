@@ -9,6 +9,14 @@
 import UIKit
 import Alamofire
 class StudentwalletViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    
+    
+    var downloadurl = String()
+     var titlename = String()
+     var imgname = String()
+     var facname = String()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return docdata.count
     }
@@ -22,6 +30,14 @@ class StudentwalletViewController: BaseViewController,UITableViewDelegate,UITabl
                    return cell
         
         
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let data = docdata[indexPath.row]
+        titlename = data.docname!
+        imgname = data.docidentity! + ".jpg"
+        facname = data.issuedby!
+        self.performSegue(withIdentifier: "studentwalletdetails", sender: self)
     }
     
 
@@ -40,14 +56,22 @@ class StudentwalletViewController: BaseViewController,UITableViewDelegate,UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         
+        getdocumentsurl()
         getstudentwalletAPI()
         self.tableView.reloadData()
         
     }
     
+    
+    
+    
     func getstudentwalletAPI(){
                  
                 
+        if self.docdata.count > 0
+        {
+            self.docdata.removeAll()
+        }
                  
             print("url :",GET_STUDENTWALLET_API)
                  if isInternetAvailable(){
@@ -61,48 +85,46 @@ class StudentwalletViewController: BaseViewController,UITableViewDelegate,UITabl
                                        if status == 200
                                        {
                                         print("response here",jsonData)
-//                                        let path = Bundle.main.path(forResource: "filename", ofType: "json")
-//                                           let jsonData2 = try? NSData(contentsOfFile: path!, options: NSData.ReadingOptions.mappedIfSafe)
-                                    guard let path = Bundle.main.path(forResource: "samplejson", ofType: "json") else { return }
 
-                                        let url = URL(fileURLWithPath: path)
-
-                                       
-                                            let datas = try? Data(contentsOf: url)
-
-                                        let jsonnew = try? JSONSerialization.jsonObject(with: datas!, options: .fragmentsAllowed)
-
-                                          if let jsonDatanew = jsonnew as? NSDictionary {
-                                        if let data = jsonDatanew.object(forKey: "data") as? NSDictionary{
-//                                                                          for exp in data {
+                                        if let data = jsonData.object(forKey: "data") as? NSDictionary{
+//                                                                         for exp in data {
+//
+//                                                                             let i = exp as! NSDictionary
                                                                               
-//                                                                              let i = exp as! NSDictionary
-                                                                              let stud = studentwallet()
                                                                             if let docdetails = data.object(forKey: "documentDetails") as? NSArray{
-                                                                                        
-                                                                                for fac in docdetails
+                                                                                       
+                                                                                for doc in docdetails
                                                                                 {
-                                                                                                                                  let i = fac as! NSDictionary
+                                                                                     let stud = studentwallet()
+                                                                                              let i = doc as! NSDictionary
                                                                                           if let degree = i.object(forKey: "degreeId") as? NSDictionary{
                                                                                             
                                                                                                
                                                                                                 stud.docname = degree.value(forKey: "displayName") as? String
                                                                                             
-                                                                                            
                                                                                     }
-                                                                                    
-                                                                                    
-                                                                                                                                stud.docidentity = i.value(forKey: "documentIdentity") as? String
-                                                                                                                                 self.docdata.append(stud)
+                                                                                    if let degree = i.object(forKey: "organizationId") as? NSDictionary{
+                                                                                                                                                                              
+                                                                                                                                                                                 
+                                                                                                                                                                                  stud.issuedby = degree.value(forKey: "displayName") as? String
+                                                                                                                                                                              
+                                                                                                                                                                      }
+                                                                              
+                                                                                       stud.docidentity = i.value(forKey: "documentIdentity") as? String
+                                                                                      self.docdata.append(stud)
                                                                                 }
+                                                                              
+                                                                                }
+                                                                  
+                                        //    stud.docname = "Search Engine Optimization"
                                                                                
-                                                                            }
+                                                                            //}
                                                                             
 
                                                                             
                                                                              
 
-                                                                         }
+                                                                        // }
                                         }
                                        }
                                         else if status == 401
@@ -124,9 +146,55 @@ class StudentwalletViewController: BaseViewController,UITableViewDelegate,UITabl
                          }
                      }
                  } else {
-                     //Util.showWhistle(message: NO_INTERNET, viewController: CourseViewController.self)
+                    Util.showWhistle(message: NO_INTERNET, viewController: self)
                  }
         }
+    
+    
+     func getdocumentsurl(){
+                     
+                    
+                     
+                print("url :",GET_DOCUMENTS_URL_API)
+                     if isInternetAvailable(){
+                       Util.Manager.request(GET_DOCUMENTS_URL_API, method : .get, encoding: JSONEncoding.default).responseJSON { (response) in
+                             switch response.result{
+                             case .success(_):
+                                 if let json = response.result.value{
+                                     if let jsonData = json as? NSDictionary {
+                                         if let status = jsonData.object(forKey: "status") as? Int {
+                                             
+                                           if status == 200
+                                           {
+                                            print("response here",jsonData)
+
+                                            self.downloadurl =  jsonData.object(forKey: "url") as! String
+                                            
+                                           
+                                           }
+                                            else if status == 401
+                                           {
+                                            print("sigin again")
+                                            self.callSignout()
+                                            }
+                                         }
+                                     }
+                                 }
+                      
+                                 break
+                             case .failure(_):
+                                 if let statusCode = response.response?.statusCode {
+                                     
+                                 }
+                                 break
+                                 
+                             }
+                         }
+                     } else {
+                        Util.showWhistle(message: NO_INTERNET, viewController: self)
+                     }
+            }
+        
     
     
     
@@ -180,7 +248,7 @@ class StudentwalletViewController: BaseViewController,UITableViewDelegate,UITabl
             }
             task.resume()
         }
-    }
+  
     
     
     
@@ -190,14 +258,25 @@ class StudentwalletViewController: BaseViewController,UITableViewDelegate,UITabl
     
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+         if segue.identifier == "studentwalletdetails" {
+            
+               let vc = segue.destination as! StudentwalletdetailsViewController
+            
+            vc.titlename = titlename
+            vc.facultyname = facname
+            vc.imageurl = self.downloadurl + imgname
+            
+            
+        }
     }
-    */
-
+   
+}
 

@@ -90,6 +90,9 @@ let SUBMIT_STUDENTAPPLICATION_API = "\(BASE_URL)course/student/register"
 //
 let GET_STUDENTWALLET_API = "\(BASE_URL)student/documents"
 
+///documentIssuance/documentURL
+let GET_DOCUMENTS_URL_API = "\(BASE_URL)documentIssuance/documentURL"
+///
 ///ALERT MESSAGES
 var NO_INTERNET = "No Internet Connection"
 let REQUEST_TIME_OUT = "Request could not be completed. Please try again."

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mh7-1j-yBF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mh7-1j-yBF">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -18,7 +18,7 @@
         <!--Main Page View Controller-->
         <scene sceneID="1fm-ue-e2r">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="TKi-5N-5rJ" customClass="MainPageViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="TKi-5N-5rJ" customClass="MainPageViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ApQ-Ti-Yl6"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Sa-Ni-24q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -28,7 +28,7 @@
         <!--Data View Controller-->
         <scene sceneID="Kqw-8C-g9A">
             <objects>
-                <viewController storyboardIdentifier="DataViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mh7-1j-yBF" customClass="DataViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DataViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mh7-1j-yBF" customClass="DataViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rKW-Mk-tWc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="wEL-je-5Pu">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC" id="FTd-yz-8dv" customClass="SignUpViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" id="FTd-yz-8dv" customClass="SignUpViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uay-qV-uRQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,7 +238,7 @@
         <!--Sign Up Using Email View Controller-->
         <scene sceneID="KDr-gE-tZi">
             <objects>
-                <viewController storyboardIdentifier="SignUpUsingEmail" id="0PZ-gC-cR3" customClass="SignUpUsingEmailViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpUsingEmail" id="0PZ-gC-cR3" customClass="SignUpUsingEmailViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PMp-fK-OeM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -287,7 +287,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-Mr-65U">
-                                <rect key="frame" x="54" y="300.5" width="301" height="17"/>
+                                <rect key="frame" x="54" y="300" width="301" height="18.5"/>
                                 <color key="textColor" red="0.057660713789999998" green="0.27829089759999998" blue="0.46702545880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -463,51 +463,51 @@
         <!--Sign In View Controller-->
         <scene sceneID="Dmn-oC-IdP">
             <objects>
-                <viewController storyboardIdentifier="SignInVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vQH-Lq-uMg" customClass="SignInViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vQH-Lq-uMg" customClass="SignInViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Un4-hu-09n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messageIcon" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-WM-z3c">
-                                <rect key="frame" x="23" y="258" width="18" height="18"/>
+                                <rect key="frame" x="23" y="258.5" width="18" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="18" id="OKE-Oi-442"/>
                                     <constraint firstAttribute="height" constant="18" id="bcm-dn-w5Z"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9se-G1-Guz">
-                                <rect key="frame" x="54" y="257" width="301" height="21"/>
+                                <rect key="frame" x="54" y="257" width="301" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3v-Ro-552">
-                                <rect key="frame" x="20" y="286" width="335" height="1"/>
+                                <rect key="frame" x="20" y="286.5" width="335" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="JYo-TX-Nf2"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passwordLock" translatesAutoresizingMaskIntoConstraints="NO" id="6Zl-Hi-1gY">
-                                <rect key="frame" x="24" y="336" width="18" height="18"/>
+                                <rect key="frame" x="24" y="336.5" width="18" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="kZl-0O-GgF"/>
                                     <constraint firstAttribute="width" constant="18" id="kb7-bW-zkj"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7xE-tf-rns">
-                                <rect key="frame" x="54" y="335" width="301" height="21"/>
+                                <rect key="frame" x="54" y="335.5" width="301" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYr-9m-jXE">
-                                <rect key="frame" x="23" y="364" width="335" height="1"/>
+                                <rect key="frame" x="23" y="364.5" width="335" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="XIp-QY-5l9"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jS-bQ-XBN">
-                                <rect key="frame" x="24" y="482" width="335" height="60"/>
+                                <rect key="frame" x="24" y="482.5" width="335" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="t6t-xx-hek"/>
@@ -541,25 +541,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter valid Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2K-zX-PBV">
-                                <rect key="frame" x="20" y="295" width="335" height="17"/>
+                                <rect key="frame" x="20" y="295.5" width="335" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter valid password " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFi-B2-t0v">
-                                <rect key="frame" x="20" y="373" width="335" height="17"/>
+                                <rect key="frame" x="20" y="373.5" width="335" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bBS-sK-L1j">
-                                <rect key="frame" x="236" y="421" width="123" height="30"/>
+                                <rect key="frame" x="236" y="421.5" width="123" height="30"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Forgot Password?">
                                             <attributes>
                                                 <color key="NSColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="label" size="15"/>
+                                                <font key="NSFont" metaFont="system" size="15"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
                                         </fragment>
@@ -707,7 +707,7 @@
         <!--Home Page1 View Controller-->
         <scene sceneID="gbT-Ig-xj1">
             <objects>
-                <viewController storyboardIdentifier="HomePage1ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="83W-nW-cod" customClass="HomePage1ViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomePage1ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="83W-nW-cod" customClass="HomePage1ViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TOK-Yi-qXP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1151"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -715,7 +715,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOV-Ir-wHS">
                                 <rect key="frame" x="-20" y="0.0" width="414" height="46"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Consults" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUM-SE-VkS" customClass="LocalisableLabel" customModule="Amity" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Consults" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUM-SE-VkS" customClass="LocalisableLabel" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="151" y="20.5" width="112" height="23.5"/>
                                         <fontDescription key="fontDescription" name="RobotoSlab-Regular" family="Roboto Slab" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -737,7 +737,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SliderTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="SliderTableViewCell" rowHeight="101" id="Kca-8K-eAL" customClass="SliderTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SliderTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="SliderTableViewCell" rowHeight="101" id="Kca-8K-eAL" customClass="SliderTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kca-8K-eAL" id="9Iz-Ma-YJ3">
@@ -746,7 +746,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllWebinarTableViewCell" rowHeight="198" id="2Qp-U2-XI9" customClass="AllWebinarTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllWebinarTableViewCell" rowHeight="198" id="2Qp-U2-XI9" customClass="AllWebinarTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="129" width="375" height="198"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Qp-U2-XI9" id="OdW-7a-ZU8">
@@ -755,7 +755,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllEventsTableViewCell" rowHeight="198" id="sL5-Wn-3KI" customClass="AllEventsTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllEventsTableViewCell" rowHeight="198" id="sL5-Wn-3KI" customClass="AllEventsTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="327" width="375" height="198"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sL5-Wn-3KI" id="BOG-h9-TUn">
@@ -764,7 +764,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GalleryTableViewCell" rowHeight="198" id="eId-EJ-Uhu" customClass="GalleryTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GalleryTableViewCell" rowHeight="198" id="eId-EJ-Uhu" customClass="GalleryTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="525" width="375" height="198"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eId-EJ-Uhu" id="BbH-IS-eQ3">
@@ -773,7 +773,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="VideoTableViewCell" rowHeight="198" id="LOu-VZ-e7Z" customClass="VideoTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="VideoTableViewCell" rowHeight="198" id="LOu-VZ-e7Z" customClass="VideoTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="723" width="375" height="198"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LOu-VZ-e7Z" id="Tro-Nh-bsJ">
@@ -817,7 +817,7 @@
         <!--Webinor Detail View Controller-->
         <scene sceneID="JHd-Tg-2wJ">
             <objects>
-                <viewController storyboardIdentifier="WebinorDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mh9-C2-hlM" customClass="WebinorDetailViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebinorDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mh9-C2-hlM" customClass="WebinorDetailViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tid-a1-JVc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1116,10 +1116,10 @@
             </objects>
             <point key="canvasLocation" x="3570.4000000000001" y="36.881559220389811"/>
         </scene>
-        <!--Data Source-->
+        <!--Webinar Calender View Controller-->
         <scene sceneID="Qq8-yW-kwv">
             <objects>
-                <viewController storyboardIdentifier="WebinarCalenderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DXo-cu-afX" customClass="WebinarCalenderViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebinarCalenderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DXo-cu-afX" customClass="WebinarCalenderViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZSg-HG-mgo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1191,7 +1191,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WebinarCalenderCollectionViewCell" id="IFL-65-DTm" customClass="WebinarCalenderCollectionViewCell" customModule="Amity" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WebinarCalenderCollectionViewCell" id="IFL-65-DTm" customClass="WebinarCalenderCollectionViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="105" height="102"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QXB-rK-d1u">
@@ -1264,7 +1264,7 @@
         <!--Gallery Detail View Controller-->
         <scene sceneID="WjW-Vg-ogA">
             <objects>
-                <viewController storyboardIdentifier="GalleryDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ago-Wq-uf0" customClass="GalleryDetailViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GalleryDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ago-Wq-uf0" customClass="GalleryDetailViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h7p-a2-CGg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1279,7 +1279,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryDetailCollectionViewCell" id="2iM-dl-TLq" customClass="GalleryDetailCollectionViewCell" customModule="Amity" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryDetailCollectionViewCell" id="2iM-dl-TLq" customClass="GalleryDetailCollectionViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="167" height="187"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="beB-Bz-MEw">
@@ -1364,7 +1364,7 @@
         <!--Video Detail View Controller-->
         <scene sceneID="qWq-SK-vLD">
             <objects>
-                <viewController storyboardIdentifier="VideoDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RMt-6C-lsU" customClass="VideoDetailViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RMt-6C-lsU" customClass="VideoDetailViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hBe-E1-DAV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1379,7 +1379,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoDetailCollectionViewCell" id="rz9-cd-eb9" customClass="VideoDetailCollectionViewCell" customModule="Amity" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoDetailCollectionViewCell" id="rz9-cd-eb9" customClass="VideoDetailCollectionViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="210"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VyU-8p-uPm">
@@ -1474,7 +1474,7 @@
         <!--All Album View Controller-->
         <scene sceneID="Agv-bc-VzK">
             <objects>
-                <viewController storyboardIdentifier="AllAlbumViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R34-Dt-jye" customClass="AllAlbumViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AllAlbumViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R34-Dt-jye" customClass="AllAlbumViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Gb-gz-ePk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1489,7 +1489,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AllAlbumCollectionViewCell" id="Zze-BT-JOX" customClass="AllAlbumCollectionViewCell" customModule="Amity" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AllAlbumCollectionViewCell" id="Zze-BT-JOX" customClass="AllAlbumCollectionViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="joq-3H-FT2">
@@ -1539,7 +1539,7 @@
         <!--Play Video View Controller-->
         <scene sceneID="ipI-ek-pky">
             <objects>
-                <viewController storyboardIdentifier="PlayVideoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GVt-5e-uTL" customClass="PlayVideoViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayVideoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GVt-5e-uTL" customClass="PlayVideoViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vqN-fW-pnL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1573,7 +1573,7 @@
         <!--Reset Password View Controller-->
         <scene sceneID="KRK-PV-A6T">
             <objects>
-                <viewController storyboardIdentifier="ResetPasswordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Sd7-Ku-ed9" customClass="ResetPasswordViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetPasswordViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Sd7-Ku-ed9" customClass="ResetPasswordViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="upV-mW-Tpl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1700,7 +1700,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="4N7-Yb-x5u">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eVz-P7-sTw" customClass="TabBarViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eVz-P7-sTw" customClass="TabBarViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="oky-WW-5s7"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="tYc-Qu-3h1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -1721,7 +1721,7 @@
         <!--MY ACCOUNT-->
         <scene sceneID="OXe-Do-RI8">
             <objects>
-                <viewController storyboardIdentifier="myAccount" id="toj-my-B2E" customClass="MyAccountViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myAccount" id="toj-my-B2E" customClass="MyAccountViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aNI-11-uhy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1730,7 +1730,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyAccountTableViewCell" rowHeight="87" id="WfR-dj-M8F" customClass="MyAccountTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyAccountTableViewCell" rowHeight="87" id="WfR-dj-M8F" customClass="MyAccountTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WfR-dj-M8F" id="KGH-0G-YZX">
@@ -1774,7 +1774,7 @@
         <!--Profile Summary Details View Controller-->
         <scene sceneID="puM-ln-hqh">
             <objects>
-                <viewController storyboardIdentifier="ProfileSummaryDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yPz-OC-EJ8" customClass="ProfileSummaryDetailsViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileSummaryDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yPz-OC-EJ8" customClass="ProfileSummaryDetailsViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bi8-XY-ZmG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1807,7 +1807,7 @@
         <!--EXPERIENCE-->
         <scene sceneID="xhU-19-jjy">
             <objects>
-                <viewController storyboardIdentifier="ExperiencePageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Py-4t-OB6" customClass="ExperiencePageViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExperiencePageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Py-4t-OB6" customClass="ExperiencePageViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="74F-73-Fd2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1816,43 +1816,43 @@
                                 <rect key="frame" x="20" y="94" width="335" height="250"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Job Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXA-z8-z55">
-                                        <rect key="frame" x="16" y="20" width="299" height="17"/>
+                                        <rect key="frame" x="16" y="20" width="299" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2S-ih-lRS">
-                                        <rect key="frame" x="16" y="45" width="299" height="1"/>
+                                        <rect key="frame" x="16" y="46.5" width="299" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="bb0-nm-aNB"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JsN-Mg-jm2">
-                                        <rect key="frame" x="16" y="62" width="299" height="17"/>
+                                        <rect key="frame" x="16" y="63.5" width="299" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3xG-he-6xD">
-                                        <rect key="frame" x="16" y="87" width="299" height="1"/>
+                                        <rect key="frame" x="16" y="90" width="299" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="ltn-IJ-fNe"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LVq-rW-eHy">
-                                        <rect key="frame" x="16" y="104" width="299" height="17"/>
+                                        <rect key="frame" x="16" y="107" width="299" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHX-r4-6tQ">
-                                        <rect key="frame" x="16" y="129" width="299" height="1"/>
+                                        <rect key="frame" x="16" y="133.5" width="299" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="LmV-UV-omo"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zIe-T1-FsA">
-                                        <rect key="frame" x="16" y="146" width="120" height="17"/>
+                                        <rect key="frame" x="16" y="150.5" width="120" height="18.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="HUA-7n-dXo"/>
                                         </constraints>
@@ -1860,32 +1860,32 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WN9-75-osy">
-                                        <rect key="frame" x="16" y="171" width="101" height="1"/>
+                                        <rect key="frame" x="16" y="177" width="101" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="qGU-Y4-dnI"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hq-JI-MlC">
-                                        <rect key="frame" x="158" y="144" width="19" height="21"/>
+                                        <rect key="frame" x="158" y="149.5" width="19" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="End Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzz-dn-cs2">
-                                        <rect key="frame" x="197" y="146" width="118" height="17"/>
+                                        <rect key="frame" x="197" y="150.5" width="118" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovA-Kw-c9U">
-                                        <rect key="frame" x="197" y="171" width="118" height="1"/>
+                                        <rect key="frame" x="197" y="177" width="118" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="0Og-Sn-N5s"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIx-tx-AdD">
-                                        <rect key="frame" x="140" y="147.5" width="14" height="14"/>
+                                        <rect key="frame" x="140" y="153" width="14" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="14" id="ayv-VU-ABI"/>
                                             <constraint firstAttribute="height" constant="14" id="mOs-at-9Ae"/>
@@ -1897,7 +1897,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzF-51-id1">
-                                        <rect key="frame" x="301" y="147.5" width="14" height="14"/>
+                                        <rect key="frame" x="301" y="153" width="14" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="OzI-KY-xh5"/>
                                             <constraint firstAttribute="width" constant="14" id="v5L-Rf-qpD"/>
@@ -1909,7 +1909,7 @@
                                         </connections>
                                     </button>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sjI-Xn-bor">
-                                        <rect key="frame" x="265" y="192" width="32" height="20"/>
+                                        <rect key="frame" x="265" y="198" width="32" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Nd9-Rz-6SW"/>
                                             <constraint firstAttribute="width" constant="30" id="qGL-b0-h3s"/>
@@ -2057,7 +2057,7 @@
         <!--MY PROFILE-->
         <scene sceneID="OdQ-dm-W2y">
             <objects>
-                <viewController storyboardIdentifier="MyProfileViewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vtz-yg-gnb" customClass="MyProfileViewController1" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyProfileViewController1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vtz-yg-gnb" customClass="MyProfileViewController1" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ylx-n1-EUx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2065,7 +2065,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tgc-6T-RgS">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyProfileTableViewCell" rowHeight="102" id="rcE-MM-0kh" customClass="MyProfileTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyProfileTableViewCell" rowHeight="102" id="rcE-MM-0kh" customClass="MyProfileTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rcE-MM-0kh" id="eYS-2k-Iyb">
@@ -2073,7 +2073,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyProfileDetailTableViewCell" rowHeight="85" id="8A9-hn-yQo" customClass="MyProfileDetailTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyProfileDetailTableViewCell" rowHeight="85" id="8A9-hn-yQo" customClass="MyProfileDetailTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="130" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8A9-hn-yQo" id="qzr-0t-0Hw">
@@ -2081,7 +2081,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyExperienceTableViewCell" rowHeight="85" id="aeA-PX-saw" customClass="MyExperienceTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyExperienceTableViewCell" rowHeight="85" id="aeA-PX-saw" customClass="MyExperienceTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="215" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aeA-PX-saw" id="cR4-h3-XfM">
@@ -2089,7 +2089,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyEducationTableViewCell" rowHeight="85" id="RnC-yw-FWN" customClass="MyEducationTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyEducationTableViewCell" rowHeight="85" id="RnC-yw-FWN" customClass="MyEducationTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="300" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RnC-yw-FWN" id="GHi-yI-uUO">
@@ -2097,7 +2097,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyResumeTableViewCell" rowHeight="85" id="D1e-i8-iH7" customClass="MyResumeTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyResumeTableViewCell" rowHeight="85" id="D1e-i8-iH7" customClass="MyResumeTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="385" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D1e-i8-iH7" id="F8C-6A-QA7">
@@ -2136,7 +2136,7 @@
         <!--Exp Card View Controller-->
         <scene sceneID="JW9-2j-xgO">
             <objects>
-                <viewController storyboardIdentifier="ExpCardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SGM-oJ-mk9" customClass="ExpCardViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExpCardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SGM-oJ-mk9" customClass="ExpCardViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tS7-ys-DjC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2145,7 +2145,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExperienceCardTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExperienceCardTableViewCell" rowHeight="119" id="XgU-A3-QfP" customClass="ExperienceCardTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExperienceCardTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExperienceCardTableViewCell" rowHeight="119" id="XgU-A3-QfP" customClass="ExperienceCardTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XgU-A3-QfP" id="p9G-va-kb4">
@@ -2265,7 +2265,7 @@
         <!--EDUCATION-->
         <scene sceneID="A7B-XP-Ttz">
             <objects>
-                <viewController storyboardIdentifier="EducationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9fq-Bc-2ns" customClass="EducationViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EducationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9fq-Bc-2ns" customClass="EducationViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CXs-ZF-QZK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2274,31 +2274,31 @@
                                 <rect key="frame" x="16" y="94" width="335" height="230"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="School / College" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qss-wN-IsM">
-                                        <rect key="frame" x="16" y="20" width="303" height="17"/>
+                                        <rect key="frame" x="16" y="20" width="303" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inL-Dh-ftK">
-                                        <rect key="frame" x="16" y="45" width="303" height="1"/>
+                                        <rect key="frame" x="16" y="46.5" width="303" height="1"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="mlk-yI-7Fr"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Degree" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KRF-cH-gog">
-                                        <rect key="frame" x="16" y="62" width="303" height="17"/>
+                                        <rect key="frame" x="16" y="63.5" width="303" height="18.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0X-AH-TnD">
-                                        <rect key="frame" x="16" y="87" width="303" height="1"/>
+                                        <rect key="frame" x="16" y="90" width="303" height="1"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="uPs-e5-KOU"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sBz-J0-bdJ">
-                                        <rect key="frame" x="16" y="106" width="104" height="17.5"/>
+                                        <rect key="frame" x="16" y="109" width="104" height="17.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="104" id="R0t-5P-QpU"/>
                                         </constraints>
@@ -2306,19 +2306,19 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="End Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cb9-il-mal">
-                                        <rect key="frame" x="196" y="101.5" width="100" height="25.5"/>
+                                        <rect key="frame" x="196" y="104.5" width="100" height="25.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pzd-ih-2Vk">
-                                        <rect key="frame" x="191.5" y="132" width="127.5" height="1"/>
+                                        <rect key="frame" x="191.5" y="135" width="127.5" height="1"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="hSF-1N-6C3"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNW-hM-NqV">
-                                        <rect key="frame" x="128" y="106" width="14" height="22"/>
+                                        <rect key="frame" x="128" y="109" width="14" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="14" id="67r-oY-vTT"/>
                                             <constraint firstAttribute="height" constant="22" id="DeS-LL-mgd"/>
@@ -2330,20 +2330,20 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxV-IZ-PyJ">
-                                        <rect key="frame" x="150.5" y="107" width="19" height="21"/>
+                                        <rect key="frame" x="150.5" y="110" width="19" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rJt-JW-z31">
-                                        <rect key="frame" x="16" y="132" width="93" height="1"/>
+                                        <rect key="frame" x="16" y="135" width="93" height="1"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Prd-JK-LCd"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wu-mX-oeA">
-                                        <rect key="frame" x="304" y="103" width="14" height="22.5"/>
+                                        <rect key="frame" x="304" y="106" width="14" height="22.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="3AS-iE-byn"/>
                                             <constraint firstAttribute="width" constant="14" id="3RP-Hp-viQ"/>
@@ -2488,7 +2488,7 @@
         <!--Education Card View Controller-->
         <scene sceneID="Geh-1g-bMW">
             <objects>
-                <viewController storyboardIdentifier="EducationCardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9h8-Nx-Mrb" customClass="EducationCardViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EducationCardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9h8-Nx-Mrb" customClass="EducationCardViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JBa-s4-rad">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2497,7 +2497,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EducationCardTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EducationCardTableViewCell" rowHeight="136" id="Z0J-vJ-xtW" customClass="EducationCardTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="EducationCardTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EducationCardTableViewCell" rowHeight="136" id="Z0J-vJ-xtW" customClass="EducationCardTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z0J-vJ-xtW" id="6PD-me-Hgm">
@@ -2614,25 +2614,25 @@
         <!--Forgot Password View Controller-->
         <scene sceneID="4mz-3q-P7B">
             <objects>
-                <viewController storyboardIdentifier="forgotPasswordVC" id="8MC-Il-jFf" customClass="ForgotPasswordViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="forgotPasswordVC" id="8MC-Il-jFf" customClass="ForgotPasswordViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2c7-lQ-3fR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messageIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zyr-AQ-zXM">
-                                <rect key="frame" x="20" y="254" width="18" height="18"/>
+                                <rect key="frame" x="20" y="254.5" width="18" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="BE2-UU-mUo"/>
                                     <constraint firstAttribute="width" constant="18" id="xP6-4O-A3X"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I3B-y8-rmG">
-                                <rect key="frame" x="54" y="253" width="301" height="20"/>
+                                <rect key="frame" x="54" y="253" width="301" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLQ-g3-hGY">
-                                <rect key="frame" x="20" y="288" width="335" height="1"/>
+                                <rect key="frame" x="20" y="288.5" width="335" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ZJl-lV-zQr"/>
@@ -2653,7 +2653,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter valid Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZ1-Fl-L5p">
-                                <rect key="frame" x="20" y="294" width="335" height="17"/>
+                                <rect key="frame" x="20" y="294.5" width="335" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2692,7 +2692,7 @@
         <!--Sign Up Using Phone Num View Controller-->
         <scene sceneID="13R-ig-B3S">
             <objects>
-                <viewController storyboardIdentifier="signUpPhone" id="ajG-8c-ad5" customClass="SignUpUsingPhoneNumViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signUpPhone" id="ajG-8c-ad5" customClass="SignUpUsingPhoneNumViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6fA-vp-bXY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2746,20 +2746,20 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BiP-uw-DOi">
-                                <rect key="frame" x="146" y="320.5" width="209" height="17"/>
+                                <rect key="frame" x="146" y="320" width="209" height="18.5"/>
                                 <color key="textColor" red="0.057660713789999998" green="0.27829089759999998" blue="0.46702545880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="tel"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNX-bj-ELD">
-                                <rect key="frame" x="146" y="351.5" width="209" height="1"/>
+                                <rect key="frame" x="146" y="352.5" width="209" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Sk5-gJ-xJl"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWm-hL-Dg4">
-                                <rect key="frame" x="20" y="449.5" width="335" height="50"/>
+                                <rect key="frame" x="20" y="450.5" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.71372549019607845" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aPI-nG-XH5"/>
@@ -2788,13 +2788,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter 10 digit phone number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0O-Uc-RUV">
-                                <rect key="frame" x="146" y="352.5" width="209" height="17"/>
+                                <rect key="frame" x="146" y="353.5" width="209" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUv-Kj-Dtx">
-                                <rect key="frame" x="54" y="305.5" width="80" height="47"/>
+                                <rect key="frame" x="54" y="305" width="80" height="48.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="gF9-w9-46c"/>
                                 </constraints>
@@ -2854,7 +2854,7 @@
         <!--Varification View Controller-->
         <scene sceneID="55K-hg-cdb">
             <objects>
-                <viewController storyboardIdentifier="OTPVarificationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XMd-tH-M5b" customClass="OTPVarificationViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OTPVarificationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XMd-tH-M5b" customClass="OTPVarificationViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="161-GJ-II3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2873,7 +2873,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter OTP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCn-yM-kVP">
-                                <rect key="frame" x="54" y="364.5" width="301" height="17"/>
+                                <rect key="frame" x="54" y="364" width="301" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="one-time-code"/>
                             </textField>
@@ -3022,10 +3022,10 @@
             </objects>
             <point key="canvasLocation" x="-2055.1999999999998" y="1002.5487256371815"/>
         </scene>
-        <!--Course View Controller-->
+        <!--Courses-->
         <scene sceneID="oBY-kh-DVK">
             <objects>
-                <viewController id="emR-wB-a7j" customClass="CourseViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="emR-wB-a7j" customClass="CourseViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Ug-HL-4As">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1151"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3039,7 +3039,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CourseSliderTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseSliderTableViewCell" rowHeight="232" id="DDR-o6-sJP" customClass="CourseSliderTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CourseSliderTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseSliderTableViewCell" rowHeight="232" id="DDR-o6-sJP" customClass="CourseSliderTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DDR-o6-sJP" id="e40-uF-rNd">
@@ -3048,7 +3048,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TopicSliderTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopicSliderTableViewCell" rowHeight="232" id="ZKu-a1-6He" customClass="TopicSliderTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TopicSliderTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopicSliderTableViewCell" rowHeight="232" id="ZKu-a1-6He" customClass="TopicSliderTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="260" width="375" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZKu-a1-6He" id="VGU-2i-fRb">
@@ -3076,7 +3076,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qLH-96-J8Q"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="FaL-yH-oLE"/>
+                    <navigationItem key="navigationItem" title="Courses" largeTitleDisplayMode="never" id="FaL-yH-oLE"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1200"/>
                     <connections>
@@ -3092,7 +3092,7 @@
         <!--All Courses-->
         <scene sceneID="bn6-Mf-RKb">
             <objects>
-                <viewController storyboardIdentifier="TopicViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Lx-69-61U" customClass="TopicViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TopicViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Lx-69-61U" customClass="TopicViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="18A-g1-zKU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3113,7 +3113,7 @@
                                 <rect key="frame" x="0.0" y="112" width="375" height="429"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopicTableViewCell" rowHeight="68" id="KD3-vH-cjy" customClass="TopicTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopicTableViewCell" rowHeight="68" id="KD3-vH-cjy" customClass="TopicTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KD3-vH-cjy" id="lIY-fw-HE4">
@@ -3158,16 +3158,17 @@
                     <connections>
                         <outlet property="tableView" destination="LMK-JT-bV9" id="N4f-7a-mnL"/>
                         <outlet property="textField" destination="Fsg-xV-6oI" id="0bm-AL-MZd"/>
+                        <segue destination="gpi-wo-J5K" kind="show" identifier="coursedetails2" id="UHg-8o-I4M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNy-qR-ea5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-972" y="2230"/>
+            <point key="canvasLocation" x="-780" y="1684"/>
         </scene>
-        <!--Course Details Table View Controller-->
+        <!--Amity Future Academy-->
         <scene sceneID="ADp-gV-hwh">
             <objects>
-                <tableViewController storyboardIdentifier="CourseDetailsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gpi-wo-J5K" customClass="CourseDetailsTableViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CourseDetailsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gpi-wo-J5K" customClass="CourseDetailsTableViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PLY-3b-Ej0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="851"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3227,8 +3228,8 @@
                                                             <color key="textColor" name="DarkBlueColour"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Duration : 23 months" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLf-sS-7dX">
-                                                            <rect key="frame" x="20" y="44" width="147" height="16"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration : 23 months" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLf-sS-7dX">
+                                                            <rect key="frame" x="20" y="44" width="146.5" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" name="DarkBlueColour"/>
                                                             <nil key="highlightedColor"/>
@@ -3236,8 +3237,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="iLf-sS-7dX" firstAttribute="leading" secondItem="QDU-3D-yyi" secondAttribute="leading" constant="20" id="BQL-ij-mtX"/>
                                                         <constraint firstItem="iLf-sS-7dX" firstAttribute="height" secondItem="kHx-bb-6Er" secondAttribute="height" id="Qrp-Yf-UuP"/>
                                                         <constraint firstItem="iLf-sS-7dX" firstAttribute="top" secondItem="FF6-6a-ecs" secondAttribute="bottom" constant="8" id="WQg-QF-fvu"/>
+                                                        <constraint firstItem="kHx-bb-6Er" firstAttribute="leading" secondItem="QDU-3D-yyi" secondAttribute="leading" constant="20" id="YUp-kq-HOb"/>
                                                         <constraint firstItem="FF6-6a-ecs" firstAttribute="top" secondItem="QDU-3D-yyi" secondAttribute="top" constant="15" id="ZAV-FH-p6B"/>
                                                         <constraint firstItem="FF6-6a-ecs" firstAttribute="leading" secondItem="QDU-3D-yyi" secondAttribute="leading" constant="20" id="dfU-xo-hJe"/>
                                                         <constraint firstItem="CVN-pf-mCz" firstAttribute="leading" secondItem="iLf-sS-7dX" secondAttribute="trailing" constant="69.5" id="diw-mV-jby"/>
@@ -3268,8 +3271,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WUV-C7-PBn">
-                                                    <rect key="frame" x="254" y="18" width="50" height="47.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Share Button" translatesAutoresizingMaskIntoConstraints="NO" id="WUV-C7-PBn">
+                                                    <rect key="frame" x="254" y="17" width="50" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" name="DarkBlueColour"/>
                                                     <constraints>
@@ -3341,52 +3344,57 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="facultycell" id="gJE-0b-YV5" customClass="FacultyCollectionViewCell" customModule="Amity" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="facultycell" id="gJE-0b-YV5" customClass="FacultyCollectionViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                                             <rect key="frame" x="11.5" y="0.0" width="312" height="198"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3lI-3J-xYu">
                                                                 <rect key="frame" x="0.0" y="0.0" width="312" height="198"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Alv-Gw-R3t">
-                                                                        <rect key="frame" x="132" y="22" width="73" height="53"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="53" id="9AL-uD-aKc"/>
-                                                                            <constraint firstAttribute="width" constant="73" id="nLn-uB-RE7"/>
-                                                                        </constraints>
-                                                                    </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Vinayak Tudayekar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrf-Ug-NUL">
                                                                         <rect key="frame" x="46" y="90" width="236" height="19.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                         <color key="textColor" name="DarkBlueColour"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MTech" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXG-al-LeA">
-                                                                        <rect key="frame" x="20" y="129" width="284" height="61"/>
-                                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-tc-43h">
+                                                                        <rect key="frame" x="0.0" y="118" width="304" height="72"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                         <color key="textColor" name="DarkBlueColour"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
+                                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="gJE-0b-YV5" id="oV6-kA-u4u"/>
+                                                                        </connections>
+                                                                    </textView>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Alv-Gw-R3t">
+                                                                        <rect key="frame" x="119" y="18" width="73" height="53"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="53" id="9AL-uD-aKc"/>
+                                                                            <constraint firstAttribute="width" constant="73" id="nLn-uB-RE7"/>
+                                                                        </constraints>
+                                                                    </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="uXG-al-LeA" secondAttribute="trailing" constant="8" id="IDN-Yl-xIa"/>
-                                                                    <constraint firstItem="Alv-Gw-R3t" firstAttribute="leading" secondItem="3lI-3J-xYu" secondAttribute="leading" constant="132" id="JE9-Yt-6Xn"/>
-                                                                    <constraint firstItem="Vrf-Ug-NUL" firstAttribute="top" secondItem="Alv-Gw-R3t" secondAttribute="bottom" constant="15" id="LDj-Uk-kbp"/>
-                                                                    <constraint firstItem="Vrf-Ug-NUL" firstAttribute="top" secondItem="Alv-Gw-R3t" secondAttribute="bottom" constant="15" id="SFr-IA-fws"/>
-                                                                    <constraint firstItem="Alv-Gw-R3t" firstAttribute="top" secondItem="3lI-3J-xYu" secondAttribute="top" constant="22" id="VAh-nF-UD8"/>
-                                                                    <constraint firstItem="uXG-al-LeA" firstAttribute="top" secondItem="Vrf-Ug-NUL" secondAttribute="bottom" constant="19.5" id="c2Z-3l-sdy"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="Alv-Gw-R3t" secondAttribute="trailing" constant="107" id="kO8-gl-L5B"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="n1H-tc-43h" secondAttribute="bottom" constant="8" id="9kB-NB-cAZ"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="n1H-tc-43h" secondAttribute="trailing" constant="8" id="BrD-5B-lJc"/>
+                                                                    <constraint firstItem="Alv-Gw-R3t" firstAttribute="leading" secondItem="3lI-3J-xYu" secondAttribute="leading" constant="119" id="JE9-Yt-6Xn"/>
+                                                                    <constraint firstItem="Vrf-Ug-NUL" firstAttribute="top" secondItem="Alv-Gw-R3t" secondAttribute="bottom" constant="19" id="LDj-Uk-kbp"/>
+                                                                    <constraint firstItem="Vrf-Ug-NUL" firstAttribute="top" secondItem="Alv-Gw-R3t" secondAttribute="bottom" constant="19" id="SFr-IA-fws"/>
+                                                                    <constraint firstItem="Alv-Gw-R3t" firstAttribute="top" secondItem="3lI-3J-xYu" secondAttribute="top" constant="18" id="VAh-nF-UD8"/>
+                                                                    <constraint firstItem="n1H-tc-43h" firstAttribute="top" secondItem="Vrf-Ug-NUL" secondAttribute="bottom" constant="8.5" id="ZpL-VI-wem"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Alv-Gw-R3t" secondAttribute="trailing" constant="120" id="kO8-gl-L5B"/>
                                                                     <constraint firstItem="Vrf-Ug-NUL" firstAttribute="leading" secondItem="3lI-3J-xYu" secondAttribute="leading" constant="46" id="n9u-jv-L9Q"/>
-                                                                    <constraint firstItem="uXG-al-LeA" firstAttribute="leading" secondItem="3lI-3J-xYu" secondAttribute="leading" constant="20" id="xEy-Q5-zX4"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="uXG-al-LeA" secondAttribute="bottom" constant="8" id="yFE-bt-hsx"/>
+                                                                    <constraint firstItem="n1H-tc-43h" firstAttribute="leading" secondItem="3lI-3J-xYu" secondAttribute="leading" id="qAM-LO-nav"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Vrf-Ug-NUL" secondAttribute="trailing" constant="30" id="ytU-0R-162"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <size key="customSize" width="312" height="198"/>
                                                             <connections>
-                                                                <outlet property="fdescr" destination="uXG-al-LeA" id="4qz-14-S7y"/>
+                                                                <outlet property="fdescr" destination="n1H-tc-43h" id="vTw-uG-Sxa"/>
                                                                 <outlet property="fimage" destination="Alv-Gw-R3t" id="d25-zA-84I"/>
                                                                 <outlet property="fname" destination="Vrf-Ug-NUL" id="ynX-5V-tzX"/>
                                                             </connections>
@@ -3436,6 +3444,8 @@
                                                         <constraint firstItem="0yg-iJ-1Wa" firstAttribute="top" secondItem="hg1-bi-gbz" secondAttribute="top" constant="14" id="NGA-TR-B4C"/>
                                                         <constraint firstItem="0yg-iJ-1Wa" firstAttribute="leading" secondItem="hg1-bi-gbz" secondAttribute="leading" constant="19" id="by3-Cx-ngf"/>
                                                         <constraint firstItem="0yg-iJ-1Wa" firstAttribute="centerX" secondItem="f9G-te-YLG" secondAttribute="centerX" id="h8p-EK-Pk9"/>
+                                                        <constraint firstItem="f9G-te-YLG" firstAttribute="leading" secondItem="hg1-bi-gbz" secondAttribute="leading" constant="12" id="m2G-Jv-hvC"/>
+                                                        <constraint firstAttribute="trailing" secondItem="f9G-te-YLG" secondAttribute="trailing" constant="12" id="nEi-h6-J26"/>
                                                         <constraint firstItem="f9G-te-YLG" firstAttribute="top" secondItem="0yg-iJ-1Wa" secondAttribute="bottom" constant="6" id="uui-lF-30D"/>
                                                         <constraint firstItem="0yg-iJ-1Wa" firstAttribute="centerX" secondItem="hg1-bi-gbz" secondAttribute="centerX" id="zWe-Qj-bml"/>
                                                     </constraints>
@@ -3460,9 +3470,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
+                                                        <constraint firstItem="YXh-pF-TWe" firstAttribute="leading" secondItem="JkY-KD-FqB" secondAttribute="leading" constant="13" id="09r-ls-mUd"/>
                                                         <constraint firstItem="YXh-pF-TWe" firstAttribute="top" secondItem="KKW-6m-1gY" secondAttribute="bottom" constant="8" symbolic="YES" id="7Gf-aC-Wwh"/>
                                                         <constraint firstItem="KKW-6m-1gY" firstAttribute="centerX" secondItem="JkY-KD-FqB" secondAttribute="centerX" id="9yD-oY-rhS"/>
                                                         <constraint firstItem="KKW-6m-1gY" firstAttribute="top" secondItem="JkY-KD-FqB" secondAttribute="top" constant="16.5" id="CIp-5O-5og"/>
+                                                        <constraint firstAttribute="trailing" secondItem="YXh-pF-TWe" secondAttribute="trailing" constant="13" id="OjN-RL-87C"/>
                                                         <constraint firstItem="KKW-6m-1gY" firstAttribute="centerX" secondItem="YXh-pF-TWe" secondAttribute="centerX" id="qju-u0-79K"/>
                                                     </constraints>
                                                 </view>
@@ -3482,6 +3494,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="yQZ-lZ-tJY" secondAttribute="trailing" constant="26" id="6u4-sE-m0Y"/>
                                                         <constraint firstAttribute="bottom" secondItem="yQZ-lZ-tJY" secondAttribute="bottom" constant="13" id="DHK-90-Wu3"/>
                                                         <constraint firstItem="451-Zl-KRa" firstAttribute="leading" secondItem="PKv-7a-4rM" secondAttribute="leading" constant="19" id="DOc-vb-P2R"/>
                                                         <constraint firstItem="451-Zl-KRa" firstAttribute="centerX" secondItem="yQZ-lZ-tJY" secondAttribute="centerX" id="R5P-mL-zoc"/>
@@ -3519,14 +3532,16 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTz-L8-09B">
                                                     <rect key="frame" x="12" y="11" width="351" height="82"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XYZ" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mms-A3-sBx">
-                                                            <rect key="frame" x="10" y="51" width="26" height="16"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" name="DarkBlueColour"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ucv-RZ-BQg">
+                                                            <rect key="frame" x="0.0" y="25" width="351" height="52"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learning Outcomes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ji-ol-vF1">
-                                                            <rect key="frame" x="10" y="20" width="126.5" height="17"/>
+                                                            <rect key="frame" x="8" y="0.0" width="126.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" name="DarkBlueColour"/>
                                                             <nil key="highlightedColor"/>
@@ -3534,10 +3549,12 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="7Ji-ol-vF1" firstAttribute="leading" secondItem="MTz-L8-09B" secondAttribute="leading" constant="10" id="G5X-wE-WZP"/>
-                                                        <constraint firstItem="7Ji-ol-vF1" firstAttribute="top" secondItem="MTz-L8-09B" secondAttribute="top" constant="20" id="GmS-5C-hoB"/>
-                                                        <constraint firstItem="mms-A3-sBx" firstAttribute="top" secondItem="7Ji-ol-vF1" secondAttribute="bottom" constant="14" id="SAK-o6-v3p"/>
-                                                        <constraint firstItem="mms-A3-sBx" firstAttribute="leading" secondItem="7Ji-ol-vF1" secondAttribute="leading" id="h0d-Bx-2kj"/>
+                                                        <constraint firstItem="7Ji-ol-vF1" firstAttribute="leading" secondItem="MTz-L8-09B" secondAttribute="leading" constant="8" id="G5X-wE-WZP"/>
+                                                        <constraint firstItem="7Ji-ol-vF1" firstAttribute="top" secondItem="MTz-L8-09B" secondAttribute="top" id="GmS-5C-hoB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Ucv-RZ-BQg" secondAttribute="trailing" id="S21-Cs-egc"/>
+                                                        <constraint firstItem="Ucv-RZ-BQg" firstAttribute="leading" secondItem="MTz-L8-09B" secondAttribute="leading" id="f8c-hb-LzI"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Ucv-RZ-BQg" secondAttribute="bottom" constant="5" id="pph-7J-MvN"/>
+                                                        <constraint firstItem="Ucv-RZ-BQg" firstAttribute="top" secondItem="7Ji-ol-vF1" secondAttribute="bottom" constant="8" id="qtS-TE-7fi"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -3561,13 +3578,13 @@
                                                     <rect key="frame" x="8" y="11" width="354" height="138"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8un-ec-hlq">
-                                                            <rect key="frame" x="8" y="4" width="126" height="19"/>
-                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                                            <rect key="frame" x="8" y="4" width="126" height="17"/>
+                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NbU-uv-XSw">
-                                                            <rect key="frame" x="0.0" y="31" width="346" height="107"/>
+                                                            <rect key="frame" x="0.0" y="29" width="346" height="109"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zYq-5b-pbb">
                                                                 <size key="itemSize" width="126" height="60"/>
@@ -3576,8 +3593,8 @@
                                                                 <inset key="sectionInset" minX="5" minY="5" maxX="0.0" maxY="0.0"/>
                                                             </collectionViewFlowLayout>
                                                             <cells>
-                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CoursedetailCollectionViewCell" reuseIdentifier="partnerslogocell" id="64w-on-FPO" customClass="CoursedetailCollectionViewCell" customModule="Amity" customModuleProvider="target">
-                                                                    <rect key="frame" x="5" y="16" width="126" height="80"/>
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CoursedetailCollectionViewCell" reuseIdentifier="partnerslogocell" id="64w-on-FPO" customClass="CoursedetailCollectionViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
+                                                                    <rect key="frame" x="5" y="17" width="126" height="80"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hAC-u8-OWT">
                                                                         <rect key="frame" x="0.0" y="0.0" width="126" height="80"/>
@@ -3628,11 +3645,11 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="379" id="DFw-jt-SEV">
-                                        <rect key="frame" x="0.0" y="1107" width="375" height="379"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="168" id="DFw-jt-SEV">
+                                        <rect key="frame" x="0.0" y="1107" width="375" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DFw-jt-SEV" id="K6W-8f-IgO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmJ-TG-8KG">
@@ -3682,14 +3699,6 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="379" id="ttl-D6-hJO">
-                                        <rect key="frame" x="0.0" y="1486" width="375" height="379"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ttl-D6-hJO" id="Fhl-29-vKA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -3698,7 +3707,7 @@
                             <outlet property="delegate" destination="gpi-wo-J5K" id="7Tp-TG-dKc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tpA-7n-grf"/>
+                    <navigationItem key="navigationItem" title="Amity Future Academy" id="tpA-7n-grf"/>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
                         <outlet property="batchdate" destination="kHx-bb-6Er" id="TqH-XT-QM6"/>
@@ -3711,7 +3720,7 @@
                         <outlet property="freebtn" destination="rmJ-TG-8KG" id="lYK-Wb-dXy"/>
                         <outlet property="interbtn" destination="CVN-pf-mCz" id="Gxc-aF-nRw"/>
                         <outlet property="interbtn2" destination="6yo-Bp-gfh" id="hg5-db-bL1"/>
-                        <outlet property="loutcome" destination="mms-A3-sBx" id="wdI-Of-SzT"/>
+                        <outlet property="loutcome" destination="Ucv-RZ-BQg" id="Iz9-vT-5qH"/>
                         <outlet property="partnercollectionview" destination="NbU-uv-XSw" id="h1h-YN-AaG"/>
                         <outlet property="videoview" destination="PKv-7a-4rM" id="2zT-xj-Xx6"/>
                         <segue destination="Fkb-Rz-rgV" kind="show" identifier="applydetails" id="oVe-Ks-wTE"/>
@@ -3724,18 +3733,18 @@
         <!--STUDENT WALLET-->
         <scene sceneID="96A-bc-78d">
             <objects>
-                <viewController id="iO2-AP-1PI" customClass="StudentwalletViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iO2-AP-1PI" customClass="StudentwalletViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCo-dk-lgG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="otz-cR-TTu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="otz-cR-TTu">
                                 <rect key="frame" x="31" y="152" width="313" height="314"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="tintColor" name="DarkYellowColour"/>
                                 <color key="separatorColor" red="0.054842812099999999" green="0.18168810839999999" blue="0.43379614640000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="StudentWalletTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentWalletTableViewCell" rowHeight="48" id="TvS-pl-saB" customClass="StudentWalletTableViewCell" customModule="Amity" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="StudentWalletTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentWalletTableViewCell" rowHeight="48" id="TvS-pl-saB" customClass="StudentWalletTableViewCell" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="313" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TvS-pl-saB" id="tDN-to-Pic">
@@ -3744,7 +3753,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduction to Product Management" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hve-hn-VqX">
                                                     <rect key="frame" x="15" y="16" width="276" height="16"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="14"/>
                                                     <color key="textColor" name="DarkBlueColour"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -3800,40 +3809,49 @@
                     <navigationItem key="navigationItem" title="STUDENT WALLET" id="9SI-tW-m1E"/>
                     <connections>
                         <outlet property="tableView" destination="otz-cR-TTu" id="k9g-xe-daU"/>
-                        <segue destination="qMU-I1-SsG" kind="show" identifier="studentwalletdetail" id="5DZ-Ud-kkh"/>
+                        <segue destination="qMU-I1-SsG" kind="show" identifier="studentwalletdetails" id="5DZ-Ud-kkh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T48-se-N6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-404" y="-1630"/>
+            <point key="canvasLocation" x="-754" y="-1593"/>
         </scene>
-        <!--View Controller-->
+        <!--Studentwalletdetails View Controller-->
         <scene sceneID="zpc-t0-dLf">
             <objects>
-                <viewController id="qMU-I1-SsG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentwalletdetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qMU-I1-SsG" customClass="StudentwalletdetailsViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zUW-bi-5h6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduction to Product management" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYX-pN-ERJ">
                                 <rect key="frame" x="24" y="128" width="335" height="19"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                 <color key="textColor" name="DarkBlueColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VSf-Mf-eIG">
                                 <rect key="frame" x="40" y="172" width="291" height="194"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="194" id="8Ez-cD-bSB"/>
+                                    <constraint firstAttribute="width" constant="291" id="i8g-gd-LJ7"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dkr-SW-DbA">
                                 <rect key="frame" x="65" y="478" width="245" height="30"/>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="O1s-DA-JYO"/>
+                                    <constraint firstAttribute="width" constant="245" id="YKJ-s6-DHS"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="sSH-aa-fvE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Send">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="send_btn:" destination="qMU-I1-SsG" eventType="touchUpInside" id="Vgg-iE-Mr3"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="My Profile" translatesAutoresizingMaskIntoConstraints="NO" id="uKm-wf-M1P">
                                 <rect key="frame" x="40" y="397" width="42" height="42"/>
@@ -3843,65 +3861,77 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISSUED BY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jr-qI-3Z4">
-                                <rect key="frame" x="90" y="408" width="75" height="16"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                <rect key="frame" x="90" y="408" width="114" height="16"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
                                 <color key="textColor" red="0.054842812099999999" green="0.18168810839999999" blue="0.43379614640000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBg-Cl-GyW">
-                                <rect key="frame" x="221" y="405" width="23" height="22"/>
+                                <rect key="frame" x="252" y="403" width="23" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="cOr-iC-KJo"/>
                                     <constraint firstAttribute="width" constant="23" id="cua-p8-I9J"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="printer.fill" catalog="system"/>
+                                <state key="normal" image="printer" catalog="system"/>
+                                <connections>
+                                    <action selector="print_btn:" destination="qMU-I1-SsG" eventType="touchUpInside" id="k14-lw-UX8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3R-cr-MRD">
-                                <rect key="frame" x="252" y="403" width="19" height="22"/>
+                                <rect key="frame" x="283" y="401" width="19" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="2Xe-HG-tut"/>
                                     <constraint firstAttribute="width" constant="19" id="guR-GP-7px"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="square.and.arrow.down.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="download_btn:" destination="qMU-I1-SsG" eventType="touchUpInside" id="hgm-jd-t2S"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgc-9G-lwU">
-                                <rect key="frame" x="307" y="405" width="21" height="22"/>
+                                <rect key="frame" x="338" y="403" width="21" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="21" id="Qdm-cS-VxS"/>
                                     <constraint firstAttribute="height" constant="22" id="gLg-vl-Miq"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
+                                <state key="normal" image="Share Button"/>
+                                <connections>
+                                    <action selector="share_btn:" destination="qMU-I1-SsG" eventType="touchUpInside" id="an4-fC-AcC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSb-14-OQz">
-                                <rect key="frame" x="279" y="407" width="20" height="22"/>
+                                <rect key="frame" x="310" y="405" width="20" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="QSn-PM-rbo"/>
                                     <constraint firstAttribute="width" constant="20" id="twj-xp-6Y9"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="pin.fill" catalog="system"/>
+                                <state key="normal" image="pin" catalog="system"/>
+                                <connections>
+                                    <action selector="attach_btn:" destination="qMU-I1-SsG" eventType="touchUpInside" id="XBI-yd-6a9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="WSb-14-OQz" firstAttribute="top" secondItem="VSf-Mf-eIG" secondAttribute="bottom" constant="41" id="04k-JC-k16"/>
+                            <constraint firstItem="WSb-14-OQz" firstAttribute="top" secondItem="VSf-Mf-eIG" secondAttribute="bottom" constant="39" id="04k-JC-k16"/>
                             <constraint firstItem="uKm-wf-M1P" firstAttribute="top" secondItem="VSf-Mf-eIG" secondAttribute="bottom" constant="31" id="29v-eQ-rkK"/>
-                            <constraint firstItem="eBg-Cl-GyW" firstAttribute="leading" secondItem="2jr-qI-3Z4" secondAttribute="trailing" constant="56" id="2P1-0E-EKz"/>
-                            <constraint firstItem="Dkr-SW-DbA" firstAttribute="top" secondItem="zgc-9G-lwU" secondAttribute="bottom" constant="51" id="3e3-io-lTx"/>
+                            <constraint firstItem="eBg-Cl-GyW" firstAttribute="leading" secondItem="2jr-qI-3Z4" secondAttribute="trailing" constant="48" id="2P1-0E-EKz"/>
+                            <constraint firstItem="Dkr-SW-DbA" firstAttribute="top" secondItem="zgc-9G-lwU" secondAttribute="bottom" constant="53" id="3e3-io-lTx"/>
                             <constraint firstItem="Thg-D0-EMC" firstAttribute="trailing" secondItem="Dkr-SW-DbA" secondAttribute="trailing" constant="65" id="8Yr-cZ-bh9"/>
                             <constraint firstItem="uKm-wf-M1P" firstAttribute="leading" secondItem="Thg-D0-EMC" secondAttribute="leading" constant="40" id="ALb-cx-aa0"/>
-                            <constraint firstItem="eBg-Cl-GyW" firstAttribute="leading" secondItem="2jr-qI-3Z4" secondAttribute="trailing" constant="56" id="AOa-kp-XpU"/>
+                            <constraint firstItem="eBg-Cl-GyW" firstAttribute="leading" secondItem="2jr-qI-3Z4" secondAttribute="trailing" constant="48" id="AOa-kp-XpU"/>
                             <constraint firstItem="VSf-Mf-eIG" firstAttribute="top" secondItem="sYX-pN-ERJ" secondAttribute="bottom" constant="25" id="IbG-DX-tkc"/>
                             <constraint firstItem="zgc-9G-lwU" firstAttribute="leading" secondItem="WSb-14-OQz" secondAttribute="trailing" constant="8" id="LpR-hW-QMc"/>
                             <constraint firstItem="Thg-D0-EMC" firstAttribute="trailing" secondItem="VSf-Mf-eIG" secondAttribute="trailing" constant="44" id="OcD-R4-b9S"/>
-                            <constraint firstItem="eBg-Cl-GyW" firstAttribute="top" secondItem="VSf-Mf-eIG" secondAttribute="bottom" constant="39" id="PMn-9V-ZdS"/>
-                            <constraint firstItem="Dkr-SW-DbA" firstAttribute="top" secondItem="eBg-Cl-GyW" secondAttribute="bottom" constant="51" id="QdH-wi-UB9"/>
+                            <constraint firstItem="eBg-Cl-GyW" firstAttribute="top" secondItem="VSf-Mf-eIG" secondAttribute="bottom" constant="37" id="PMn-9V-ZdS"/>
+                            <constraint firstItem="Dkr-SW-DbA" firstAttribute="top" secondItem="eBg-Cl-GyW" secondAttribute="bottom" constant="53" id="QdH-wi-UB9"/>
                             <constraint firstItem="Thg-D0-EMC" firstAttribute="trailing" secondItem="sYX-pN-ERJ" secondAttribute="trailing" constant="16" id="Rzn-xX-sUi"/>
-                            <constraint firstItem="Dkr-SW-DbA" firstAttribute="top" secondItem="f3R-cr-MRD" secondAttribute="bottom" constant="53" id="S2E-XJ-Cg8"/>
-                            <constraint firstItem="Thg-D0-EMC" firstAttribute="trailing" secondItem="zgc-9G-lwU" secondAttribute="trailing" constant="47" id="Vqq-ZX-fTv"/>
+                            <constraint firstItem="Dkr-SW-DbA" firstAttribute="top" secondItem="f3R-cr-MRD" secondAttribute="bottom" constant="55" id="S2E-XJ-Cg8"/>
+                            <constraint firstItem="Thg-D0-EMC" firstAttribute="trailing" secondItem="zgc-9G-lwU" secondAttribute="trailing" constant="16" id="Vqq-ZX-fTv"/>
                             <constraint firstItem="sYX-pN-ERJ" firstAttribute="leading" secondItem="Thg-D0-EMC" secondAttribute="leading" constant="24" id="Wqv-g1-58l"/>
                             <constraint firstItem="WSb-14-OQz" firstAttribute="leading" secondItem="f3R-cr-MRD" secondAttribute="trailing" constant="8" id="Wxv-S3-adk"/>
                             <constraint firstItem="f3R-cr-MRD" firstAttribute="leading" secondItem="eBg-Cl-GyW" secondAttribute="trailing" constant="8" id="ZME-Ih-Moo"/>
@@ -3910,13 +3940,13 @@
                             <constraint firstItem="2jr-qI-3Z4" firstAttribute="leading" secondItem="uKm-wf-M1P" secondAttribute="trailing" constant="8" id="b9O-BE-OfF"/>
                             <constraint firstItem="sYX-pN-ERJ" firstAttribute="top" secondItem="Thg-D0-EMC" secondAttribute="top" constant="84" id="bf8-OA-71B"/>
                             <constraint firstItem="2jr-qI-3Z4" firstAttribute="top" secondItem="VSf-Mf-eIG" secondAttribute="bottom" constant="42" id="d4J-tI-xWk"/>
-                            <constraint firstItem="Dkr-SW-DbA" firstAttribute="top" secondItem="WSb-14-OQz" secondAttribute="bottom" constant="49" id="dgu-Wf-2ba"/>
-                            <constraint firstItem="zgc-9G-lwU" firstAttribute="top" secondItem="VSf-Mf-eIG" secondAttribute="bottom" constant="39" id="j8Y-Jz-9zJ"/>
+                            <constraint firstItem="Dkr-SW-DbA" firstAttribute="top" secondItem="WSb-14-OQz" secondAttribute="bottom" constant="51" id="dgu-Wf-2ba"/>
+                            <constraint firstItem="zgc-9G-lwU" firstAttribute="top" secondItem="VSf-Mf-eIG" secondAttribute="bottom" constant="37" id="j8Y-Jz-9zJ"/>
                             <constraint firstItem="VSf-Mf-eIG" firstAttribute="top" secondItem="sYX-pN-ERJ" secondAttribute="bottom" constant="25" id="mcF-wT-3Me"/>
-                            <constraint firstItem="Dkr-SW-DbA" firstAttribute="top" secondItem="WSb-14-OQz" secondAttribute="bottom" constant="49" id="nET-MJ-Ad3"/>
+                            <constraint firstItem="Dkr-SW-DbA" firstAttribute="top" secondItem="WSb-14-OQz" secondAttribute="bottom" constant="51" id="nET-MJ-Ad3"/>
                             <constraint firstItem="Thg-D0-EMC" firstAttribute="bottom" secondItem="Dkr-SW-DbA" secondAttribute="bottom" constant="110" id="pTA-X0-OLt"/>
                             <constraint firstItem="2jr-qI-3Z4" firstAttribute="leading" secondItem="uKm-wf-M1P" secondAttribute="trailing" constant="8" id="qMx-a9-lqd"/>
-                            <constraint firstItem="f3R-cr-MRD" firstAttribute="top" secondItem="VSf-Mf-eIG" secondAttribute="bottom" constant="37" id="rYf-rW-8Wj"/>
+                            <constraint firstItem="f3R-cr-MRD" firstAttribute="top" secondItem="VSf-Mf-eIG" secondAttribute="bottom" constant="35" id="rYf-rW-8Wj"/>
                             <constraint firstItem="Thg-D0-EMC" firstAttribute="bottom" secondItem="uKm-wf-M1P" secondAttribute="bottom" constant="179" id="tdE-7q-nDe"/>
                             <constraint firstItem="zgc-9G-lwU" firstAttribute="leading" secondItem="WSb-14-OQz" secondAttribute="trailing" constant="8" id="uyr-0Z-x9r"/>
                             <constraint firstItem="Dkr-SW-DbA" firstAttribute="leading" secondItem="Thg-D0-EMC" secondAttribute="leading" constant="65" id="ypu-sb-vAe"/>
@@ -3925,6 +3955,11 @@
                         <viewLayoutGuide key="safeArea" id="Thg-D0-EMC"/>
                     </view>
                     <navigationItem key="navigationItem" id="yGj-x6-DAD"/>
+                    <connections>
+                        <outlet property="dispname" destination="sYX-pN-ERJ" id="cbG-cN-Dmr"/>
+                        <outlet property="facname" destination="2jr-qI-3Z4" id="HCW-nM-9J0"/>
+                        <outlet property="imageview" destination="VSf-Mf-eIG" id="y5F-Ah-Hjv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hct-eR-TNR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3933,8 +3968,8 @@
         <!--Interestedform Table View Controller-->
         <scene sceneID="w1h-CA-HNF">
             <objects>
-                <tableViewController id="Fkb-Rz-rgV" customClass="InterestedformTableViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yxx-DU-bA4">
+                <tableViewController id="Fkb-Rz-rgV" customClass="InterestedformTableViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yxx-DU-bA4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.054842812099999999" green="0.18168810839999999" blue="0.43379614640000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3982,7 +4017,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="John doe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDz-ey-ujl" customClass="customtextfield" customModule="Amity" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="John doe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDz-ey-ujl" customClass="customtextfield" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="20" width="343" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="343" id="b0k-F3-UQi"/>
@@ -4018,7 +4053,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-ca-x9T" customClass="customtextfield" customModule="Amity" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-ca-x9T" customClass="customtextfield" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="11" width="343" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="sJw-of-o96"/>
@@ -4065,7 +4100,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6m-7x-iVL" customClass="customtextfield" customModule="Amity" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6m-7x-iVL" customClass="customtextfield" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="0.0" width="343" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="Jqj-PX-PTc"/>
@@ -4120,7 +4155,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ps7-aO-EbN" customClass="customtextfield" customModule="Amity" customModuleProvider="target">
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="India" borderStyle="roundedRect" placeholder="Country*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ps7-aO-EbN" customClass="customtextfield" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="11" width="343" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="343" id="Nfi-uE-UHM"/>
@@ -4153,7 +4188,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00k-YT-guR" customClass="customtextfield" customModule="Amity" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00k-YT-guR" customClass="customtextfield" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="15" width="343" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="343" id="D3q-71-yYL"/>
@@ -4186,7 +4221,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Experience in months*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTP-cg-5EG" customClass="customtextfield" customModule="Amity" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Experience in months*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTP-cg-5EG" customClass="customtextfield" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="11" width="343" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="343" id="9xv-Da-f3b"/>
@@ -4219,7 +4254,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current organisation*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceZ-dk-LdZ" customClass="customtextfield" customModule="Amity" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current organisation*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceZ-dk-LdZ" customClass="customtextfield" customModule="Amity_Future_Academy_" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="11" width="343" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="343" id="1FQ-Oy-Pyg"/>
@@ -4252,10 +4287,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Education Qualification*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rza-MA-jrD" customClass="customtextfield" customModule="Amity" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="11" width="343" height="34"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Education Qualification*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rza-MA-jrD" customClass="customtextfield" customModule="Amity_Future_Academy_" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="11" width="335" height="34"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="343" id="1ZI-EF-9O3"/>
+                                                        <constraint firstAttribute="width" constant="335" id="1ZI-EF-9O3"/>
                                                         <constraint firstAttribute="height" constant="34" id="eN3-de-nhR"/>
                                                     </constraints>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4272,7 +4307,7 @@
                                             <constraints>
                                                 <constraint firstItem="rza-MA-jrD" firstAttribute="top" secondItem="OHa-wM-iEP" secondAttribute="topMargin" id="BBg-r8-2bY"/>
                                                 <constraint firstItem="rza-MA-jrD" firstAttribute="leading" secondItem="OHa-wM-iEP" secondAttribute="leadingMargin" id="cNa-zL-PbZ"/>
-                                                <constraint firstItem="rza-MA-jrD" firstAttribute="trailing" secondItem="OHa-wM-iEP" secondAttribute="trailingMargin" id="kCq-H7-2yS"/>
+                                                <constraint firstItem="rza-MA-jrD" firstAttribute="trailing" secondItem="OHa-wM-iEP" secondAttribute="trailingMargin" constant="-8" id="kCq-H7-2yS"/>
                                                 <constraint firstItem="rza-MA-jrD" firstAttribute="bottom" secondItem="OHa-wM-iEP" secondAttribute="bottomMargin" constant="-9" id="oHw-tB-AJY"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -4338,7 +4373,7 @@
         <!--Register Detail View Controller-->
         <scene sceneID="s4h-4T-Su7">
             <objects>
-                <viewController storyboardIdentifier="RegisterDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cYr-sK-Jxs" customClass="RegisterDetailViewController" customModule="Amity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cYr-sK-Jxs" customClass="RegisterDetailViewController" customModule="Amity_Future_Academy_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sfJ-9n-mWF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4443,6 +4478,12 @@
             <point key="canvasLocation" x="-6778.3999999999996" y="-525.78710644677665"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Yxn-Bx-nPc"/>
+        <segue reference="qhe-yZ-pee"/>
+        <segue reference="UHg-8o-I4M"/>
+        <segue reference="8hG-8Z-zmf"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Close Button" width="16.5" height="16.5"/>
         <image name="Feed" width="16" height="16"/>
@@ -4454,28 +4495,27 @@
         <image name="Profile" width="16" height="16"/>
         <image name="Share Button" width="41" height="41"/>
         <image name="amitylogo (3)" width="200" height="96"/>
-        <image name="arrowshape.turn.up.right.fill" catalog="system" width="64" height="52"/>
         <image name="back" width="512" height="512"/>
-        <image name="book.fill" catalog="system" width="64" height="50"/>
-        <image name="calendar" catalog="system" width="64" height="52"/>
+        <image name="book.fill" catalog="system" width="128" height="100"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="digital-cyberspace-with-particles-digital-data-network-connections-concept_24070-847" width="303" height="168"/>
-        <image name="doc.fill" catalog="system" width="56" height="64"/>
-        <image name="doc.plaintext" catalog="system" width="56" height="64"/>
-        <image name="envelope" catalog="system" width="64" height="46"/>
-        <image name="envelope.fill" catalog="system" width="64" height="46"/>
-        <image name="folder.fill" catalog="system" width="64" height="46"/>
-        <image name="globe" catalog="system" width="64" height="60"/>
-        <image name="house" catalog="system" width="64" height="54"/>
+        <image name="doc.fill" catalog="system" width="115" height="128"/>
+        <image name="doc.plaintext" catalog="system" width="115" height="128"/>
+        <image name="envelope" catalog="system" width="128" height="93"/>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <image name="folder.fill" catalog="system" width="128" height="95"/>
+        <image name="globe" catalog="system" width="128" height="121"/>
+        <image name="house" catalog="system" width="128" height="110"/>
         <image name="messageIcon" width="512" height="512"/>
         <image name="passwordLock" width="512" height="512"/>
-        <image name="person" catalog="system" width="64" height="58"/>
-        <image name="phone" catalog="system" width="64" height="56"/>
-        <image name="phone.fill" catalog="system" width="32" height="32"/>
-        <image name="pin.fill" catalog="system" width="58" height="64"/>
-        <image name="play.circle" catalog="system" width="64" height="60"/>
-        <image name="printer.fill" catalog="system" width="64" height="54"/>
-        <image name="square.and.arrow.down.fill" catalog="system" width="60" height="64"/>
-        <image name="square.split.2x2.fill" catalog="system" width="64" height="56"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="phone" catalog="system" width="128" height="115"/>
+        <image name="phone.fill" catalog="system" width="128" height="114"/>
+        <image name="pin" catalog="system" width="119" height="128"/>
+        <image name="play.circle" catalog="system" width="128" height="121"/>
+        <image name="printer" catalog="system" width="128" height="111"/>
+        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
+        <image name="square.split.2x2.fill" catalog="system" width="128" height="114"/>
         <namedColor name="ButtonYellowColour">
             <color red="0.9649999737739563" green="0.71399998664855957" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -4486,9 +4526,4 @@
             <color red="0.9649999737739563" green="0.71399998664855957" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Yxn-Bx-nPc"/>
-        <segue reference="qhe-yZ-pee"/>
-        <segue reference="8hG-8Z-zmf"/>
-    </inferredMetricsTieBreakers>
 </document>

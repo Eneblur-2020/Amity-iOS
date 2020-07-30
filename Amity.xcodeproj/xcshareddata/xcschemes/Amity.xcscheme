@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "80BDBE38246E7A6200147DDB"
-               BuildableName = "Amity.app"
+               BuildableName = "Amity Future Academy .app"
                BlueprintName = "Amity"
                ReferencedContainer = "container:Amity.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "80BDBE38246E7A6200147DDB"
-            BuildableName = "Amity.app"
+            BuildableName = "Amity Future Academy .app"
             BlueprintName = "Amity"
             ReferencedContainer = "container:Amity.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "80BDBE38246E7A6200147DDB"
-            BuildableName = "Amity.app"
+            BuildableName = "Amity Future Academy .app"
             BlueprintName = "Amity"
             ReferencedContainer = "container:Amity.xcodeproj">
          </BuildableReference>

@@ -14,6 +14,7 @@ class TopicViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var noitemsview: UIView!
      var categorydata = [Courses]()
     var sections = ["","Browse by Topic","","Students Testimonials"]
     var sectionLabel = ["","Preview Upcoming Webinars","Upcoming Events","Recent Photos and Videos"]
@@ -38,6 +39,7 @@ class TopicViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         tableView.delegate = self
         tableView.dataSource = self
         registerTableViewcell()
+      //  tableView.backgroundView = self.noitemsview
         tableView.contentInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
         createPickerView()
                createToolbar()
@@ -403,7 +405,24 @@ class TopicViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+       var numOfSection: NSInteger = 0
+       
+        if sorteddata.count > 0 || coursedata.count > 0 {
+
+            self.tableView.backgroundView = nil
+            numOfSection = 1
+                }
+        
+         else {
+
+            let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
+            noDataLabel.text = "No Data Available"
+            noDataLabel.textColor = UIColor(red: 22.0/255.0, green: 106.0/255.0, blue: 176.0/255.0, alpha: 1.0)
+            noDataLabel.textAlignment = NSTextAlignment.center
+            self.tableView.backgroundView = noDataLabel
+
+        }
+        return numOfSection
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        

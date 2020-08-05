@@ -247,6 +247,16 @@
 		800A46902477B270001FF2D7 /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		800A46922477C0B3001FF2D7 /* ProfileSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryViewController.swift; sourceTree = "<group>"; };
 		800A46942477C0DA001FF2D7 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		800E660F24D7E9F7008FB199 /* MyriadPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldIt.otf"; sourceTree = "<group>"; };
+		800E661024D7E9F7008FB199 /* MyriadPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-It.otf"; sourceTree = "<group>"; };
+		800E661124D7E9F8008FB199 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
+		800E661224D7E9F8008FB199 /* MyriadPro-BoldCondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldCondIt.otf"; sourceTree = "<group>"; };
+		800E661324D7E9F8008FB199 /* MyriadPro-CondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-CondIt.otf"; sourceTree = "<group>"; };
+		800E661424D7E9F8008FB199 /* MyriadPro-BoldCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldCond.otf"; sourceTree = "<group>"; };
+		800E661524D7E9F8008FB199 /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Cond.otf"; sourceTree = "<group>"; };
+		800E661624D7E9F8008FB199 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
+		800E661724D7E9F8008FB199 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		800E661824D7E9F8008FB199 /* MyriadPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldIt.otf"; sourceTree = "<group>"; };
 		801320662473CEE700941DF0 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		80159C392487910900E1FC82 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		80159C3D2487CD2600E1FC82 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -433,6 +443,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		800E660E24D7E9D3008FB199 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				800E661624D7E9F8008FB199 /* MyriadPro-Bold.otf */,
+				800E661424D7E9F8008FB199 /* MyriadPro-BoldCond.otf */,
+				800E661224D7E9F8008FB199 /* MyriadPro-BoldCondIt.otf */,
+				800E660F24D7E9F7008FB199 /* MyriadPro-BoldIt.otf */,
+				800E661524D7E9F8008FB199 /* MyriadPro-Cond.otf */,
+				800E661324D7E9F8008FB199 /* MyriadPro-CondIt.otf */,
+				800E661024D7E9F7008FB199 /* MyriadPro-It.otf */,
+				800E661724D7E9F8008FB199 /* MyriadPro-Regular.otf */,
+				800E661124D7E9F8008FB199 /* MyriadPro-Semibold.otf */,
+				800E661824D7E9F8008FB199 /* MyriadPro-SemiboldIt.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		801320682473D0D800941DF0 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +489,7 @@
 		80BDBE3B246E7A6200147DDB /* Amity */ = {
 			isa = PBXGroup;
 			children = (
+				800E660E24D7E9D3008FB199 /* Fonts */,
 				84F595E224C45CC9005AB857 /* Course_section */,
 				1B724E7B24AFA0F000BF71FF /* Model */,
 				1BC3DB9F24AEDECE00052FEE /* AmityRelease.entitlements */,
@@ -980,16 +1008,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Amity/AmityRelease.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: info@amityfutureacademy.com (XB885NK3PN)";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 8HF35YF258;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69ERN967NS;
 				INFOPLIST_FILE = Amity/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zotalabs.amityfutureapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zotalabs.amityfutureacademy;
 				PRODUCT_NAME = "Amity Future Academy ";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

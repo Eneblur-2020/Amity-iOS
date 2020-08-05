@@ -235,6 +235,68 @@ class CourseDetailsTableViewController: UITableViewController,UICollectionViewDe
         // #warning Incomplete implementation, return the number of rows
         return 7
     }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        /*
+         1-307
+         2-118
+         3-259
+         4-123
+         5-104
+         6-168
+         7- 168
+         */
+         
+        if indexPath.row == 0
+        {
+            return 307.0
+        }
+        else  if indexPath.row == 1
+               {
+                   return 118.0
+               }
+        else  if indexPath.row == 2
+               {
+                   return 259.0
+               }
+        else  if indexPath.row == 3
+               {
+                   return 123.0
+               }
+        else  if indexPath.row == 4
+               {
+                   return 104.0
+               }
+        else  if indexPath.row == 5
+               {
+                   if self.partnerslogodata.count > 0
+                   {
+                       return 168.0
+                   }
+                   else
+                   {
+                           return 0
+                       }
+               }
+        else  if indexPath.row == 6
+               {
+                   return 168.0
+               }
+       
+        else{
+        
+                return UITableView.automaticDimension
+        }
+            }
+    
+//     func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        var cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+//
+//        if cell == self.cellYouWantToHide {
+//            return 0
+//        }
+//
+//        return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+//    }
 }
 extension CourseDetailsTableViewController: UICollectionViewDelegateFlowLayout {
          func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

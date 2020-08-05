@@ -305,12 +305,16 @@ class CourseViewController:  UIViewController,UITableViewDelegate,UITableViewDat
         }
             else  if  indexPath.section == 2
         {
-            return 185
+            return 207
         }
             else  if  indexPath.section == 3
                   {
                       return 193
                   }
+            else  if  indexPath.section == 2
+                             {
+                                 return 402
+                             }
         else{
             return 350
         }

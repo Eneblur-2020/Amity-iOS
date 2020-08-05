@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Path 648" translatesAutoresizingMaskIntoConstraints="NO" id="LJS-Xy-c3l">
-                                <rect key="frame" x="46" y="192" width="283" height="283"/>
+                                <rect key="frame" x="-95.5" y="50.5" width="566" height="566"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myB-lO-r3o">
                                 <rect key="frame" x="42.5" y="158.5" width="290" height="300"/>
@@ -866,7 +866,7 @@
                                                             <constraint firstAttribute="width" constant="120" id="o77-d3-yXc"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <state key="normal" title="REGISTER NOW">
+                                                        <state key="normal" title="ENROLL NOW">
                                                             <color key="titleColor" name="DarkBlueColour"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
@@ -1024,7 +1024,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="Bj2-B7-ayb"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <state key="normal" title="REGISTER NOW">
+                                                <state key="normal" title="ENROLL NOW">
                                                     <color key="titleColor" name="DarkBlueColour"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -2984,11 +2984,11 @@
             </objects>
             <point key="canvasLocation" x="2866.4000000000001" y="-948.57571214392806"/>
         </scene>
-        <!--  -->
+        <!--Home-->
         <scene sceneID="teL-x4-aCB">
             <objects>
                 <navigationController storyboardIdentifier="NavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="TCo-fi-2Zx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="  " image="Feed" id="AZp-Rb-hy5"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home-1" id="AZp-Rb-hy5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0mI-Gb-XXK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -3003,11 +3003,11 @@
             </objects>
             <point key="canvasLocation" x="-324" y="-83.208395802098963"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Learn-->
         <scene sceneID="npj-TP-Xvv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fxN-qK-bos" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Icon material-explore" id="qSN-DA-c2b"/>
+                    <tabBarItem key="tabBarItem" title="Learn" image="Learn-01-1" id="qSN-DA-c2b"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rbM-6d-rb9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -4405,11 +4405,11 @@
             </objects>
             <point key="canvasLocation" x="-8071.1999999999998" y="723.68815592203907"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
         <scene sceneID="tEh-gb-d9D">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PHL-dn-s8q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Profile" id="6Pg-0y-JOx"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="6Pg-0y-JOx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qk1-mh-Yom">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -4445,9 +4445,9 @@
     </scenes>
     <resources>
         <image name="Close Button" width="16.5" height="16.5"/>
-        <image name="Feed" width="16" height="16"/>
-        <image name="Icon material-explore" width="16" height="16"/>
+        <image name="Home-1" width="28.5" height="28.5"/>
         <image name="Icon material-keyboard-arrow-left-2" width="10" height="16"/>
+        <image name="Learn-01-1" width="28.5" height="28.5"/>
         <image name="My Profile" width="56" height="56"/>
         <image name="Path 648" width="283" height="283"/>
         <image name="PlayIcon" width="512" height="512"/>
@@ -4470,7 +4470,7 @@
         <image name="passwordLock" width="512" height="512"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="phone" catalog="system" width="64" height="56"/>
-        <image name="phone.fill" catalog="system" width="32" height="32"/>
+        <image name="phone.fill" catalog="system" width="64" height="56"/>
         <image name="pin.fill" catalog="system" width="58" height="64"/>
         <image name="play.circle" catalog="system" width="64" height="60"/>
         <image name="printer.fill" catalog="system" width="64" height="54"/>

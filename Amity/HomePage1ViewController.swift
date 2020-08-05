@@ -28,14 +28,22 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         registerTableViewcell()
+        setNavigationItem()
         
     }
     override func viewWillAppear(_ animated: Bool) {
-       startActivityIndicator()
+        startActivityIndicator()
+         ApiUtil.apiUtil.galleryAPI{ (result) in
+            self.tableView.reloadData()
+        }
         tableView.estimatedRowHeight = 85.0
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.reloadData()
-        
+       DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) { [weak self] in
+           self?.tableView.reloadData()
+       }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        // tableView.reloadData()
     }
     func registerTableViewcell(){
         self.tableView.register(UINib(nibName: "SliderTableViewCell", bundle: nil), forCellReuseIdentifier: "SliderTableViewCell")
@@ -166,6 +174,22 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         
         button.backgroundColor = UIColor(named: "ButtonYellowColour")
         view.addSubview(button)
+        if section == 1 {
+            if upComingWebinorArray.count == 0 {
+                button.isHidden = true
+            }
+        }
+        if section == 2 {
+            if upComingEventArray.count == 0 {
+                button.isHidden = true
+                label.isHidden = true
+                detailLabel.isHidden = true
+                label.frame = CGRect(x: 20, y: 10, width: 400, height: 0)
+                detailLabel.frame = CGRect(x: 20, y: 40, width: 400, height: 0)
+
+            }
+            
+        }
         if section == 3 {
             button.isHidden = true
         }
@@ -173,17 +197,17 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
     }
     @objc func onClickViewAllButton(sender: UIButton){
         if sender.tag == 1 || sender.tag == 2 {
-        if let webinarCalenderViewController = self.storyboard?.instantiateViewController(withIdentifier: "WebinarCalenderViewController") as? WebinarCalenderViewController {
-            //nextViewController.finacerId = idArray[indexPath.row]
-            if sender.tag == 1 {
-                webinarCalenderViewController.isFrom = WEBINAR
-            } else if sender.tag == 2 {
-                webinarCalenderViewController.isFrom = EVENT
+            if let webinarCalenderViewController = self.storyboard?.instantiateViewController(withIdentifier: "WebinarCalenderViewController") as? WebinarCalenderViewController {
+                //nextViewController.finacerId = idArray[indexPath.row]
+                if sender.tag == 1 {
+                    webinarCalenderViewController.isFrom = WEBINAR
+                } else if sender.tag == 2 {
+                    webinarCalenderViewController.isFrom = EVENT
+                }
+                webinarCalenderViewController.tag = sender.tag
+                
+                self.navigationController?.pushViewController(webinarCalenderViewController, animated: true)
             }
-            webinarCalenderViewController.tag = sender.tag
-            
-            self.navigationController?.pushViewController(webinarCalenderViewController, animated: true)
-        }
         }
         
     }
@@ -196,8 +220,18 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         if indexPath.section == 0{
             return 320
         }
+        if indexPath.section == 1{
+            
+                return 400
+            
+        }
         if indexPath.section == 2{
-            return 270
+            if upComingEventArray.count == 0 {
+                  return UITableView.automaticDimension
+            }else {
+                return 270
+                
+            }
         }
         if indexPath.section == 3{
             return UITableView.automaticDimension
@@ -212,6 +246,12 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 || section == 4{
             return 0
+        }else if section == 2 {
+            if upComingEventArray.count == 0 {
+                return 0
+            } else {
+                return 90
+            }
         }
         else{
             return 90
@@ -232,18 +272,20 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier:"AllWebinarTableViewCell" ) as! AllWebinarTableViewCell
             cell.delegate = self
-              cell.activityIndicatorDelegate = self
+            cell.activityIndicatorDelegate = self
+            cell.sectionHeaderDelegate = self
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier:"AllEventsTableViewCell" ) as! AllEventsTableViewCell
             
             cell.eventDelegate = self
-              cell.activityIndicatorDelegate = self
+            cell.activityIndicatorDelegate = self
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier:"GalleryTableViewCell" ) as! GalleryTableViewCell
             cell.galleryDelegate = self
-              cell.activityIndicatorDelegate = self
+            cell.activityIndicatorDelegate = self
+             cell.tableDataDelegate = self
             var height = cell.galleryCollectionView.collectionViewLayout.collectionViewContentSize.height
             cell.galleryCollectionViewHeightLayout.constant = height
             self.view.layoutIfNeeded()
@@ -265,22 +307,24 @@ class HomePage1ViewController: BaseViewController,UITableViewDataSource {
         let indexPath = IndexPath(row: sender.tag, section: 4)
         if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "AllAlbumViewController") as? AllAlbumViewController {
             nextViewController.allalbumData = galleryArray[indexPath.row]
-                  
-                   self.navigationController?.pushViewController(nextViewController, animated: true)
-               }
+            
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
     }
 }
 extension HomePage1ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 4{
             if let videoDetailViewController = Storyboard.Main.instance.instantiateViewController(withIdentifier: "VideoDetailViewController") as? VideoDetailViewController {
-        self.navigationController?.pushViewController(videoDetailViewController, animated: true)
+                self.navigationController?.pushViewController(videoDetailViewController, animated: true)
                 
             }
         }
     }
+   
 }
-extension HomePage1ViewController :  TableViewInsideCollectionViewDelegate,EventsCollectionViewDelegate,GalleryCollectionViewDelegate,ActivityIndicatorDelegate{
+extension HomePage1ViewController :  TableViewInsideCollectionViewDelegate,EventsCollectionViewDelegate,GalleryCollectionViewDelegate,ActivityIndicatorDelegate,HideSectionHeaderDelegate,ReloadTableDataDelegate{
+   
     
     
     func onClickWebinarSlider(data: Webinor,indexPath:IndexPath,isFrom:String) {
@@ -304,18 +348,31 @@ extension HomePage1ViewController :  TableViewInsideCollectionViewDelegate,Event
             //nextViewController.finacerId = idArray[indexPath.row]
             //nextViewController.eventsData = data
             //nextViewController.isFrom = isFrom
-           // let data = imageArray[indexPath.row]
+            // let data = imageArray[indexPath.row]
             imageArray = imageArray.filter {
                 $0.imageTitle == data.imageTitle
-
-
-                               }
+                
+                
+            }
             nextViewController.pageTitle = imageArray[0].imageTitle ?? ""
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }
     }
+    
     func activityIndicatorOnHomePage(){
+       // self.tableView.reloadData()
         self.stopActivityIndicator()
     }
+    func hideSectionHeaderData() {
+        self.tableView(tableView, viewForHeaderInSection: 1)
+        tableView.beginUpdates()
+        tableView.endUpdates()
+       }
+    func reloadTableData(){
+       // self.tableView.reloadData()
+        tableView.beginUpdates()
+               tableView.endUpdates()
+    }
+       
 }
 

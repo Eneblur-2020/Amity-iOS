@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+protocol HideSectionHeaderDelegate:class{
+    func hideSectionHeaderData()
+}
 class AllWebinorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var allWebinorView: UIView!
     @IBOutlet weak var allWebinorImage: UIImageView!

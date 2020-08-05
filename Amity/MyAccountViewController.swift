@@ -11,8 +11,8 @@ import UIKit
 class MyAccountViewController: BaseViewController {
     
     @IBOutlet weak var myAccountTabelView: UITableView!
-    var myProfileArray = ["MY PROFILE","STUDENT WALLET"]
-    var myProfileImageArray = ["My Profile","Student Wallet"]
+    var myProfileArray = ["MY PROFILE","ACHIEVEMENTS"]
+    var myProfileImageArray = ["My Profile","achievement"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,7 +124,7 @@ extension MyAccountViewController:UITableViewDelegate,UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return 87.0
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "studentwallet" {

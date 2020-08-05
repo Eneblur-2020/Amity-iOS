@@ -365,13 +365,13 @@ extension HomePage1ViewController :  TableViewInsideCollectionViewDelegate,Event
     }
     func hideSectionHeaderData() {
         self.tableView(tableView, viewForHeaderInSection: 1)
-        tableView.beginUpdates()
-        tableView.endUpdates()
+       // tableView.beginUpdates()
+       // tableView.endUpdates()
        }
     func reloadTableData(){
-       // self.tableView.reloadData()
-        tableView.beginUpdates()
-               tableView.endUpdates()
+        self.tableView.reloadData()
+        //tableView.beginUpdates()
+           //    tableView.endUpdates()
     }
        
 }

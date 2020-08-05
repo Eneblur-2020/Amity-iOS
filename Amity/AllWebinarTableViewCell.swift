@@ -23,7 +23,7 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
         super.awakeFromNib()
         // Initialization code
         initialSetUp()
-        apiCall()
+       // apiCall()
     }
     override func layoutSubviews() {
         
@@ -47,6 +47,7 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
  
         ApiUtil.apiUtil.webinarUpcomingAPI { (result) in
             self.noDataLabel.isHidden = upComingWebinorArray.count == 0 ? false : true
+            //self.sectionHeaderDelegate?.hideSectionHeaderData()
         self.allWebinorCollectionView.reloadData()
                 self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
             

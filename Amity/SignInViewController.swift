@@ -29,8 +29,10 @@ class SignInViewController: BaseViewController {
     }
     func initialSetUp(){
         continueBtn.layer.cornerRadius = 5
-        emailTextField.text = "apple@mailinator.com"
-        passwordTextField.text = "user1234!"
+//        emailTextField.text = "apple@mailinator.com"
+//        passwordTextField.text = "user1234!"
+        emailTextField.text = "aishkshatriya@gmail.com"
+        passwordTextField.text = "Aish@123"
         // Label clickable
         
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(clickable))

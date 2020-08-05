@@ -180,12 +180,12 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "30FFC485-C642-4F66-8849-F632FBCF409F - 3e1ad77ec8535dfd"
+                  uuid = "30FFC485-C642-4F66-8849-F632FBCF409F - 6b278e6f45f2d4b0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Amity.ProfileSummaryViewController.ProfileSummary(url: Swift.String) -&gt; ()"
-                  moduleName = "Amity"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Amity_Future_Academy_.ProfileSummaryViewController.ProfileSummary(url: Swift.String) -&gt; ()"
+                  moduleName = "Amity Future Academy "
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/VinuT/Documents/Amity_iOS_Eneblur/Amity/Amity/ProfileSummaryViewController.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -195,12 +195,12 @@
                   offsetFromSymbolStart = "3770">
                </Location>
                <Location
-                  uuid = "30FFC485-C642-4F66-8849-F632FBCF409F - e50e25d4fd98b4a8"
+                  uuid = "30FFC485-C642-4F66-8849-F632FBCF409F - 3f754171c99d14b2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Amity.ProfileSummaryViewController.ProfileSummary(url: Swift.String) -&gt; ()"
-                  moduleName = "Amity"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Amity_Future_Academy_.ProfileSummaryViewController.ProfileSummary(url: Swift.String) -&gt; ()"
+                  moduleName = "Amity Future Academy "
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/VinuT/Documents/Amity_iOS_Eneblur/Amity/Amity/ProfileSummaryViewController.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -560,8 +560,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "scrollViewDidEndDecelerating(_:)"
-            landmarkType = "7">
+            landmarkName = "AllWebinarTableViewCell"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -608,23 +608,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
             endingLineNumber = "72"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8ED046A7-D8C3-4B0C-AD63-5CFADC09F885"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/AllEventsTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "AllEventsTableViewCell"
+            landmarkName = "AllWebinarTableViewCell"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
@@ -881,86 +865,6 @@
             startingLineNumber = "368"
             endingLineNumber = "368"
             landmarkName = "hideSectionHeaderData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4378165C-87C2-449C-9538-92D396913478"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/GalleryTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "apiCall()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4378165C-87C2-449C-9538-92D396913478 - b212943a51532a28"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Amity.GalleryTableViewCell.apiCall() -&gt; ()"
-                  moduleName = "Amity"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/VinuT/Documents/Amity_iOS_Eneblur/Amity/Amity/GalleryTableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "30">
-               </Location>
-               <Location
-                  uuid = "4378165C-87C2-449C-9538-92D396913478 - 9b7215c7dac00cc8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; () in Amity.GalleryTableViewCell.apiCall() -&gt; ()"
-                  moduleName = "Amity"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/VinuT/Documents/Amity_iOS_Eneblur/Amity/Amity/GalleryTableViewCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "51">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B348C508-2EBA-4712-BF16-B86523816411"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/GalleryTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "apiCall()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "444DB672-8181-4A0D-A098-15B1814C5B46"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amity/HomePage1ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
-            landmarkName = "reloadTableData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

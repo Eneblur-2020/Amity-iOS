@@ -13,8 +13,11 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
     
     @IBOutlet weak var allWebinorCollectionView: UICollectionView!
     @IBOutlet weak var allWebinorPageOutlet: UIPageControl!
+    @IBOutlet weak var noDataLabel:UILabel!
+    
     weak var delegate:TableViewInsideCollectionViewDelegate? = nil
     weak var activityIndicatorDelegate:ActivityIndicatorDelegate? = nil
+    weak var sectionHeaderDelegate: HideSectionHeaderDelegate? = nil
     var sectionLabel: String = ""
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +26,8 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
         apiCall()
     }
     override func layoutSubviews() {
+        
+       
             apiCall()
        }
     func initialSetUp(){
@@ -35,15 +40,18 @@ class AllWebinarTableViewCell: UITableViewCell, UICollectionViewDataSource,UICol
     }
     func apiCall(){
       
-      /*          ApiUtil.apiUtil.webinarAPI { (result) in
-            self.allWebinorCollectionView.reloadData()
-                    self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
+               ApiUtil.apiUtil.webinarAPI { (result) in
+           // self.allWebinorCollectionView.reloadData()
+                 //   self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
         }
- */
+ 
         ApiUtil.apiUtil.webinarUpcomingAPI { (result) in
+            self.noDataLabel.isHidden = upComingWebinorArray.count == 0 ? false : true
         self.allWebinorCollectionView.reloadData()
                 self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
+            
         }
+      
     }
 
     

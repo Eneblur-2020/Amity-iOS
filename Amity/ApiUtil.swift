@@ -272,6 +272,86 @@ class ApiUtil{
         
         
     }
+    func upcomingEventAPI(completionHandler: @escaping (AnyObject?) -> ()){
+        if isInternetAvailable(){
+            Util.Manager.request(EVENT_UPCOMING_API, method : .get, encoding: JSONEncoding.default).responseJSON { (response) in
+                switch response.result{
+                case .success(_):
+                    if let json = response.result.value{
+                        if let jsonData = json as? NSDictionary {
+                            if let status = jsonData.object(forKey: "status") as? Int {
+                                if status == 200{
+                                    if let data = jsonData.object(forKey: "data") as? [NSDictionary]{
+                                        let eventData = self.upcomingParseEventData(eventData: data)
+                                        completionHandler(eventData as AnyObject)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break
+                case .failure(_):
+                    if (response.response?.statusCode) != nil {
+                        
+                    }
+                    break
+                    
+                }
+            }
+        } else {
+            //Util.showWhistle(message: NO_INTERNET, viewController: self)
+        }
+    }
+    func upcomingParseEventData(eventData:[NSDictionary]) -> [Event]{
+        
+        upComingEventArray.removeAll()
+        for event in eventData{
+            let eventInfo = Event()
+            if let eventImage =  event.object(forKey: "eventImage") as? NSDictionary{
+                eventInfo.eventImage = eventImage
+            }
+            if let isActive = event.object(forKey: "isActive") as? Bool{
+                eventInfo.isActive = isActive
+            }
+            if let id = event.object(forKey: "_id") as? String{
+                eventInfo.id = id
+            }
+            if let eventTitle = event.object(forKey: "eventTitle") as? String{
+                eventInfo.eventTitle = eventTitle
+            }
+            if let eventDateTime = event.object(forKey: "eventDateTime") as? String{
+                eventInfo.eventDateTime = eventDateTime
+                let seprateDateTime = Helper.dateFormatterForDateTime(dateString:   eventDateTime)
+                eventInfo.eventDate = seprateDateTime.0
+                eventInfo.eventTime = seprateDateTime.1
+            
+                
+            }
+            if let eventAddress = event.object(forKey: "eventAddress") as? String{
+                eventInfo.eventAddress = eventAddress
+            }
+            if let eventDetails = event.object(forKey: "eventDetails") as? String{
+                eventInfo.eventDetails = eventDetails
+            }
+            if let eventURL = event.object(forKey: "eventURL") as? String{
+                eventInfo.eventURL = eventURL
+            }
+            if let __v = event.object(forKey: "__v") as? Int{
+                eventInfo.v = __v
+            }
+            if let createdAt = event.object(forKey: "createdAt") as? String {
+                eventInfo.createdAt = createdAt
+            }
+            if let updatedAt = event.object(forKey: "updatedAt") as? String{
+                eventInfo.updatedAt = updatedAt
+            }
+            upComingEventArray.append(eventInfo)
+            
+        }
+        return upComingEventArray
+        
+        
+    }
     
     func galleryAPI(completionHandler: @escaping (AnyObject?) -> ()){
         if isInternetAvailable(){

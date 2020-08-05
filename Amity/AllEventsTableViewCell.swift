@@ -13,6 +13,7 @@ class AllEventsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var allEventsCollectionView: UICollectionView!
     @IBOutlet weak var allEventsPageOutlet: UIPageControl!
+    @IBOutlet weak var noDataLabel:UILabel!
     weak var eventDelegate: EventsCollectionViewDelegate? = nil
      weak var activityIndicatorDelegate:ActivityIndicatorDelegate? = nil
     override func awakeFromNib() {
@@ -22,7 +23,9 @@ class AllEventsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
         
     }
     override func layoutSubviews() {
+      
         apiCall()
+        
     }
     func initialSetUp(){
         self.allEventsCollectionView.register(UINib(nibName: "AllEventsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AllEventsCollectionViewCell")
@@ -33,6 +36,9 @@ class AllEventsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
     }
     func apiCall(){
         ApiUtil.apiUtil.eventAPI { (result) in
+            
+        }
+        ApiUtil.apiUtil.upcomingEventAPI{ (result) in
             self.allEventsCollectionView.reloadData()
              self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
         }
@@ -52,13 +58,13 @@ class AllEventsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return eventArray.count
+        return upComingEventArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllEventsCollectionViewCell", for: indexPath) as! AllEventsCollectionViewCell
         
-        cell.setUpCell(event: eventArray[indexPath.row])
+        cell.setUpCell(event: upComingEventArray[indexPath.row])
         //cell.allEventsImage.image = UIImage(named : section3Images[indexPath.item])
         return cell
     }
@@ -68,7 +74,7 @@ class AllEventsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
 extension AllEventsTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if eventDelegate != nil {
-            eventDelegate?.onClickEventsCollectionCell(data: eventArray[indexPath.row], indexPath: indexPath,isFrom:EVENT)
+            eventDelegate?.onClickEventsCollectionCell(data: upComingEventArray[indexPath.row], indexPath: indexPath,isFrom:EVENT)
         }
     }
 }

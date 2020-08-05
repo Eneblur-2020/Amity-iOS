@@ -18,7 +18,7 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ai-training" translatesAutoresizingMaskIntoConstraints="NO" id="5ig-UQ-kIX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="142.5"/>
-                        <color key="backgroundColor" red="0.1532981061" green="0.68037895039999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Webinar :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oQ-Cy-xoU">
                         <rect key="frame" x="20" y="152.5" width="77.5" height="20.5"/>
@@ -56,7 +56,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fW8-7h-IzP">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fW8-7h-IzP">
                         <rect key="frame" x="314" y="152.5" width="90" height="30"/>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -88,6 +88,7 @@
                 <constraint firstItem="fW8-7h-IzP" firstAttribute="top" secondItem="Dbu-og-T13" secondAttribute="top" id="KbR-Ke-Sxq"/>
                 <constraint firstItem="Dbu-og-T13" firstAttribute="height" relation="greaterThanOrEqual" secondItem="1oQ-Cy-xoU" secondAttribute="height" id="OKA-gw-Trn"/>
                 <constraint firstItem="V8g-6L-HJW" firstAttribute="leading" secondItem="1oQ-Cy-xoU" secondAttribute="leading" id="QNI-RM-0ME"/>
+                <constraint firstItem="1oQ-Cy-xoU" firstAttribute="top" secondItem="Dbu-og-T13" secondAttribute="top" id="Ued-2v-4kI"/>
                 <constraint firstAttribute="trailing" secondItem="4i1-GI-ysG" secondAttribute="trailing" constant="187" id="VVZ-A2-RfX"/>
                 <constraint firstAttribute="bottom" secondItem="hX3-Ga-Hy2" secondAttribute="bottom" constant="10" id="ZwZ-gI-k52"/>
                 <constraint firstAttribute="trailing" secondItem="5ig-UQ-kIX" secondAttribute="trailing" id="aYq-tO-5qg"/>
@@ -95,6 +96,7 @@
                 <constraint firstItem="Dbu-og-T13" firstAttribute="leading" secondItem="1oQ-Cy-xoU" secondAttribute="trailing" constant="10" id="cqN-kN-7QU"/>
                 <constraint firstItem="5ig-UQ-kIX" firstAttribute="top" secondItem="D1l-Yx-rki" secondAttribute="top" id="eGr-kJ-9qF"/>
                 <constraint firstItem="1oQ-Cy-xoU" firstAttribute="leading" secondItem="D1l-Yx-rki" secondAttribute="leading" constant="20" id="f8X-01-tGm"/>
+                <constraint firstItem="1oQ-Cy-xoU" firstAttribute="top" secondItem="fW8-7h-IzP" secondAttribute="top" id="jVr-1U-zqO"/>
                 <constraint firstItem="4i1-GI-ysG" firstAttribute="leading" secondItem="hX3-Ga-Hy2" secondAttribute="trailing" constant="1" id="oLb-pF-uUV"/>
                 <constraint firstAttribute="trailing" secondItem="fW8-7h-IzP" secondAttribute="trailing" constant="10" id="ql3-T8-jQ5"/>
                 <constraint firstAttribute="bottom" secondItem="Jy6-z4-wvh" secondAttribute="bottom" constant="10" id="r56-PL-7NH"/>
@@ -110,7 +112,7 @@
                 <outlet property="timeLabel" destination="4i1-GI-ysG" id="Npq-im-wgF"/>
                 <outlet property="titleLabel" destination="Dbu-og-T13" id="V9S-my-QPA"/>
             </connections>
-            <point key="canvasLocation" x="694.20289855072474" y="559.15178571428567"/>
+            <point key="canvasLocation" x="619" y="531"/>
         </collectionViewCell>
     </objects>
     <resources>

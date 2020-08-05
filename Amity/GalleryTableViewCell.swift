@@ -13,6 +13,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
     @IBOutlet weak var galleryCollectionViewHeightLayout: NSLayoutConstraint!
     weak var galleryDelegate: GalleryCollectionViewDelegate? = nil
      weak var activityIndicatorDelegate:ActivityIndicatorDelegate? = nil
+    weak var tableDataDelegate: ReloadTableDataDelegate? = nil
     var imageGroups = [[Gallery]]()
     var imageGroupArray = [Gallery]()
     var imageSectionArray = [String]()
@@ -27,7 +28,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
         super.awakeFromNib()
         // Initialization code
         initialSetUp()
-        apiCall()
+      //  apiCall()
        
     }
     override func layoutSubviews() {
@@ -43,16 +44,26 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
                 layout.minimumLineSpacing = 10
                 layout.minimumInteritemSpacing = 10
                 layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-            let size = CGSize(width:(galleryCollectionView!.bounds.width)/2, height: (galleryCollectionView!.bounds.height)/1.5)
-                layout.itemSize = size
-           // layout.headerReferenceSize = CGSize(width: galleryCollectionView.frame.size.width, height: 40)
+          //  let size = CGSize(width:(galleryCollectionView!.bounds.width)/2, height: (galleryCollectionView!.bounds.height)/1.5)
+          //     layout.itemSize = size
+          //  print(size)
+           
         }
         
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat =  50
+        
+        let collectionViewSize = self.galleryCollectionView.frame.size.width - padding
+
+        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
+    }
+ 
     func apiCall(){
     
        ApiUtil.apiUtil.galleryAPI{ (result) in
             self.galleryCollectionView.reloadData()
+       // self.tableDataDelegate?.reloadTableData()
          self.activityIndicatorDelegate?.activityIndicatorOnHomePage()
 //        var grouped = Dictionary(grouping: galleryArray.firstIndex(where: { (element: Gallery) in
 //            return element.imageTitle
@@ -109,6 +120,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCollectionViewCell", for: indexPath) as! GalleryCollectionViewCell
        //  cell.collectionViewHeight.constant = cell.collectionView.collectionViewLayout.collectionViewContentSize.height
           //  cell.imageTitleLabel.text = self.imageGroupArray[indexPath.row][indexPath.section]
+           
         cell.setUpCell(gallery: galleyType)
             return cell
         //cell.galleryImage.image = UIImage(named : section3Images[indexPath.item])

@@ -44,4 +44,9 @@ class BaseViewController: UIViewController {
           hideIndicator()
         UIApplication.shared.endIgnoringInteractionEvents();
     }
+    func setNavigationItem() {
+        let imageView = UIImageView(image: UIImage(named: "amitylogo"))
+        let item = UIBarButtonItem(customView: imageView)
+        self.navigationItem.leftBarButtonItem = item
+    }
 }

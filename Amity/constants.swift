@@ -48,6 +48,8 @@ let WEBINAR_UPCOMING_API = "\(BASE_URL)webinar?type=upcoming"
 
 let EVENT_API = "\(BASE_URL)event"
 
+let EVENT_UPCOMING_API = "\(BASE_URL)event?type=upcoming"
+
 //GALLERY API
 
 let GALLERY_API = "\(BASE_URL)gallery"
@@ -108,6 +110,7 @@ let SECONDARY_FONT = UIFont(name: "Roboto", size: 15.0)
 var webinorArray = [Webinor]()
 var upComingWebinorArray = [Webinor]()
 var eventArray = [Event]()
+var upComingEventArray = [Event]()
 var galleryArray = [Gallery]()
 var imageArray = [Gallery]()
 var uniqueimageArray = [Gallery]()

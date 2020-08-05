@@ -10,6 +10,9 @@ import UIKit
 protocol GalleryCollectionViewDelegate:class {
     func onClickGalleryCollectionCell(data:Gallery,indexPath:IndexPath)
 }
+protocol ReloadTableDataDelegate:class{
+    func reloadTableData()
+}
 class GalleryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var galleryImage: UIImageView!
     @IBOutlet weak var imageTitleLabel:UILabel!

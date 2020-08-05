@@ -25,6 +25,13 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data present" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="haE-2t-2Zj">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <cells/>
                     </collectionView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" defersCurrentPageDisplay="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3c5-1i-lle">
@@ -40,7 +47,6 @@
                     <constraint firstAttribute="bottom" secondItem="qXM-Gd-iHg" secondAttribute="bottom" constant="20" id="pPc-5G-yMm"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="qXM-Gd-iHg" firstAttribute="centerX" secondItem="clG-0g-lmB" secondAttribute="centerX" id="YXI-d4-yvt"/>
                 <constraint firstItem="qXM-Gd-iHg" firstAttribute="height" secondItem="clG-0g-lmB" secondAttribute="height" constant="-20" id="de8-mP-FYK"/>
@@ -49,6 +55,7 @@
             <connections>
                 <outlet property="allWebinorCollectionView" destination="qXM-Gd-iHg" id="49b-YS-CR6"/>
                 <outlet property="allWebinorPageOutlet" destination="3c5-1i-lle" id="eZb-yL-Bti"/>
+                <outlet property="noDataLabel" destination="haE-2t-2Zj" id="0Lo-QZ-tof"/>
             </connections>
             <point key="canvasLocation" x="48.550724637681164" y="-40.513392857142854"/>
         </tableViewCell>
